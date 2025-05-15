@@ -41,7 +41,7 @@
     }
     @keyframes blink {
       0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+      51%, 100 { opacity: 0; }
     }
 
     .nav-buttons {
@@ -81,15 +81,6 @@
       text-align: right;
       padding-top: 10px;
     }
-    .dropdown::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -2px;
-      width: 1px;
-      height: 100%;
-      background-color: black;
-    }
     .dropdown a {
       padding: 10px;
       color: black;
@@ -104,6 +95,16 @@
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
+    }
+
+    .dropdown::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: calc(100% + 2px);
+      width: 1px;
+      height: 100%;
+      background-color: black;
     }
 
     @media (max-width: 768px) {
