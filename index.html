@@ -34,12 +34,10 @@
       overflow: hidden;
       white-space: nowrap;
     }
-
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
     }
-
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
@@ -86,7 +84,6 @@
       height: 62px;
       background: transparent;
       z-index: 1001;
-      display: none;
     }
 
     .dropdown {
@@ -118,6 +115,22 @@
     .portfolio-wrapper:hover .dropdown,
     .portfolio-wrapper:hover .hover-buffer {
       display: flex;
+    }
+
+    .vertical-line {
+      display: none;
+      position: absolute;
+      width: 1px;
+      height: 30px;
+      background-color: black;
+      top: calc(100% + 16px); /* 62px Abstand minus halbe Höhe der Linie (31px - 15px = 16px) */
+      right: 50%;
+      transform: translateX(50%);
+      z-index: 999;
+    }
+
+    .portfolio-wrapper:hover .vertical-line {
+      display: block;
     }
 
     .separator {
@@ -171,6 +184,7 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
+        <div class="vertical-line"></div>
         <div class="hover-buffer"></div>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
