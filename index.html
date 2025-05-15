@@ -50,6 +50,7 @@
       justify-content: flex-end;
       min-width: 200px;
     }
+
     .nav-button {
       font-size: 24pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -64,6 +65,7 @@
       padding-left: 0;
       margin-left: 0;
     }
+
     .nav-button:hover,
     .portfolio-wrapper:hover > .nav-button {
       color: #ccc;
@@ -73,8 +75,9 @@
       position: relative;
       display: inline-block;
       min-width: max-content;
-      padding-bottom: 10px; /* Hover-Puffer nach unten */
+      padding-bottom: 40px; /* Hover-Puffer erhöht */
     }
+
     .portfolio-wrapper:hover .dropdown {
       display: flex;
     }
@@ -82,17 +85,16 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: 90%;   /* leicht überlappen */
+      top: 100%;  /* direkt unter Portfolio */
       right: 0;
-      background: white;
-      border: 1px solid #ccc;
+      background: transparent;  /* transparenter Hintergrund */
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
       text-align: right;
       padding-top: 5px;
-      pointer-events: auto;
     }
+
     .dropdown a {
       padding: 10px;
       color: black;
@@ -103,6 +105,7 @@
       transition: color 0.2s ease;
       white-space: nowrap;
     }
+
     .dropdown a:hover {
       color: #ccc;
     }
@@ -139,7 +142,7 @@
         width: 100%;
         text-align: left;
         margin: 0;
-        padding: 0;
+        padding-bottom: 0;
       }
 
       .dropdown {
