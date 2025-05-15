@@ -34,10 +34,12 @@
       overflow: hidden;
       white-space: nowrap;
     }
+
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
     }
+
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
@@ -45,11 +47,12 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px; /* Abstand zwischen Kontakt und Portfolio */
+      gap: 40px;
       align-items: center;
-      justify-content: flex-end; /* rechtsbündig */
-      min-width: 200px; /* optional, sorgt für konsistente Breite */
+      justify-content: flex-end;
+      min-width: 200px;
     }
+
     .nav-button {
       font-size: 24pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -62,6 +65,7 @@
       position: relative;
       transition: color 0.2s ease;
     }
+
     .nav-button:hover,
     .portfolio-wrapper:hover > .nav-button {
       color: #ccc;
@@ -74,13 +78,12 @@
       min-width: max-content;
     }
 
-    /* Hover-Puffer zwischen Portfolio-Button und Dropdown */
     .hover-buffer {
       position: absolute;
-      top: 100%; /* direkt unter Portfolio Button */
+      top: 100%;
       right: 0;
       width: 100%;
-      height: 62px; /* Abstand zwischen Portfolio und Dropdown */
+      height: 62px;
       background: transparent;
       z-index: 1001;
       display: none;
@@ -89,7 +92,7 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: 62px; /* Abstand unter Portfolio (62px) */
+      top: calc(100% + 62px);
       right: 0;
       background: transparent;
       flex-direction: column;
@@ -97,6 +100,7 @@
       min-width: max-content;
       text-align: right;
     }
+
     .dropdown a {
       padding: 10px;
       color: black;
@@ -106,11 +110,11 @@
       font-weight: 100;
       transition: color 0.2s ease;
     }
+
     .dropdown a:hover {
       color: #ccc;
     }
 
-    /* Dropdown und Hover-Puffer zeigen, wenn Portfolio gehovt */
     .portfolio-wrapper:hover .dropdown,
     .portfolio-wrapper:hover .hover-buffer {
       display: flex;
@@ -130,26 +134,31 @@
         gap: 20px;
         align-items: flex-start;
       }
+
       .nav-buttons {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
         width: 100%;
       }
+
       .dropdown {
         position: static;
         background: transparent;
         text-align: left;
         display: none;
       }
+
       .dropdown a {
         font-size: 18pt;
       }
+
       .portfolio-wrapper:hover .dropdown {
         display: flex;
       }
+
       .hover-buffer {
-        display: none; /* Hover-Puffer für Mobile ausblenden */
+        display: none;
       }
     }
   </style>
