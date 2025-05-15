@@ -45,7 +45,7 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px; /* Abstand Kontakt - Portfolio */
+      gap: 40px; /* Abstand Kontakt & Portfolio auf 40 */
       align-items: center;
     }
     .nav-button {
@@ -71,9 +71,9 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 40px); /* 40px weiter runter */
+      top: calc(100% + 31px); /* 31px Abstand nach unten */
       right: 0;
-      background: transparent;
+      background: transparent; /* Hintergrund transparent */
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
@@ -93,25 +93,6 @@
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
-    }
-
-    /* Vertikaler Strich über 'Videos' */
-    .dropdown a[href="videos.html"] {
-      position: relative;
-    }
-    .dropdown a[href="videos.html"]::before {
-      content: "";
-      position: absolute;
-      top: 5px; /* 40px weiter runter als vorher (-35px + 40px = 5px) */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 30px;
-      background-color: black;
-      display: none;
-    }
-    .portfolio-wrapper:hover .dropdown a[href="videos.html"]::before {
-      display: block;
     }
 
     .separator {
@@ -136,18 +117,16 @@
       }
       .dropdown {
         position: static;
-        background: transparent;
+        background: white;
         text-align: left;
         display: none;
+        top: auto; /* überschreibt calc() */
       }
       .dropdown a {
         font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
-      }
-      .dropdown a[href="videos.html"]::before {
-        display: none; /* im mobilen View keinen Strich */
       }
     }
   </style>
