@@ -71,20 +71,6 @@
       align-items: center;
     }
 
-    .vertical-separator {
-      position: absolute;
-      top: 35px; /* Abstand von oben im Header */
-      left: calc(100% + 2px); /* 2px Abstand rechts vom Portfolio-Button */
-      width: 1px;
-      height: 30px;
-      background-color: black;
-      display: none; /* standardmäßig versteckt */
-    }
-
-    .portfolio-wrapper:hover .vertical-separator {
-      display: block; /* nur beim Hover auf Portfolio sichtbar */
-    }
-
     .dropdown {
       display: none;
       position: absolute;
@@ -97,6 +83,23 @@
       text-align: right;
       margin-top: 50px;
     }
+
+    .vertical-separator {
+      position: absolute;
+      top: 35px; /* Abstand von oben im Header */
+      left: 0; /* links vom Dropdown */
+      transform: translateX(-50%);
+      width: 1px;
+      height: 30px;
+      background-color: black;
+      display: none;
+      z-index: 1001;
+    }
+
+    .portfolio-wrapper:hover .vertical-separator {
+      display: block;
+    }
+
     .dropdown a {
       padding: 10px;
       color: black;
@@ -160,8 +163,8 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
-        <div class="vertical-separator"></div>
         <div class="dropdown">
+          <div class="vertical-separator"></div>
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
           <a href="fotoserien.html">Fotoserien</a>
