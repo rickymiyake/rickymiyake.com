@@ -70,15 +70,28 @@
     .portfolio-wrapper {
       position: relative;
       display: inline-block;
-      text-align: right;  /* rechtsbündig */
-      min-width: max-content; /* Breite passt sich an Inhalt an */
+      text-align: right;
+      min-width: max-content;
     }
+
+    /* Hover-Puffer zwischen Portfolio-Button und Dropdown */
+    .hover-buffer {
+      position: absolute;
+      top: 100%; /* direkt unter Portfolio Button */
+      right: 0;
+      width: 100%;
+      height: 62px; /* Abstand zwischen Portfolio und Dropdown */
+      background: transparent;
+      z-index: 1001;
+      display: none;
+    }
+
     .dropdown {
       display: none;
       position: absolute;
       top: 62px; /* Abstand unter Portfolio (62px) */
       right: 0;
-      background: transparent; /* transparenter Hintergrund */
+      background: transparent;
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
@@ -96,7 +109,10 @@
     .dropdown a:hover {
       color: #ccc;
     }
-    .portfolio-wrapper:hover .dropdown {
+
+    /* Dropdown und Hover-Puffer zeigen, wenn Portfolio gehovt */
+    .portfolio-wrapper:hover .dropdown,
+    .portfolio-wrapper:hover .hover-buffer {
       display: flex;
     }
 
@@ -132,6 +148,9 @@
       .portfolio-wrapper:hover .dropdown {
         display: flex;
       }
+      .hover-buffer {
+        display: none; /* Hover-Puffer für Mobile ausblenden */
+      }
     }
   </style>
 </head>
@@ -143,6 +162,7 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
+        <div class="hover-buffer"></div>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
