@@ -22,7 +22,6 @@
       position: relative;
     }
 
-    /* Linke Seite: Animiertes Logo mit Typewriter */
     .logo-button {
       font-size: 24pt;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -44,7 +43,6 @@
       51%, 100% { opacity: 0; }
     }
 
-    /* Rechte Seite: Navigation */
     .nav-buttons {
       display: flex;
       gap: 50px;
@@ -66,7 +64,6 @@
       color: #ccc;
     }
 
-    /* Portfolio Dropdown */
     .portfolio-wrapper {
       position: relative;
     }
@@ -77,7 +74,6 @@
       right: 0;
       background: white;
       border: 1px solid #ccc;
-      display: flex;
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
@@ -96,14 +92,12 @@
       display: flex;
     }
 
-    /* Trennlinie unter Header */
     .separator {
       height: 1px;
       background-color: black;
       width: 100%;
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -122,6 +116,7 @@
         position: static;
         border: none;
         text-align: left;
+        display: none;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
@@ -132,10 +127,7 @@
 <body>
 
   <header>
-    <!-- Link zur Startseite mit Typewriter-Effekt -->
     <a href="index.html" class="logo-button"><span id="typewriter"></span></a>
-
-    <!-- Rechte Buttons -->
     <div class="nav-buttons">
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
@@ -149,37 +141,45 @@
     </div>
   </header>
 
-  <!-- Trennlinie unter Header -->
   <div class="separator"></div>
 
   <script>
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0;
-    const minSpeed = 200;
-    const maxSpeed = 400;
+    let hasMistyped = false;
 
     function randomSpeed() {
-      return Math.random() * (maxSpeed - minSpeed) + minSpeed;
+      return Math.random() * (180 - 80) + 80; // schneller: 80–180ms
     }
 
-    function typeLoop() {
+    function typeWriter() {
       if (i <= text.length) {
+        if (i === 5 && !hasMistyped) {
+          el.textContent = text.slice(0, i) + "x";
+          hasMistyped = true;
+          setTimeout(() => {
+            el.textContent = text.slice(0, i);
+            setTimeout(typeWriter, randomSpeed());
+          }, 500);
+          return;
+        }
+
         el.textContent = text.slice(0, i++);
         if (i <= text.length) {
-          setTimeout(typeLoop, randomSpeed());
+          setTimeout(typeWriter, randomSpeed());
         } else {
-          // Vollständig getippt
           setTimeout(() => {
-            el.textContent = ""; // Alles löschen auf einmal
+            el.textContent = "";
             i = 0;
-            setTimeout(typeLoop, 500);
-          }, 3000); // 3 Sekunden warten
+            hasMistyped = false;
+            setTimeout(typeWriter, 500);
+          }, 3000);
         }
       }
     }
 
-    document.addEventListener('DOMContentLoaded', typeLoop);
+    document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
 </body>
