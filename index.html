@@ -71,18 +71,23 @@
       position: relative;
       display: inline-block;
       text-align: right;  /* rechtsbündig */
-      min-width: max-content; /* Breite passt sich an Inhalt an */
+      min-width: max-content;
+      /* Hover-Puffer */
+      padding-bottom: 40px; /* macht genug Hoverfläche, damit Dropdown nicht sofort verschwindet */
     }
     .dropdown {
       display: none;
       position: absolute;
-      top: 62px; /* Abstand unter Portfolio (62px) */
+      top: 62px; /* Abstand unter Portfolio */
       right: 0;
       background: transparent; /* transparenter Hintergrund */
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
       text-align: right;
+      padding: 0; /* kein Rand oder Padding */
+      margin: 0;
+      user-select: none;
     }
     .dropdown a {
       padding: 10px;
@@ -92,6 +97,7 @@
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
     .dropdown a:hover {
       color: #ccc;
@@ -125,12 +131,16 @@
         background: transparent;
         text-align: left;
         display: none;
+        padding-bottom: 0;
       }
       .dropdown a {
         font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
+      }
+      .portfolio-wrapper {
+        padding-bottom: 0; /* mobiles Layout braucht kein Hover-Puffer */
       }
     }
   </style>
