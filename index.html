@@ -77,6 +77,11 @@
       margin: 0;
       padding: 0;
     }
+    /* Dropdown bleibt sichtbar beim Hover auf Portfolio oder Dropdown selbst */
+    .portfolio-wrapper:hover .dropdown,
+    .dropdown:hover {
+      display: flex;
+    }
     .dropdown {
       display: none;
       position: absolute;
@@ -99,9 +104,6 @@
     }
     .dropdown a:hover {
       color: #ccc;
-    }
-    .portfolio-wrapper:hover .dropdown {
-      display: flex;
     }
 
     .separator {
@@ -143,19 +145,11 @@
         position: static;
         background: transparent;
         text-align: left;
-        display: none;
+        display: none !important;
       }
 
       .dropdown a {
         font-size: 18pt;
-      }
-
-      .portfolio-wrapper:hover .dropdown {
-        display: flex;
-      }
-
-      .hover-buffer {
-        display: none;
       }
     }
   </style>
