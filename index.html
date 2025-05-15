@@ -8,8 +8,7 @@
     body {
       margin: 0;
       background-color: white;
-        font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100;
+      font-family: sans-serif;
       color: black;
     }
 
@@ -23,8 +22,11 @@
       position: relative;
     }
 
+    /* Linke Seite: rickymiyake.com */
     .logo-button {
       font-size: 24pt;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400; /* Fein */
       text-decoration: none;
       color: black;
       background: none;
@@ -32,6 +34,7 @@
       cursor: pointer;
     }
 
+    /* Rechte Seite: Navigation */
     .nav-buttons {
       display: flex;
       gap: 50px;
@@ -40,20 +43,22 @@
 
     .nav-button {
       font-size: 24pt;
-      font-weight: 400;
+      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 100; /* Extrafein */
       background: none;
       border: none;
       cursor: pointer;
       color: black;
       text-decoration: none;
       position: relative;
-      transition: font-weight 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .nav-button:hover {
       color: #ccc;
     }
 
+    /* Portfolio Dropdown */
     .portfolio-wrapper {
       position: relative;
     }
@@ -68,6 +73,7 @@
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
+      text-align: right; /* Unterkategorien rechtsbündig */
     }
 
     .dropdown a {
@@ -85,6 +91,7 @@
       display: flex;
     }
 
+    /* Trennlinie unter Header */
     .separator {
       height: 1px;
       background-color: black;
@@ -111,6 +118,7 @@
       .dropdown {
         position: static;
         border: none;
+        text-align: left; /* Mobile: linke Ausrichtung */
       }
 
       .portfolio-wrapper:hover .dropdown {
