@@ -45,10 +45,10 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px; /* Abstand zwischen Kontakt und Portfolio */
+      gap: 40px;
       align-items: center;
-      justify-content: flex-end; /* rechtsbündig */
-      min-width: 200px; /* optional, sorgt für konsistente Breite */
+      justify-content: flex-end;
+      min-width: 200px;
     }
     .nav-button {
       font-size: 24pt;
@@ -72,22 +72,19 @@
     .portfolio-wrapper {
       position: relative;
       display: inline-block;
-      text-align: right;  /* rechtsbündig */
-      min-width: max-content; /* Breite passt sich an Inhalt an */
-      margin: 0;
-      padding: 0;
+      min-width: max-content;
     }
-    /* Dropdown bleibt sichtbar beim Hover auf Portfolio oder Dropdown selbst */
-    .portfolio-wrapper:hover .dropdown,
-    .dropdown:hover {
+    .portfolio-wrapper:hover .dropdown {
       display: flex;
     }
+
     .dropdown {
       display: none;
       position: absolute;
-      top: 62px; /* Abstand unter Portfolio (62px) */
+      top: 100%; /* Direkt unter dem Button */
       right: 0;
-      background: transparent; /* transparenter Hintergrund */
+      background: white;
+      border: 1px solid #ccc;
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
@@ -101,6 +98,7 @@
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       transition: color 0.2s ease;
+      white-space: nowrap;
     }
     .dropdown a:hover {
       color: #ccc;
@@ -126,12 +124,12 @@
         align-items: flex-start;
         gap: 10px;
         width: 100%;
-        padding-left: 0;  /* kein Einzug */
+        padding-left: 0;
       }
 
       .nav-button {
-        padding-left: 0; /* Innenabstand entfernen */
-        margin-left: 0;  /* linken Margin entfernen */
+        padding-left: 0;
+        margin-left: 0;
       }
 
       .portfolio-wrapper {
@@ -145,7 +143,7 @@
         position: static;
         background: transparent;
         text-align: left;
-        display: none !important;
+        display: none !important; /* Dropdown im Mobile nicht anzeigen */
       }
 
       .dropdown a {
