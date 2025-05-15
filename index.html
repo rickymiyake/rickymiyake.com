@@ -45,7 +45,7 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px; /* Abstand zwischen Kontakt & Portfolio geändert */
+      gap: 40px;
       align-items: center;
     }
     .nav-button {
@@ -67,33 +67,46 @@
 
     .portfolio-wrapper {
       position: relative;
-      z-index: 1000;
+      display: inline-block;
     }
+
+    .hover-buffer {
+      position: absolute;
+      top: 100%;  /* direkt unter Portfolio-Button */
+      right: 0;
+      width: 100%;
+      height: 62px;  /* Hover-Puffer Höhe = Abstand */
+      background: transparent;
+      z-index: 1001;
+    }
+
     .dropdown {
       display: none;
       position: absolute;
-      top: 100%;        /* Direkt unter Portfolio */
+      top: calc(100% + 62px); /* genau 62px Abstand unter Portfolio */
       right: 0;
-      margin-top: 31px;  /* Abstand zum Header-Trennstrich */
       background: transparent;
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
       text-align: right;
-    }
-    .dropdown a {
-      padding: 10px;
-      color: black;
-      text-decoration: none;
       font-size: 18pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
+    }
+    .dropdown a {
+      padding: 10px 0;
+      color: black;
+      text-decoration: none;
       transition: color 0.2s ease;
     }
     .dropdown a:hover {
       color: #ccc;
     }
-    .portfolio-wrapper:hover .dropdown {
+
+    /* Dropdown bleibt sichtbar, wenn Portfolio oder Hover-Puffer gehovt wird */
+    .portfolio-wrapper:hover .dropdown,
+    .portfolio-wrapper:hover .hover-buffer {
       display: flex;
     }
 
@@ -119,15 +132,19 @@
       }
       .dropdown {
         position: static;
-        background: transparent;
+        background: white;
         text-align: left;
         display: none;
-      }
-      .dropdown a {
+        top: auto;
+        right: auto;
+        min-width: auto;
         font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
+      }
+      .hover-buffer {
+        display: none; /* Hover-Puffer für Mobile ausblenden */
       }
     }
   </style>
@@ -140,6 +157,7 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
+        <div class="hover-buffer"></div>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
