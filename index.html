@@ -156,47 +156,27 @@
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0;
-    let forward = true;
+    const minSpeed = 200;
+    const maxSpeed = 400;
 
     function randomSpeed() {
-      return Math.random() * (200 - 80) + 80; // 80ms bis 200ms
+      return Math.random() * (maxSpeed - minSpeed) + minSpeed;
     }
 
     function typeLoop() {
-      // Gelegentlich zufällige Verschreiber einfügen
-      const typoChance = 0.1; // 10% Chance
-      if (forward) {
-        i++;
-        if (Math.random() < typoChance && i < text.length) {
-          // zufälliger falscher Buchstabe
-          el.textContent = text.slice(0, i - 1) + text.charAt(i) + text.slice(i);
+      if (i <= text.length) {
+        el.textContent = text.slice(0, i++);
+        if (i <= text.length) {
+          setTimeout(typeLoop, randomSpeed());
+        } else {
+          // Vollständig getippt
           setTimeout(() => {
-            el.textContent = text.slice(0, i);
-            if (i >= text.length) {
-              forward = false;
-              setTimeout(typeLoop, 1000);
-            } else {
-              setTimeout(typeLoop, randomSpeed());
-            }
-          }, randomSpeed());
-          return;
-        }
-        el.textContent = text.slice(0, i);
-        if (i >= text.length) {
-          forward = false;
-          setTimeout(typeLoop, 1000);
-          return;
-        }
-      } else {
-        i--;
-        el.textContent = text.slice(0, i);
-        if (i <= 0) {
-          forward = true;
-          setTimeout(typeLoop, 500);
-          return;
+            el.textContent = ""; // Alles löschen auf einmal
+            i = 0;
+            setTimeout(typeLoop, 500);
+          }, 3000); // 3 Sekunden warten
         }
       }
-      setTimeout(typeLoop, randomSpeed());
     }
 
     document.addEventListener('DOMContentLoaded', typeLoop);
