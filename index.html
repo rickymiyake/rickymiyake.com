@@ -117,22 +117,6 @@
       display: flex;
     }
 
-    .vertical-line {
-      display: none;
-      position: absolute;
-      width: 1px;
-      height: 50px;
-      background-color: black;
-      top: calc(100% + 16px); /* 62px Abstand minus halbe Höhe der Linie (31px - 15px = 16px) */
-      right: 50%;
-      transform: translateX(50%);
-      z-index: 999;
-    }
-
-    .portfolio-wrapper:hover .vertical-line {
-      display: block;
-    }
-
     .separator {
       height: 1px;
       background-color: black;
@@ -184,7 +168,6 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
-        <div class="vertical-line"></div>
         <div class="hover-buffer"></div>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
