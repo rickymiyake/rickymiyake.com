@@ -11,6 +11,7 @@
       font-family: sans-serif;
       color: black;
     }
+
     header {
       height: 100px;
       display: flex;
@@ -20,9 +21,28 @@
       box-sizing: border-box;
       position: relative;
     }
-    .logo-button { /* unverändert */ }
-    #typewriter::after { /* unverändert */ }
-    @keyframes blink { /* unverändert */ }
+
+    .logo-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      text-decoration: none;
+      color: black;
+      background: none;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    #typewriter::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
 
     .nav-buttons {
       display: flex;
@@ -34,18 +54,21 @@
 
     .nav-button {
       font-size: 24pt;
-      font-family: "Helvetica Neue UltraLight", Helvetica, Arial, sans-serif;
+      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       background: none;
       border: none;
       cursor: pointer;
       color: black;
       text-decoration: none;
+      position: relative;
       transition: color 0.2s ease;
+      padding-left: 0;
+      margin-left: 0;
     }
+
     .nav-button:hover,
-    .portfolio-wrapper:hover > .nav-button,
-    .portfolio-wrapper.open > .nav-button {
+    .portfolio-wrapper:hover > .nav-button {
       color: #ccc;
     }
 
@@ -54,6 +77,8 @@
       display: inline-block;
       text-align: right;
       min-width: max-content;
+      margin: 0;
+      padding: 0;
     }
 
     .dropdown {
@@ -64,18 +89,21 @@
       background: transparent;
       flex-direction: column;
       z-index: 1000;
+      min-width: max-content;
       text-align: right;
       padding-top: 30px;
     }
+
     .dropdown a {
       padding: 10px;
       color: black;
       text-decoration: none;
       font-size: 18pt;
-      font-family: "Helvetica Neue UltraLight", Helvetica, Arial, sans-serif;
+      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       transition: color 0.2s ease;
     }
+
     .dropdown a:hover {
       color: #ccc;
     }
@@ -90,15 +118,16 @@
       pointer-events: auto;
     }
 
-    /* Dropdown öffnen bei Hover (Desktop) oder .open */
     .portfolio-wrapper:hover .dropdown,
-    .portfolio-wrapper.open .dropdown,
-    .portfolio-wrapper:hover .hover-buffer,
-    .portfolio-wrapper.open .hover-buffer {
+    .portfolio-wrapper:hover .hover-buffer {
       display: flex;
     }
 
-    .separator { height: 1px; background-color: black; width: 100%; }
+    .separator {
+      height: 1px;
+      background-color: black;
+      width: 100%;
+    }
 
     /* Mobile-Styles */
     @media (max-width: 768px) {
@@ -109,6 +138,7 @@
         gap: 20px;
         align-items: flex-start;
       }
+
       .nav-buttons {
         flex-direction: column;
         align-items: flex-start;
@@ -116,32 +146,43 @@
         width: 100%;
         padding-left: 0;
       }
+
+      .nav-button {
+        padding-left: 0;
+        margin-left: 0;
+      }
+
       .portfolio-wrapper {
         width: 100%;
         text-align: left;
+        margin: 0;
+        padding: 0;
       }
+
       .dropdown {
         position: static;
-        display: none;       /* nur über .open sichtbar */
-        width: 100%;
-        min-width: 0;
-        margin: 0;
-        padding-top: 10px;
+        display: none;
+        width: 100%;      /* volle Breite */
+        min-width: 0;     /* Override max-content */
+        margin: 0;        /* keine Einrückung */
+        padding-top: 10px;/* geringerer Abstand unter Portfolio */
         text-align: left;
         background: transparent;
       }
+
       .dropdown a {
-        display: block;
+        display: block;   /* volle Breite einnehmen */
         width: 100%;
         padding: 10px 0;
-        margin: 0;
         font-size: 18pt;
+        margin: 0;
       }
-      /* Öffnen bei Klick (.open) */
-      .portfolio-wrapper.open .dropdown {
+
+      .portfolio-wrapper:hover .dropdown {
         display: flex;
         flex-direction: column;
       }
+
       .hover-buffer {
         display: none;
       }
@@ -155,7 +196,7 @@
     <div class="nav-buttons">
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
-        <button class="nav-button" id="portfolio-btn">Portfolio</button>
+        <button class="nav-button">Portfolio</button>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
@@ -169,15 +210,17 @@
   <div class="separator"></div>
 
   <script>
-    // Typewriter bleibt unverändert
-    const text = "rickymiyake.com",
-          el = document.getElementById("typewriter");
+    const text = "rickymiyake.com";
+    const el = document.getElementById("typewriter");
     let i = 0, hasMistyped = false;
-    function randomSpeed() { return Math.random() * (180 - 80) + 80; }
+    function randomSpeed() {
+      return Math.random() * (180 - 80) + 80;
+    }
     function typeWriter() {
       if (i <= text.length) {
         if (i === 5 && !hasMistyped) {
-          el.textContent = text.slice(0, i) + "x"; hasMistyped = true;
+          el.textContent = text.slice(0, i) + "x";
+          hasMistyped = true;
           setTimeout(() => {
             el.textContent = text.slice(0, i);
             setTimeout(typeWriter, randomSpeed());
@@ -185,29 +228,18 @@
           return;
         }
         el.textContent = text.slice(0, i++);
-        setTimeout(typeWriter, i <= text.length ? randomSpeed() : 3000);
-        if (i > text.length) {
-          setTimeout(() => { el.textContent = ""; i = 0; hasMistyped = false; setTimeout(typeWriter, 500); }, 3000);
+        if (i <= text.length) {
+          setTimeout(typeWriter, randomSpeed());
+        } else {
+          setTimeout(() => {
+            el.textContent = "";
+            i = 0; hasMistyped = false;
+            setTimeout(typeWriter, 500);
+          }, 3000);
         }
       }
     }
     document.addEventListener("DOMContentLoaded", typeWriter);
-
-    // Dropdown per Klick öffnen/schließen (Mobile & Desktop)
-    const portfolioWrapper = document.querySelector('.portfolio-wrapper'),
-          portfolioBtn     = document.getElementById('portfolio-btn');
-
-    portfolioBtn.addEventListener('click', e => {
-      e.preventDefault();
-      portfolioWrapper.classList.toggle('open');
-    });
-
-    // Klick außerhalb schließt
-    document.addEventListener('click', e => {
-      if (!portfolioWrapper.contains(e.target) && portfolioWrapper.classList.contains('open')) {
-        portfolioWrapper.classList.remove('open');
-      }
-    });
   </script>
 
 </body>
