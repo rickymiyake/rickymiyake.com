@@ -48,13 +48,6 @@
       gap: 40px;
       align-items: center;
     }
-
-    .portfolio-wrapper {
-      position: relative;
-      display: inline-block;
-      width: max-content; /* Breite an Inhalt anpassen */
-    }
-
     .nav-button {
       font-size: 24pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -66,12 +59,16 @@
       text-decoration: none;
       position: relative;
       transition: color 0.2s ease;
-      width: max-content; /* Breite an Inhalt anpassen */
       white-space: nowrap;
     }
     .nav-button:hover,
     .portfolio-wrapper:hover > .nav-button {
       color: #ccc;
+    }
+
+    .portfolio-wrapper {
+      position: relative;
+      display: inline-block;
     }
 
     .hover-buffer {
@@ -87,24 +84,24 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 62px); /* 62px Abstand unter Portfolio */
-      right: 0;
-      width: 100%; /* gleiche Breite wie Portfolio-Button */
+      top: calc(100% + 62px); /* genau 62px Abstand unter Portfolio */
+      right: 0; /* rechtsbündig am Portfolio-Wrapper */
       background: transparent;
       flex-direction: column;
       z-index: 1000;
+      min-width: 150px; /* feste Breite */
       text-align: right;
       font-size: 18pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
-      white-space: nowrap;
+      padding: 0;
+      margin: 0;
     }
     .dropdown a {
       padding: 10px 0;
       color: black;
       text-decoration: none;
       transition: color 0.2s ease;
-      display: block;
     }
     .dropdown a:hover {
       color: #ccc;
@@ -145,7 +142,6 @@
         right: auto;
         min-width: auto;
         font-size: 18pt;
-        width: auto;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
