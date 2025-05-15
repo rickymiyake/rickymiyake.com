@@ -13,7 +13,7 @@
     }
 
     header {
-      height: 120px;
+      height: 100px; /* Höhe angepasst */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,10 +45,9 @@
 
     .nav-buttons {
       display: flex;
-      gap: 50px; /* Abstand zwischen Kontakt & Portfolio */
+      gap: 50px;
       align-items: center;
     }
-
     .nav-button {
       font-size: 24pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -63,7 +62,7 @@
     }
     .nav-button:hover,
     .portfolio-wrapper:hover > .nav-button {
-      color: #ccc; /* Portfolio bleibt grau, wenn Dropdown offen */
+      color: #ccc;
     }
 
     .portfolio-wrapper {
@@ -75,7 +74,7 @@
       top: 100%;
       right: 0;
       background: white;
-      border: 1px solid #ccc;
+      /* Kein Rahmen um Dropdown */
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
@@ -85,14 +84,17 @@
       padding: 10px;
       color: black;
       text-decoration: none;
-      border-bottom: 1px solid #eee;
+      /* Kein Unterstrich oder Rahmen zwischen Links */
+      font-size: 18pt; /* Schriftgröße */
+      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 100; /* Extrafein */
       transition: color 0.2s ease;
+    }
+    .dropdown a:hover {
+      color: #ccc;
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
-    }
-    .dropdown a:hover {
-      color: #ccc; /* Unterkategorien grau beim Hover */
     }
 
     .separator {
@@ -117,9 +119,12 @@
       }
       .dropdown {
         position: static;
-        border: none;
+        background: white;
         text-align: left;
         display: none;
+      }
+      .dropdown a {
+        font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
