@@ -73,6 +73,7 @@
       position: relative;
       display: inline-block;
       min-width: max-content;
+      padding-bottom: 10px; /* Hover-Puffer nach unten */
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
@@ -81,7 +82,7 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: 100%; /* Direkt unter dem Button */
+      top: 90%;   /* leicht überlappen */
       right: 0;
       background: white;
       border: 1px solid #ccc;
@@ -89,6 +90,8 @@
       z-index: 1000;
       min-width: max-content;
       text-align: right;
+      padding-top: 5px;
+      pointer-events: auto;
     }
     .dropdown a {
       padding: 10px;
@@ -143,7 +146,7 @@
         position: static;
         background: transparent;
         text-align: left;
-        display: none !important; /* Dropdown im Mobile nicht anzeigen */
+        display: none !important;
       }
 
       .dropdown a {
