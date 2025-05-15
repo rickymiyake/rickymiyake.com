@@ -34,10 +34,12 @@
       overflow: hidden;
       white-space: nowrap;
     }
+
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
     }
+
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
@@ -76,20 +78,10 @@
       min-width: max-content;
     }
 
-    .hover-buffer {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 100%;
-      height: 62px;
-      background: transparent;
-      z-index: 1001;
-    }
-
     .dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 62px);
+      top: 62px;
       right: 0;
       background: transparent;
       flex-direction: column;
@@ -112,9 +104,22 @@
       color: #ccc;
     }
 
-    .portfolio-wrapper:hover .dropdown,
-    .portfolio-wrapper:hover .hover-buffer {
+    .portfolio-wrapper:hover .dropdown {
       display: flex;
+    }
+
+    .hover-buffer {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      height: 62px;
+      background: transparent;
+      z-index: 999;
+    }
+
+    .portfolio-wrapper:hover .hover-buffer {
+      display: block;
     }
 
     .separator {
@@ -137,6 +142,11 @@
         align-items: flex-start;
         gap: 10px;
         width: 100%;
+      }
+
+      .portfolio-wrapper {
+        width: 100%;
+        text-align: left;
       }
 
       .dropdown {
