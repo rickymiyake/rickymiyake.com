@@ -45,10 +45,10 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px;
+      gap: 40px; /* Abstand zwischen Kontakt und Portfolio */
       align-items: center;
-      justify-content: flex-end;
-      min-width: 200px;
+      justify-content: flex-end; /* rechtsbündig */
+      min-width: 200px; /* optional, sorgt für konsistente Breite */
     }
     .nav-button {
       font-size: 24pt;
@@ -72,46 +72,36 @@
     .portfolio-wrapper {
       position: relative;
       display: inline-block;
-      text-align: right;
-      min-width: max-content;
+      text-align: right;  /* rechtsbündig */
+      min-width: max-content; /* Breite passt sich an Inhalt an */
       margin: 0;
       padding: 0;
     }
     .dropdown {
       display: none;
       position: absolute;
-      top: 62px;
+      top: 62px; /* Abstand unter Portfolio (62px) */
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
+      background: transparent; /* transparenter Hintergrund */
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
       text-align: right;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 4px;
-      padding: 5px 0;
     }
     .dropdown a {
-      padding: 10px 20px;
+      padding: 10px;
       color: black;
       text-decoration: none;
       font-size: 18pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       transition: color 0.2s ease;
-      white-space: nowrap;
     }
-    .dropdown a:hover,
-    .dropdown a:focus {
+    .dropdown a:hover {
       color: #ccc;
-      outline: none;
-      background-color: transparent;
     }
-    /* Hover only on desktop */
-    @media (hover: hover) and (pointer: fine) {
-      .portfolio-wrapper:hover .dropdown {
-        display: flex;
-      }
+    .portfolio-wrapper:hover .dropdown {
+      display: flex;
     }
 
     .separator {
@@ -120,7 +110,6 @@
       width: 100%;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -135,12 +124,12 @@
         align-items: flex-start;
         gap: 10px;
         width: 100%;
-        padding-left: 0;
+        padding-left: 0;  /* kein Einzug */
       }
 
       .nav-button {
-        padding-left: 0;
-        margin-left: 0;
+        padding-left: 0; /* Innenabstand entfernen */
+        margin-left: 0;  /* linken Margin entfernen */
       }
 
       .portfolio-wrapper {
@@ -152,19 +141,22 @@
 
       .dropdown {
         position: static;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: none;
+        background: transparent;
         text-align: left;
-        display: none !important;
-        padding-left: 0;
-        border-radius: 0;
+        display: none;
       }
-    }
 
-    /* Focus styles for accessibility */
-    .nav-button:focus {
-      outline: 2px solid #666;
-      outline-offset: 2px;
+      .dropdown a {
+        font-size: 18pt;
+      }
+
+      .portfolio-wrapper:hover .dropdown {
+        display: flex;
+      }
+
+      .hover-buffer {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -175,17 +167,11 @@
     <div class="nav-buttons">
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
-        <button 
-          class="nav-button" 
-          aria-haspopup="true" 
-          aria-expanded="false" 
-          aria-controls="portfolio-dropdown"
-          id="portfolio-button"
-          >Portfolio</button>
-        <div class="dropdown" id="portfolio-dropdown" role="menu" aria-labelledby="portfolio-button">
-          <a href="videos.html" role="menuitem" tabindex="-1">Videos</a>
-          <a href="coverarts.html" role="menuitem" tabindex="-1">Coverarts</a>
-          <a href="fotoserien.html" role="menuitem" tabindex="-1">Fotoserien</a>
+        <button class="nav-button">Portfolio</button>
+        <div class="dropdown">
+          <a href="videos.html">Videos</a>
+          <a href="coverarts.html">Coverarts</a>
+          <a href="fotoserien.html">Fotoserien</a>
         </div>
       </div>
     </div>
@@ -229,59 +215,7 @@
       }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      typeWriter();
-
-      const portfolioButton = document.getElementById('portfolio-button');
-      const dropdown = document.getElementById('portfolio-dropdown');
-
-      // Toggle dropdown on click (for mobile and keyboard users)
-      portfolioButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isExpanded = portfolioButton.getAttribute('aria-expanded') === 'true';
-        if (isExpanded) {
-          dropdown.style.display = 'none';
-          portfolioButton.setAttribute('aria-expanded', 'false');
-          // Remove tabindex from menuitems to prevent tabbing into hidden menu
-          setMenuItemsTabIndex(-1);
-        } else {
-          dropdown.style.display = 'flex';
-          portfolioButton.setAttribute('aria-expanded', 'true');
-          setMenuItemsTabIndex(0);
-        }
-      });
-
-      // Keyboard accessibility for Portfolio button (Enter, Space)
-      portfolioButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          portfolioButton.click();
-        }
-        if (e.key === 'Escape') {
-          dropdown.style.display = 'none';
-          portfolioButton.setAttribute('aria-expanded', 'false');
-          setMenuItemsTabIndex(-1);
-          portfolioButton.focus();
-        }
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!portfolioButton.contains(e.target) && !dropdown.contains(e.target)) {
-          dropdown.style.display = 'none';
-          portfolioButton.setAttribute('aria-expanded', 'false');
-          setMenuItemsTabIndex(-1);
-        }
-      });
-
-      function setMenuItemsTabIndex(value) {
-        const items = dropdown.querySelectorAll('a[role="menuitem"]');
-        items.forEach(item => item.tabIndex = value);
-      }
-
-      // Initially disable tabbing into dropdown links
-      setMenuItemsTabIndex(-1);
-    });
+    document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
 </body>
