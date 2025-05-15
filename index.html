@@ -67,10 +67,7 @@
 
     .portfolio-wrapper {
       position: relative;
-      display: flex;
-      align-items: center;
     }
-
     .dropdown {
       display: none;
       position: absolute;
@@ -81,25 +78,7 @@
       z-index: 1000;
       min-width: 150px;
       text-align: right;
-      margin-top: 50px;
     }
-
-    .vertical-separator {
-      position: absolute;
-      top: 35px; /* Abstand von oben im Header */
-      left: 0; /* links vom Dropdown */
-      transform: translateX(-50%);
-      width: 1px;
-      height: 30px;
-      background-color: black;
-      display: none;
-      z-index: 1001;
-    }
-
-    .portfolio-wrapper:hover .vertical-separator {
-      display: block;
-    }
-
     .dropdown a {
       padding: 10px;
       color: black;
@@ -114,6 +93,25 @@
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
+    }
+
+    /* Vertikaler Strich über 'Videos' */
+    .dropdown a[href="videos.html"] {
+      position: relative;
+    }
+    .dropdown a[href="videos.html"]::before {
+      content: "";
+      position: absolute;
+      top: -35px; /* 35px über dem Text */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 30px;
+      background-color: black;
+      display: none;
+    }
+    .portfolio-wrapper:hover .dropdown a[href="videos.html"]::before {
+      display: block;
     }
 
     .separator {
@@ -141,7 +139,6 @@
         background: transparent;
         text-align: left;
         display: none;
-        margin-top: 0;
       }
       .dropdown a {
         font-size: 18pt;
@@ -149,8 +146,8 @@
       .portfolio-wrapper:hover .dropdown {
         display: flex;
       }
-      .portfolio-wrapper:hover .vertical-separator {
-        display: none; /* kein Strich mobil */
+      .dropdown a[href="videos.html"]::before {
+        display: none; /* im mobilen View keinen Strich */
       }
     }
   </style>
@@ -164,7 +161,6 @@
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
         <div class="dropdown">
-          <div class="vertical-separator"></div>
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
           <a href="fotoserien.html">Fotoserien</a>
