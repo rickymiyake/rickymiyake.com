@@ -67,6 +67,22 @@
 
     .portfolio-wrapper {
       position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .vertical-separator {
+      position: absolute;
+      top: 35px; /* Abstand von oben im Header */
+      left: calc(100% + 2px); /* 2px Abstand rechts vom Portfolio-Button */
+      width: 1px;
+      height: 30px;
+      background-color: black;
+      display: none; /* standardmäßig versteckt */
+    }
+
+    .portfolio-wrapper:hover .vertical-separator {
+      display: block; /* nur beim Hover auf Portfolio sichtbar */
     }
 
     .dropdown {
@@ -95,17 +111,6 @@
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
-    }
-
-    /* Vertikaler Strich unter Portfolio beim Hover */
-    .portfolio-wrapper:hover::after {
-      content: "";
-      position: absolute;
-      bottom: 35px;
-      left: 60px;
-      width: 1px;
-      height: 30px;
-      background-color: black;
     }
 
     .separator {
@@ -141,8 +146,8 @@
       .portfolio-wrapper:hover .dropdown {
         display: flex;
       }
-      .portfolio-wrapper:hover::after {
-        display: none;
+      .portfolio-wrapper:hover .vertical-separator {
+        display: none; /* kein Strich mobil */
       }
     }
   </style>
@@ -155,6 +160,7 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
+        <div class="vertical-separator"></div>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
