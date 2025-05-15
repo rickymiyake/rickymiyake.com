@@ -34,10 +34,12 @@
       overflow: hidden;
       white-space: nowrap;
     }
+
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
     }
+
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
@@ -74,25 +76,22 @@
     .portfolio-wrapper {
       position: relative;
       display: inline-block;
+      text-align: right;
       min-width: max-content;
-      padding-bottom: 40px; /* Hover-Puffer erhöht */
-    }
-
-    .portfolio-wrapper:hover .dropdown {
-      display: flex;
+      margin: 0;
+      padding: 0;
     }
 
     .dropdown {
       display: none;
       position: absolute;
-      top: 100%;  /* direkt unter Portfolio */
+      top: 100%;
       right: 0;
-      background: transparent;  /* transparenter Hintergrund */
+      background: transparent;
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
       text-align: right;
-      padding-top: 5px;
     }
 
     .dropdown a {
@@ -103,11 +102,25 @@
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
       transition: color 0.2s ease;
-      white-space: nowrap;
     }
 
     .dropdown a:hover {
       color: #ccc;
+    }
+
+    .hover-buffer {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      height: 40px;
+      width: 100%;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .portfolio-wrapper:hover .dropdown,
+    .portfolio-wrapper:hover .hover-buffer {
+      display: flex;
     }
 
     .separator {
@@ -142,18 +155,26 @@
         width: 100%;
         text-align: left;
         margin: 0;
-        padding-bottom: 0;
+        padding: 0;
       }
 
       .dropdown {
         position: static;
         background: transparent;
         text-align: left;
-        display: none !important;
+        display: none;
       }
 
       .dropdown a {
         font-size: 18pt;
+      }
+
+      .portfolio-wrapper:hover .dropdown {
+        display: flex;
+      }
+
+      .hover-buffer {
+        display: none;
       }
     }
   </style>
@@ -171,6 +192,7 @@
           <a href="coverarts.html">Coverarts</a>
           <a href="fotoserien.html">Fotoserien</a>
         </div>
+        <div class="hover-buffer"></div>
       </div>
     </div>
   </header>
