@@ -45,7 +45,7 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px; /* Abstand Kontakt & Portfolio auf 40 */
+      gap: 40px; /* Abstand zwischen Kontakt & Portfolio geändert */
       align-items: center;
     }
     .nav-button {
@@ -67,13 +67,15 @@
 
     .portfolio-wrapper {
       position: relative;
+      z-index: 1000;
     }
     .dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 31px); /* 31px Abstand nach unten */
+      top: 100%;        /* Direkt unter Portfolio */
       right: 0;
-      background: transparent; /* Hintergrund transparent */
+      margin-top: 31px;  /* Abstand zum Header-Trennstrich */
+      background: transparent;
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
@@ -117,10 +119,9 @@
       }
       .dropdown {
         position: static;
-        background: white;
+        background: transparent;
         text-align: left;
         display: none;
-        top: auto; /* überschreibt calc() */
       }
       .dropdown a {
         font-size: 18pt;
