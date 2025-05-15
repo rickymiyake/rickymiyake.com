@@ -39,7 +39,6 @@
       content: "|";
       animation: blink 1s infinite;
     }
-
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
@@ -130,6 +129,7 @@
       width: 100%;
     }
 
+    /* Mobile-Styles */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -161,17 +161,26 @@
 
       .dropdown {
         position: static;
-        background: transparent;
-        text-align: left;
         display: none;
+        width: 100%;      /* volle Breite */
+        min-width: 0;     /* Override max-content */
+        margin: 0;        /* keine Einrückung */
+        padding-top: 10px;/* geringerer Abstand unter Portfolio */
+        text-align: left;
+        background: transparent;
       }
 
       .dropdown a {
+        display: block;   /* volle Breite einnehmen */
+        width: 100%;
+        padding: 10px 0;
         font-size: 18pt;
+        margin: 0;
       }
 
       .portfolio-wrapper:hover .dropdown {
         display: flex;
+        flex-direction: column;
       }
 
       .hover-buffer {
@@ -203,13 +212,10 @@
   <script>
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
-    let i = 0;
-    let hasMistyped = false;
-
+    let i = 0, hasMistyped = false;
     function randomSpeed() {
       return Math.random() * (180 - 80) + 80;
     }
-
     function typeWriter() {
       if (i <= text.length) {
         if (i === 5 && !hasMistyped) {
@@ -221,21 +227,18 @@
           }, 500);
           return;
         }
-
         el.textContent = text.slice(0, i++);
         if (i <= text.length) {
           setTimeout(typeWriter, randomSpeed());
         } else {
           setTimeout(() => {
             el.textContent = "";
-            i = 0;
-            hasMistyped = false;
+            i = 0; hasMistyped = false;
             setTimeout(typeWriter, 500);
           }, 3000);
         }
       }
     }
-
     document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
