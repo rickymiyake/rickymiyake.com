@@ -13,14 +13,13 @@
     }
 
     header {
-      height: 100px;
+      height: 100px; /* Höhe angepasst */
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
       box-sizing: border-box;
       position: relative;
-      border-bottom: 1px solid black;
     }
 
     .logo-button {
@@ -41,7 +40,7 @@
     }
     @keyframes blink {
       0%, 50% { opacity: 1; }
-      51%, 100 { opacity: 0; }
+      51%, 100% { opacity: 0; }
     }
 
     .nav-buttons {
@@ -69,25 +68,26 @@
     .portfolio-wrapper {
       position: relative;
     }
-
     .dropdown {
       display: none;
       position: absolute;
-      top: 100px;
+      top: 100%;
       right: 0;
       background: white;
+      /* Kein Rahmen um Dropdown */
       flex-direction: column;
       z-index: 1000;
+      min-width: 150px;
       text-align: right;
-      padding-top: 10px;
     }
     .dropdown a {
-      padding: 10px 0;
+      padding: 10px;
       color: black;
       text-decoration: none;
-      font-size: 18pt;
+      /* Kein Unterstrich oder Rahmen zwischen Links */
+      font-size: 18pt; /* Schriftgröße */
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100;
+      font-weight: 100; /* Extrafein */
       transition: color 0.2s ease;
     }
     .dropdown a:hover {
@@ -97,13 +97,10 @@
       display: flex;
     }
 
-    .divider {
-      position: absolute;
-      width: 1px;
-      height: calc(100vh - 100px);
-      top: 100px;
-      background: black;
-      right: 140px;
+    .separator {
+      height: 1px;
+      background-color: black;
+      width: 100%;
     }
 
     @media (max-width: 768px) {
@@ -125,16 +122,12 @@
         background: white;
         text-align: left;
         display: none;
-        margin-top: 2px;
       }
       .dropdown a {
         font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
-      }
-      .divider {
-        display: none;
       }
     }
   </style>
@@ -154,8 +147,9 @@
         </div>
       </div>
     </div>
-    <div class="divider"></div>
   </header>
+
+  <div class="separator"></div>
 
   <script>
     const text = "rickymiyake.com";
@@ -164,7 +158,7 @@
     let hasMistyped = false;
 
     function randomSpeed() {
-      return Math.random() * (130 - 60) + 60;
+      return Math.random() * (180 - 80) + 80;
     }
 
     function typeWriter() {
