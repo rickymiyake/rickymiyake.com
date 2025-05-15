@@ -2,12 +2,12 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>rickymiyake.com</title>
   <style>
     body {
       margin: 0;
-      background: white;
+      background-color: white;
       font-family: sans-serif;
       color: black;
     }
@@ -26,13 +26,13 @@
       font-size: 24pt;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 400;
+      text-decoration: none;
       color: black;
       background: none;
       border: none;
       cursor: pointer;
-      white-space: nowrap;
       overflow: hidden;
-      text-decoration: none;
+      white-space: nowrap;
     }
     #typewriter::after {
       content: "|";
@@ -48,7 +48,6 @@
       gap: 40px;
       align-items: center;
     }
-
     .nav-button {
       font-size: 24pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -71,46 +70,41 @@
       display: inline-block;
     }
 
-    /* Hover-Puffer für bessere Erreichbarkeit der Unterkategorien */
     .hover-buffer {
       position: absolute;
-      top: 100%;
+      top: 100%;  /* direkt unter Portfolio-Button */
       right: 0;
       width: 100%;
-      height: 62px;
+      height: 62px;  /* Hover-Puffer Höhe = Abstand */
       background: transparent;
       z-index: 1001;
-      display: none;
     }
 
-    /* Unterkategorien Dropdown */
     .dropdown {
       display: none;
       position: absolute;
-      top: calc(100% + 62px);
-      right: 40px; /* gleiche Abstand wie Padding rechts im Header */
+      top: calc(100% + 62px); /* genau 62px Abstand unter Portfolio */
+      right: 0; /* rechte Kante bündig mit Portfolio */
       background: transparent;
       flex-direction: column;
+      z-index: 1000;
       min-width: 150px;
       text-align: right;
       font-size: 18pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 100;
-      z-index: 1000;
     }
-
     .dropdown a {
       padding: 10px 0;
       color: black;
       text-decoration: none;
       transition: color 0.2s ease;
     }
-
     .dropdown a:hover {
       color: #ccc;
     }
 
-    /* Sichtbarkeit wenn Portfolio oder Hover-Puffer gehovt wird */
+    /* Dropdown bleibt sichtbar, wenn Portfolio oder Hover-Puffer gehovt wird */
     .portfolio-wrapper:hover .dropdown,
     .portfolio-wrapper:hover .hover-buffer {
       display: flex;
@@ -150,7 +144,7 @@
         display: flex;
       }
       .hover-buffer {
-        display: none;
+        display: none; /* Hover-Puffer für Mobile ausblenden */
       }
     }
   </style>
