@@ -71,7 +71,7 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: 100%;
+      top: calc(100% + 40px); /* 40px weiter runter */
       right: 0;
       background: transparent;
       flex-direction: column;
@@ -102,7 +102,7 @@
     .dropdown a[href="videos.html"]::before {
       content: "";
       position: absolute;
-      top: -35px; /* 35px über dem Text */
+      top: 5px; /* 40px weiter runter als vorher (-35px + 40px = 5px) */
       left: 50%;
       transform: translateX(-50%);
       width: 1px;
