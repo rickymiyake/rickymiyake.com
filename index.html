@@ -13,7 +13,7 @@
     }
 
     header {
-      height: 120px;
+      height: 150px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -22,16 +22,26 @@
       position: relative;
     }
 
-    /* Linke Seite: rickymiyake.com */
+    /* Linke Seite: Animiertes Logo mit Typewriter */
     .logo-button {
       font-size: 24pt;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400; /* Fein */
+      font-weight: 400;
       text-decoration: none;
       color: black;
       background: none;
       border: none;
       cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    #typewriter::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
     }
 
     /* Rechte Seite: Navigation */
@@ -40,11 +50,10 @@
       gap: 50px;
       align-items: center;
     }
-
     .nav-button {
       font-size: 24pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100; /* Extrafein */
+      font-weight: 100;
       background: none;
       border: none;
       cursor: pointer;
@@ -53,7 +62,6 @@
       position: relative;
       transition: color 0.2s ease;
     }
-
     .nav-button:hover {
       color: #ccc;
     }
@@ -62,7 +70,6 @@
     .portfolio-wrapper {
       position: relative;
     }
-
     .dropdown {
       display: none;
       position: absolute;
@@ -70,23 +77,21 @@
       right: 0;
       background: white;
       border: 1px solid #ccc;
+      display: flex;
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
-      text-align: right; /* Unterkategorien rechtsbündig */
+      text-align: right;
     }
-
     .dropdown a {
       padding: 10px;
       color: black;
       text-decoration: none;
       border-bottom: 1px solid #eee;
     }
-
     .dropdown a:hover {
       background-color: #f0f0f0;
     }
-
     .portfolio-wrapper:hover .dropdown {
       display: flex;
     }
@@ -107,20 +112,17 @@
         gap: 20px;
         align-items: flex-start;
       }
-
       .nav-buttons {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
         width: 100%;
       }
-
       .dropdown {
         position: static;
         border: none;
-        text-align: left; /* Mobile: linke Ausrichtung */
+        text-align: left;
       }
-
       .portfolio-wrapper:hover .dropdown {
         display: flex;
       }
@@ -130,13 +132,12 @@
 <body>
 
   <header>
-    <!-- Link zur Startseite -->
-    <a href="index.html" class="logo-button">rickymiyake.com</a>
+    <!-- Link zur Startseite mit Typewriter-Effekt -->
+    <a href="index.html" class="logo-button"><span id="typewriter"></span></a>
 
     <!-- Rechte Buttons -->
     <div class="nav-buttons">
       <a href="kontakt.html" class="nav-button">Kontakt</a>
-
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
         <div class="dropdown">
@@ -150,6 +151,56 @@
 
   <!-- Trennlinie unter Header -->
   <div class="separator"></div>
+
+  <script>
+    const text = "rickymiyake.com";
+    const el = document.getElementById("typewriter");
+    let i = 0;
+    let forward = true;
+
+    function randomSpeed() {
+      return Math.random() * (200 - 80) + 80; // 80ms bis 200ms
+    }
+
+    function typeLoop() {
+      // Gelegentlich zufällige Verschreiber einfügen
+      const typoChance = 0.1; // 10% Chance
+      if (forward) {
+        i++;
+        if (Math.random() < typoChance && i < text.length) {
+          // zufälliger falscher Buchstabe
+          el.textContent = text.slice(0, i - 1) + text.charAt(i) + text.slice(i);
+          setTimeout(() => {
+            el.textContent = text.slice(0, i);
+            if (i >= text.length) {
+              forward = false;
+              setTimeout(typeLoop, 1000);
+            } else {
+              setTimeout(typeLoop, randomSpeed());
+            }
+          }, randomSpeed());
+          return;
+        }
+        el.textContent = text.slice(0, i);
+        if (i >= text.length) {
+          forward = false;
+          setTimeout(typeLoop, 1000);
+          return;
+        }
+      } else {
+        i--;
+        el.textContent = text.slice(0, i);
+        if (i <= 0) {
+          forward = true;
+          setTimeout(typeLoop, 500);
+          return;
+        }
+      }
+      setTimeout(typeLoop, randomSpeed());
+    }
+
+    document.addEventListener('DOMContentLoaded', typeLoop);
+  </script>
 
 </body>
 </html>
