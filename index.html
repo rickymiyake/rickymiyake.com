@@ -13,7 +13,7 @@
     }
 
     header {
-      height: 100px; /* Höhe angepasst */
+      height: 100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,7 +45,7 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px;
+      gap: 40px; /* Abstand Kontakt - Portfolio */
       align-items: center;
     }
     .nav-button {
@@ -68,27 +68,26 @@
     .portfolio-wrapper {
       position: relative;
     }
+
     .dropdown {
       display: none;
       position: absolute;
       top: 100%;
       right: 0;
-      background: white;
-      /* Kein Rahmen um Dropdown */
+      background: transparent; /* transparent statt weiß */
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
       text-align: right;
-      margin-top: 50px; /* Abstand zwischen Portfolio und Videos */
+      margin-top: 50px;
     }
     .dropdown a {
       padding: 10px;
       color: black;
       text-decoration: none;
-      /* Kein Unterstrich oder Rahmen zwischen Links */
-      font-size: 18pt; /* Schriftgröße */
+      font-size: 18pt;
       font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100; /* Extrafein */
+      font-weight: 100;
       transition: color 0.2s ease;
     }
     .dropdown a:hover {
@@ -96,6 +95,17 @@
     }
     .portfolio-wrapper:hover .dropdown {
       display: flex;
+    }
+
+    /* Linie unter Portfolio beim Hover */
+    .portfolio-wrapper:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 60px; /* 60px Abstand vom linken Rand des Headers */
+      width: 30px;
+      height: 1px;
+      background-color: black;
     }
 
     .separator {
@@ -120,16 +130,20 @@
       }
       .dropdown {
         position: static;
-        background: white;
+        background: transparent;
         text-align: left;
         display: none;
-        margin-top: 0; /* Abstand im Mobile-Modus entfernen */
+        margin-top: 0;
       }
       .dropdown a {
         font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
+      }
+      /* Linie im Mobile-Modus ausblenden, optional */
+      .portfolio-wrapper:hover::after {
+        display: none;
       }
     }
   </style>
