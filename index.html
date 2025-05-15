@@ -68,17 +68,20 @@
 
     .portfolio-wrapper {
       position: relative;
+      display: flex;
+      align-items: flex-start;
     }
+
     .dropdown {
       display: none;
       position: absolute;
       top: 100px;
-      right: 0;
+      left: calc(100% + 3px);
       background: white;
       flex-direction: column;
       z-index: 1000;
       min-width: 150px;
-      text-align: right;
+      text-align: left;
       padding-top: 10px;
     }
     .dropdown a {
@@ -97,14 +100,11 @@
       display: flex;
     }
 
-    .dropdown::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: calc(100% + 2px);
+    .divider {
       width: 1px;
-      height: 100%;
       background-color: black;
+      height: calc(100vh - 100px);
+      margin: 0 2px;
     }
 
     @media (max-width: 768px) {
@@ -128,14 +128,14 @@
         display: none;
         margin-top: 2px;
       }
-      .dropdown::before {
-        display: none;
-      }
       .dropdown a {
         font-size: 18pt;
       }
       .portfolio-wrapper:hover .dropdown {
         display: flex;
+      }
+      .divider {
+        display: none;
       }
     }
   </style>
@@ -148,6 +148,7 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button">Portfolio</button>
+        <div class="divider"></div>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
@@ -164,7 +165,7 @@
     let hasMistyped = false;
 
     function randomSpeed() {
-      return Math.random() * (180 - 80) + 80;
+      return Math.random() * (160 - 70) + 70;
     }
 
     function typeWriter() {
