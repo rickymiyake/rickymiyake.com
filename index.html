@@ -61,6 +61,8 @@
       text-decoration: none;
       position: relative;
       transition: color 0.2s ease;
+      padding-left: 0;
+      margin-left: 0;
     }
     .nav-button:hover,
     .portfolio-wrapper:hover > .nav-button {
@@ -72,6 +74,8 @@
       display: inline-block;
       text-align: right;  /* rechtsbündig */
       min-width: max-content; /* Breite passt sich an Inhalt an */
+      margin: 0;
+      padding: 0;
     }
     .dropdown {
       display: none;
@@ -120,6 +124,12 @@
         align-items: flex-start;
         gap: 10px;
         width: 100%;
+        padding-left: 0;  /* kein Einzug */
+      }
+
+      .nav-button {
+        padding-left: 0; /* Innenabstand entfernen */
+        margin-left: 0;  /* linken Margin entfernen */
       }
 
       .portfolio-wrapper {
