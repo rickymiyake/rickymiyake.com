@@ -45,10 +45,10 @@
 
     .nav-buttons {
       display: flex;
-      gap: 40px; /* Abstand zwischen Kontakt und Portfolio */
+      gap: 40px;
       align-items: center;
-      justify-content: flex-end; /* rechtsbündig */
-      min-width: 200px; /* optional, sorgt für konsistente Breite */
+      justify-content: flex-end;
+      min-width: 200px;
     }
     .nav-button {
       font-size: 24pt;
@@ -72,17 +72,18 @@
     .portfolio-wrapper {
       position: relative;
       display: inline-block;
-      text-align: right;  /* rechtsbündig */
-      min-width: max-content; /* Breite passt sich an Inhalt an */
+      text-align: right;
+      min-width: max-content;
       margin: 0;
       padding: 0;
     }
+
     .dropdown {
       display: none;
       position: absolute;
-      top: 62px; /* Abstand unter Portfolio (62px) */
+      top: 62px;
       right: 0;
-      background: transparent; /* transparenter Hintergrund */
+      background: transparent;
       flex-direction: column;
       z-index: 1000;
       min-width: max-content;
@@ -100,7 +101,10 @@
     .dropdown a:hover {
       color: #ccc;
     }
-    .portfolio-wrapper:hover .dropdown {
+
+    /* Hier die Änderung: Dropdown bleibt sichtbar wenn Portfolio ODER Dropdown selbst gehovt wird */
+    .portfolio-wrapper:hover .dropdown,
+    .portfolio-wrapper .dropdown:hover {
       display: flex;
     }
 
@@ -124,12 +128,12 @@
         align-items: flex-start;
         gap: 10px;
         width: 100%;
-        padding-left: 0;  /* kein Einzug */
+        padding-left: 0;
       }
 
       .nav-button {
-        padding-left: 0; /* Innenabstand entfernen */
-        margin-left: 0;  /* linken Margin entfernen */
+        padding-left: 0;
+        margin-left: 0;
       }
 
       .portfolio-wrapper {
@@ -152,10 +156,6 @@
 
       .portfolio-wrapper:hover .dropdown {
         display: flex;
-      }
-
-      .hover-buffer {
-        display: none;
       }
     }
   </style>
