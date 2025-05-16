@@ -41,13 +41,10 @@
       color: black;
       cursor: pointer;
       padding: 0;
-      transition: transform 0.2s ease, font-weight 0.2s ease;
-      transform-origin: center;
     }
 
     .right-button:hover {
-      transform: scale(1.05);
-      font-weight: 200;
+      color: #ccc;
     }
 
     .separator {
@@ -92,7 +89,7 @@
         position: absolute;
         right: 40px;
         top: 50%;
-        transform: translateY(-50%) scale(1);
+        transform: translateY(-50%);
       }
 
       .bottom-left-buttons-container {
@@ -100,10 +97,6 @@
         left: 40px;
         flex-direction: column;
         gap: 20px;
-      }
-
-      .year-button {
-        color: black;
       }
     }
   </style>
