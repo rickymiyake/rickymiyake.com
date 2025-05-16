@@ -86,17 +86,15 @@
     /* Neuer Footer CSS */
 
     footer {
-      position: fixed;
-      bottom: 50px;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
       padding: 0 110px;
-      gap: 0;
-      background: transparent;
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 110px;
       box-sizing: border-box;
-      z-index: 10;
+      width: 100%;
+      background: transparent;
     }
 
     footer button {
@@ -111,40 +109,7 @@
       transition: color 0.3s ease;
     }
 
-    /* Abstand zwischen Kontakt und Über mich */
-    footer button:nth-child(2) {
-      margin-left: 400px;
-    }
-
-    /* Container zwischen Über mich und Dings */
-    .mid-container {
-      position: relative;
-      width: 170px; /* Angepasster Abstand zwischen Über mich und Dings */
-      flex: 0 0 auto;
-    }
-
-    /* Datenschutz absolut zentriert im Container */
-    .mid-container .datenschutz {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      background: none;
-      border: none;
-      font-size: 22pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100;
-      cursor: pointer;
-      padding: 0;
-      color: black;
-      transition: color 0.3s ease;
-    }
-
-    footer button:nth-child(4) {
-      margin-left: auto; /* Dings nach rechts schieben */
-    }
-
-    footer button:hover,
-    .mid-container .datenschutz:hover {
+    footer button:hover {
       color: #ccc;
     }
 
@@ -167,13 +132,13 @@
       }
 
       footer {
-        gap: 20px;
         padding: 0 10px;
+        margin-bottom: 20px;
         justify-content: center;
+        gap: 20px;
       }
 
-      footer button,
-      .mid-container .datenschutz {
+      footer button {
         font-size: 18pt;
         margin: 0 !important;
       }
@@ -198,14 +163,9 @@
 
 <footer>
   <button>Kontakt</button>
-  
-  <button style="margin-left: 580px;">Über mich</button>
-  
-  <div class="mid-container">
-    <button class="datenschutz">Datenschutz</button>
-  </div>
-  
-  <button style="margin-left: auto;">Dings</button>
+  <button>Über mich</button>
+  <button>Datenschutz</button>
+  <button>Dings</button>
 </footer>
 
 </body>
