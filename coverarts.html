@@ -10,9 +10,6 @@
     background-color: white;
     color: black;
     font-family: sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
 
   header {
@@ -25,18 +22,19 @@
     position: relative;
   }
 
-  /* Buttons und Texte tauschen */
+  /* Tausch der Positionen von Coverarts und rickymiyake.com */
+  /* Vollbild */
   .left-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100;
-    cursor: pointer;
+    font-weight: 100; /* rickymiyake.com */
+    order: 2; /* Rechts auf Vollbild */
   }
 
   .right-button {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700;
+    font-weight: 700; /* COVERARTS */
     background: none;
     border: none;
     color: black;
@@ -44,10 +42,12 @@
     padding: 0;
     transition: transform 0.2s ease, font-weight 0.2s ease;
     transform-origin: center;
+    order: 1; /* Links auf Vollbild */
   }
 
   .right-button:hover {
     transform: scale(1.05);
+    font-weight: 800;
   }
 
   .separator {
@@ -58,8 +58,9 @@
   }
 
   .bottom-left-buttons-container {
-    margin-left: 200px;
-    margin-top: 150px;
+    position: absolute;
+    top: calc(100px + 1px + 150px);
+    left: 200px;
     display: flex;
     gap: 70px;
   }
@@ -73,6 +74,7 @@
     cursor: pointer;
     padding: 0;
     transition: transform 0.2s ease;
+    transform-origin: center;
     color: black;
   }
 
@@ -80,25 +82,20 @@
     transform: scale(1.05);
   }
 
-  /* Footer Styles mit Flexbox */
+  /* Footer Styles */
   footer {
-    margin-top: auto; /* Push Footer nach unten */
-    padding-bottom: 50px;
-    padding-left: 110px;
-    padding-right: 110px;
+    position: fixed;
+    bottom: 50px;
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-end;
+    padding: 0 110px;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 100;
     font-size: 20pt;
-  }
-
-  /* Flexbox Container für mittlere zwei Buttons */
-  .footer-middle {
-    display: flex;
-    gap: 580px; /* Abstand zwischen Über mich und Datenschutz/Dings */
-    align-items: flex-end;
+    gap: 580px; /* Abstand zwischen den Buttons */
   }
 
   .footer-button {
@@ -118,32 +115,38 @@
   @media (max-width: 768px) {
     .left-text {
       font-size: 16pt;
+      font-weight: 700; /* COVERARTS */
+      order: 1; /* Links mobil */
     }
 
     .right-button {
       font-size: 16pt;
-      position: static;
+      font-weight: 100; /* rickymiyake.com */
+      position: absolute;
+      right: 40px; /* Immer rechts */
+      top: 50%;
+      transform: translateY(-50%) scale(1);
+      order: 2; /* Rechts mobil */
     }
 
     .bottom-left-buttons-container {
-      margin-left: 40px;
-      margin-top: 100px;
+      top: calc(100px + 1px + 100px);
+      left: 40px;
       flex-direction: column;
       gap: 20px;
     }
 
-    footer {
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-bottom: 50px;
-      font-size: 16pt;
-      justify-content: space-between;
-      /* alle Buttons nebeneinander */
-      flex-wrap: nowrap;
+    .year-button {
+      color: black;
     }
 
-    .footer-middle {
-      gap: 20px;
+    footer {
+      justify-content: flex-start;
+      gap: 580px;
+      padding: 0 110px;
+      position: fixed;
+      bottom: 50px;
+      flex-wrap: nowrap; /* Buttons nebeneinander */
     }
   }
 </style>
@@ -151,8 +154,8 @@
 <body>
 
 <header>
-  <div class="left-text" onclick="location.href='index.html'">rickymiyake.com</div>
-  <button class="right-button">#COVERARTS</button>
+  <button class="right-button" onclick="location.href='index.html'">#COVERARTS</button>
+  <div class="left-text">rickymiyake.com</div>
 </header>
 
 <div class="separator"></div>
@@ -166,10 +169,8 @@
 
 <footer>
   <button class="footer-button">Kontakt</button>
-  <div class="footer-middle">
-    <button class="footer-button">Über mich</button>
-    <button class="footer-button">Datenschutz</button>
-  </div>
+  <button class="footer-button">Über mich</button>
+  <button class="footer-button">Datenschutz</button>
   <button class="footer-button">Dings</button>
 </footer>
 
