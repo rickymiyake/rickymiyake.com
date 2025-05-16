@@ -1,114 +1,149 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Coverarts Header</title>
-<style>
-  body {
-    margin: 0;
-    background-color: white;
-    color: black;
-    font-family: sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coverarts Header</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: black;
+      font-family: sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-header {
-height: 100px;
-padding: 0 40px;
-box-sizing: border-box;
-display: flex;
-justify-content: space-between;
-align-items: center;
-position: relative;
-}
+    header {
+      height: 100px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
 
-.left-text {
-font-size: 24pt;
-font-family: "Helvetica Neue", sans-serif;
-font-weight: 700;
-}
+    .left-text {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+    }
 
-.right-button {
-font-size: 24pt;
-font-family: "Helvetica Neue", sans-serif;
-font-weight: 100;
-background: none;
-border: none;
-color: black;
-cursor: pointer;
-padding: 0;
-transition: transform 0.2s ease, font-weight 0.2s ease;
-transform-origin: center;
-}
-.right-button\:hover {
-transform: scale(1.05);
-font-weight: 200;
-}
+    .right-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s ease, font-weight 0.2s ease;
+      transform-origin: center;
+    }
 
-.separator {
-height: 1px;
-background-color: black;
-width: 100%;
-margin: 0;
-}
+    .right-button:hover {
+      transform: scale(1.05);
+      font-weight: 200;
+    }
 
-/\* Container für die Jahresbuttons unter Header */
-.bottom-left-buttons-container {
-position: absolute;
-top: calc(100px + 1px + 150px); /* Header + Separator + 150px Abstand \*/
-left: 200px;
-display: flex;
-gap: 70px;
-}
+    .separator {
+      height: 1px;
+      background-color: black;
+      width: 100%;
+      margin: 0;
+    }
 
-.year-button {
-font-size: 24pt;
-font-family: "Helvetica LT Std", sans-serif;
-font-weight: 600; /\* HalbFett \*/
-background: none;
-border: none;
-cursor: pointer;
-padding: 0;
-transition: transform 0.2s ease;
-transform-origin: center;
-}
-.year-button\:hover {
-transform: scale(1.05);
-}
+    .bottom-left-buttons-container {
+      position: absolute;
+      top: calc(100px + 1px + 150px);
+      left: 200px;
+      display: flex;
+      gap: 70px;
+    }
 
-/\* Mobile Styles \*/
-@media (max-width: 768px) {
-.left-text {
-font-size: 16pt;
-}
+    .year-button {
+      font-size: 24pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s ease;
+      transform-origin: center;
+      color: black;
+    }
 
-```
-.right-button {
-  font-size: 16pt;
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%) scale(1);
-}
+    .year-button:hover {
+      transform: scale(1.05);
+    }
 
-.bottom-left-buttons-container {
-  position: absolute;
-  top: calc(100px + 1px + 150px);
-  left: 200px;
-  flex-direction: column;
-  gap: 20px;
-}
-```
+    footer {
+      margin-top: auto;
+      padding: 0 110px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      font-size: 20pt;
+    }
 
-} </style>
+    .footer-button {
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+    }
 
+    .footer-middle {
+      display: flex;
+      gap: calc((100% - 110px * 2 - 580px - 2 * 140px) / 3); /* Dynamisch Abstand zwischen mittleren Buttons */
+    }
+
+    @media (max-width: 768px) {
+      .left-text {
+        font-size: 16pt;
+      }
+
+      .right-button {
+        font-size: 16pt;
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%) scale(1);
+      }
+
+      .bottom-left-buttons-container {
+        top: calc(100px + 1px + 100px);
+        left: 40px;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .year-button {
+        color: black;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 0 40px 50px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="left-text">#COVERARTS</div>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">#COVERARTS</div>
 </header>
 
 <div class="separator"></div>
@@ -119,6 +154,15 @@ font-size: 16pt;
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
+
+<footer>
+  <button class="footer-button">Kontakt</button>
+  <div class="footer-middle">
+    <button class="footer-button">Über mich</button>
+    <button class="footer-button">Datenschutz</button>
+  </div>
+  <button class="footer-button">Dings</button>
+</footer>
 
 </body>
 </html>
