@@ -31,24 +31,23 @@
     order: 2; /* Rechts auf Vollbild */
   }
 
-  .right-button {
+  /* rickymiyake.com ist jetzt nur noch Text, kein Button */
+  .right-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 700; /* COVERARTS */
-    background: none;
-    border: none;
     color: black;
-    cursor: pointer;
-    padding: 0;
-    transition: transform 0.2s ease, font-weight 0.2s ease;
-    transform-origin: center;
+    user-select: none;
     order: 1; /* Links auf Vollbild */
   }
 
-  .right-button:hover {
-    transform: scale(1.05);
-    font-weight: 800;
+  .right-text:hover {
+    /* keine Hovereffekte mehr */
+    transform: none;
   }
+
+  /* COVERARTS ist fixierter Text, keine Button-Funktion */
+  /* Falls du möchtest, dass #COVERARTS interaktiv ist, sag Bescheid */
 
   .separator {
     height: 1px;
@@ -95,7 +94,7 @@
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 100;
     font-size: 20pt;
-    gap: 580px; /* Abstand zwischen den Buttons */
+    gap: 580px;
   }
 
   .footer-button {
@@ -119,14 +118,16 @@
       order: 1; /* Links mobil */
     }
 
-    .right-button {
+    /* rickymiyake.com als Text rechts fixiert in mobil */
+    .right-text {
       font-size: 16pt;
-      font-weight: 100; /* rickymiyake.com */
+      font-weight: 100;
       position: absolute;
-      right: 40px; /* Immer rechts */
+      right: 40px;
       top: 50%;
       transform: translateY(-50%) scale(1);
       order: 2; /* Rechts mobil */
+      user-select: none;
     }
 
     .bottom-left-buttons-container {
@@ -146,7 +147,7 @@
       padding: 0 110px;
       position: fixed;
       bottom: 50px;
-      flex-wrap: nowrap; /* Buttons nebeneinander */
+      flex-wrap: nowrap;
     }
   }
 </style>
@@ -154,7 +155,7 @@
 <body>
 
 <header>
-  <button class="right-button" onclick="location.href='index.html'">#COVERARTS</button>
+  <div class="right-text">#COVERARTS</div>
   <div class="left-text">rickymiyake.com</div>
 </header>
 
