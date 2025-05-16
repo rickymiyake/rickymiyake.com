@@ -30,6 +30,7 @@
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
+      order: 1; /* Standard: links */
     }
 
     .right-button {
@@ -41,6 +42,7 @@
       color: black;
       cursor: pointer;
       padding: 0;
+      order: 2; /* Standard: rechts */
     }
 
     .right-button:hover {
@@ -79,18 +81,16 @@
       transform: scale(1.05);
     }
 
-    /* Mobile Ansicht: Nur Reihenfolge tauschen */
+    /* Mobile Ansicht: nur Reihenfolge der Elemente ändern */
     @media (max-width: 768px) {
-      header {
-        flex-direction: row-reverse;
-      }
-
       .left-text {
         font-size: 16pt;
+        order: 2;
       }
 
       .right-button {
         font-size: 16pt;
+        order: 1;
       }
 
       .bottom-left-buttons-container {
