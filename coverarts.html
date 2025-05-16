@@ -26,13 +26,7 @@
       position: relative;
     }
 
-    .left-text {
-      font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 700;
-    }
-
-    .right-button {
+    .left-button {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 100;
@@ -45,9 +39,15 @@
       transform-origin: center;
     }
 
-    .right-button:hover {
+    .left-button:hover {
       transform: scale(1.05);
       font-weight: 200;
+    }
+
+    .right-text {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
     }
 
     .separator {
@@ -93,7 +93,7 @@
       font-size: 20pt;
       height: 100px;
       box-sizing: border-box;
-      margin-top: auto; /* schiebt Footer nach unten */
+      margin-top: auto;
     }
 
     .footer-button {
@@ -121,21 +121,22 @@
 
     .footer-center {
       position: absolute;
-      left: calc((100% - 110px - 110px - 580px) / 2 + 110px + 580px);
+      left: calc((100% - 110px - 110px - 580px) / 2 + 110px + 580px / 2);
+      transform: translateX(-50%);
     }
 
     /* Mobile Styles */
     @media (max-width: 768px) {
-      .left-text {
-        font-size: 16pt;
-      }
-
-      .right-button {
+      .left-button {
         font-size: 16pt;
         position: absolute;
         left: 40px;
         top: 50%;
         transform: translateY(-50%) scale(1);
+      }
+
+      .right-text {
+        font-size: 16pt;
       }
 
       .bottom-left-buttons-container {
@@ -168,14 +169,27 @@
         margin: 0 10px;
         font-size: 16pt;
       }
+
+      header {
+        justify-content: space-between;
+      }
+
+      .left-button {
+        position: static;
+        transform: none;
+      }
+
+      .right-text {
+        text-align: right;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-    <div class="left-text">#COVERARTS</div>
+    <div class="right-text">#COVERARTS</div>
+    <button class="left-button" onclick="location.href='index.html'">rickymiyake.com</button>
   </header>
 
   <div class="separator"></div>
