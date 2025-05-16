@@ -22,7 +22,13 @@
     position: relative;
   }
 
-  .left-button {
+  .left-text {
+    font-size: 24pt;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 700;
+  }
+
+  .right-button {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 100;
@@ -34,15 +40,9 @@
     transition: transform 0.2s ease, font-weight 0.2s ease;
     transform-origin: center;
   }
-  .left-button:hover {
+  .right-button:hover {
     transform: scale(1.05);
     font-weight: 200;
-  }
-
-  .right-text {
-    font-size: 24pt;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700;
   }
 
   .separator {
@@ -55,7 +55,7 @@
   /* Container für die Jahresbuttons unter Header */
   .bottom-left-buttons-container {
     position: absolute;
-    top: calc(100px + 1px + 150px);
+    top: calc(100px + 1px + 150px); /* Header + Separator + 150px Abstand */
     left: 200px;
     display: flex;
     gap: 70px;
@@ -64,13 +64,14 @@
   .year-button {
     font-size: 24pt;
     font-family: "Helvetica LT Std", sans-serif;
-    font-weight: 600;
+    font-weight: 600; /* HalbFett */
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
     transition: transform 0.2s ease;
     transform-origin: center;
+    color: black; /* Schwarz als Standard */
   }
   .year-button:hover {
     transform: scale(1.05);
@@ -78,14 +79,14 @@
 
   /* Mobile Styles */
   @media (max-width: 768px) {
-    .right-text {
+    .left-text {
       font-size: 16pt;
     }
 
-    .left-button {
+    .right-button {
       font-size: 16pt;
       position: absolute;
-      left: 40px;
+      right: 40px;
       top: 50%;
       transform: translateY(-50%) scale(1);
     }
@@ -93,9 +94,14 @@
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 100px);
-      left: 40px;
+      left: 40px; /* bündig zu #COVERARTS */
       flex-direction: column;
       gap: 20px;
+    }
+
+    /* Buttons sollen in Mobil schwarz bleiben */
+    .year-button {
+      color: black;
     }
   }
 </style>
@@ -103,8 +109,8 @@
 <body>
 
 <header>
-  <button class="left-button" onclick="location.href='index.html'">rickymiyake.com</button>
-  <div class="right-text">#COVERARTS</div>
+  <div class="left-text">#COVERARTS</div>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
 
 <div class="separator"></div>
