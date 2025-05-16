@@ -7,13 +7,11 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       background-color: white;
       color: black;
       font-family: sans-serif;
+      position: relative;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     header {
@@ -83,11 +81,10 @@
     }
 
     footer {
+      position: relative;
+      height: 50px;
       margin-top: auto;
-      padding: 0 110px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      padding-bottom: 50px;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 100;
       font-size: 20pt;
@@ -99,11 +96,23 @@
       color: black;
       cursor: pointer;
       padding: 0;
+      position: absolute;
     }
 
-    .footer-middle {
-      display: flex;
-      gap: calc((100% - 110px * 2 - 580px - 2 * 140px) / 3); /* Dynamisch Abstand zwischen mittleren Buttons */
+    .footer-kontakt {
+      left: 110px;
+    }
+
+    .footer-ueber {
+      left: 690px;
+    }
+
+    .footer-dings {
+      right: 110px;
+    }
+
+    .footer-datenschutz {
+      left: calc((690px + (100% - 110px - 110px)) / 2 - 50px);
     }
 
     @media (max-width: 768px) {
@@ -120,6 +129,7 @@
       }
 
       .bottom-left-buttons-container {
+        position: absolute;
         top: calc(100px + 1px + 100px);
         left: 40px;
         flex-direction: column;
@@ -131,38 +141,44 @@
       }
 
       footer {
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
-        padding: 0 40px 50px;
+        height: auto;
+        padding: 30px 40px 50px 40px;
+        gap: 10px;
+        position: relative;
+        font-size: 16pt;
+      }
+
+      .footer-button {
+        position: static;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-  <div class="left-text">#COVERARTS</div>
-</header>
+  <header>
+    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+    <div class="left-text">#COVERARTS</div>
+  </header>
 
-<div class="separator"></div>
+  <div class="separator"></div>
 
-<div class="bottom-left-buttons-container">
-  <button class="year-button">*2022</button>
-  <button class="year-button">*2023</button>
-  <button class="year-button">*2024</button>
-  <button class="year-button">*2025</button>
-</div>
-
-<footer>
-  <button class="footer-button">Kontakt</button>
-  <div class="footer-middle">
-    <button class="footer-button">Über mich</button>
-    <button class="footer-button">Datenschutz</button>
+  <div class="bottom-left-buttons-container">
+    <button class="year-button">*2022</button>
+    <button class="year-button">*2023</button>
+    <button class="year-button">*2024</button>
+    <button class="year-button">*2025</button>
   </div>
-  <button class="footer-button">Dings</button>
-</footer>
+
+  <footer>
+    <button class="footer-button footer-kontakt">Kontakt</button>
+    <button class="footer-button footer-ueber">Über mich</button>
+    <button class="footer-button footer-datenschutz">Datenschutz</button>
+    <button class="footer-button footer-dings">Dings</button>
+  </footer>
 
 </body>
 </html>
