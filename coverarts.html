@@ -22,19 +22,19 @@
     position: relative;
   }
 
-  /* #COVERARTS jetzt links, fett, 24pt */
   .left-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700; 
+    font-weight: 100;
+    /* rickymiyake.com styling */
+    cursor: default;
     user-select: none;
   }
 
-  /* rickymiyake.com jetzt rechts, dünn, 24pt, als Button mit Hover */
   .right-button {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100;
+    font-weight: 700;
     background: none;
     border: none;
     color: black;
@@ -42,12 +42,14 @@
     padding: 0;
     transition: transform 0.2s ease, font-weight 0.2s ease;
     transform-origin: center;
-    user-select: none;
   }
 
-  .right-button:hover {
-    transform: scale(1.05);
-    font-weight: 200;
+  /* Hover-Effekt NUR auf Geräten mit Hover (Maus) aktiv */
+  @media (hover: hover) and (pointer: fine) {
+    .right-button:hover {
+      transform: scale(1.05);
+      font-weight: 800;
+    }
   }
 
   .separator {
@@ -86,7 +88,7 @@
   @media (max-width: 768px) {
     .left-text {
       font-size: 16pt;
-      /* #COVERARTS links */
+      font-weight: 700; /* jetzt rickymiyake.com fett */
     }
 
     .right-button {
@@ -95,7 +97,9 @@
       right: 40px;
       top: 50%;
       transform: translateY(-50%) scale(1);
-      /* rickymiyake.com rechts, keine Verschiebung nach links mehr */
+      font-weight: 100; /* coverarts fein */
+      cursor: default;
+      user-select: none;
     }
 
     .bottom-left-buttons-container {
@@ -114,8 +118,8 @@
 <body>
 
 <header>
-  <div class="left-text">#COVERARTS</div>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text" onclick="void(0)">rickymiyake.com</div>
+  <button class="right-button" onclick="location.href='index.html'">#COVERARTS</button>
 </header>
 
 <div class="separator"></div>
