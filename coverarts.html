@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Leerer Header</title>
+<title>Header mit links Text</title>
 <style>
   body {
     margin: 0;
@@ -14,8 +14,16 @@
 
   header {
     height: 100px;
-    padding: 0 40px;
+    padding-left: 40px;
     box-sizing: border-box;
+    display: flex;
+    align-items: center; /* vertikale Zentrierung */
+  }
+
+  .left-text {
+    font-size: 24pt;
+    font-family: "Helvetica LT Std", sans-serif;
+    font-weight: 700; /* fett */
   }
 
   .separator {
@@ -29,7 +37,7 @@
 <body>
 
 <header>
-  <!-- Kein Inhalt hier -->
+  <div class="left-text">COVERARTS</div>
 </header>
 
 <div class="separator"></div>
