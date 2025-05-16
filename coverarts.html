@@ -14,6 +14,9 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      /* Damit Footer unten sitzt */
+      position: relative;
+      padding-bottom: 100px; /* Platz für Footer + Abstand */
     }
 
     header {
@@ -81,6 +84,37 @@
       transform: scale(1.05);
     }
 
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 50px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background: transparent;
+      padding: 0;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    footer button {
+      font-size: 22pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100; /* Extrafein */
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+
+    footer button:hover {
+      color: #888;
+    }
+
     /* Mobile Ansicht: kleinere Schriftgrößen & Reihenfolge der Elemente ändern */
     @media (max-width: 768px) {
       .left-text {
@@ -98,6 +132,15 @@
         left: 40px;
         flex-direction: column;
         gap: 20px;
+      }
+
+      footer {
+        gap: 20px;
+        padding: 0 10px;
+      }
+
+      footer button {
+        font-size: 18pt;
       }
     }
   </style>
@@ -117,6 +160,13 @@
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
+
+<footer>
+  <button>Kontakt</button>
+  <button>Über mich</button>
+  <button>Datenschutz</button>
+  <button>Impressum</button>
+</footer>
 
 </body>
 </html>
