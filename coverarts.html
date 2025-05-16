@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Header mit Text und Buttons</title>
+<title>Coverarts Header</title>
 <style>
   body {
     margin: 0;
@@ -18,29 +18,31 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* vertikale Zentrierung */
+    align-items: center;
+    position: relative;
   }
 
   .left-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700; /* fett */
+    font-weight: 700;
   }
 
   .right-button {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100; /* fein */
+    font-weight: 100;
     background: none;
     border: none;
     color: black;
     cursor: pointer;
     padding: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease, font-weight 0.2s ease;
+    transform-origin: center;
   }
-
   .right-button:hover {
     transform: scale(1.05);
+    font-weight: 200;
   }
 
   .separator {
@@ -50,10 +52,11 @@
     margin: 0;
   }
 
-  .years-container {
-    position: relative;
-    padding-top: 150px;
-    padding-left: 200px;
+  /* Container für die Jahresbuttons unter Header */
+  .bottom-left-buttons-container {
+    position: absolute;
+    top: calc(100px + 1px + 150px); /* Header + Separator + 150px Abstand */
+    left: 200px;
     display: flex;
     gap: 70px;
   }
@@ -64,48 +67,34 @@
     font-weight: 600; /* HalbFett */
     background: none;
     border: none;
-    color: black;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    user-select: none;
+    padding: 0;
+    transition: transform 0.2s ease;
+    transform-origin: center;
   }
-
   .year-button:hover {
     transform: scale(1.05);
   }
 
-  .year-button:focus,
-  .year-button:active {
-    color: black;
-    background: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* Mobile-Styles */
+  /* Mobile Styles */
   @media (max-width: 768px) {
-    header {
-      padding: 0 40px;
-    }
-
     .left-text {
       font-size: 16pt;
     }
 
     .right-button {
       font-size: 16pt;
-      padding-right: 40px; /* Abstand rechts gleich wie links bei #COVERARTS */
-      margin-left: auto; /* nach rechts schieben */
-      transition: transform 0.3s ease;
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%) scale(1);
     }
 
-    .years-container {
+    .bottom-left-buttons-container {
+      position: absolute;
+      top: calc(100px + 1px + 150px);
+      left: 200px;
       flex-direction: column;
-      padding-left: 200px; /* links gleich wie desktop */
       gap: 20px;
     }
   }
@@ -120,12 +109,11 @@
 
 <div class="separator"></div>
 
-<div class="years-container">
-  <button class="year-button">*</button>
-  <button class="year-button">2022</button>
-  <button class="year-button">2023</button>
-  <button class="year-button">2024</button>
-  <button class="year-button">2025</button>
+<div class="bottom-left-buttons-container">
+  <button class="year-button">*2022</button>
+  <button class="year-button">*2023</button>
+  <button class="year-button">*2024</button>
+  <button class="year-button">*2025</button>
 </div>
 
 </body>
