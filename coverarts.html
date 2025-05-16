@@ -14,7 +14,6 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      /* Damit Footer unten sitzt */
       position: relative;
       padding-bottom: 100px; /* Platz für Footer + Abstand */
     }
@@ -33,7 +32,7 @@
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
-      order: 1; /* Standard: links */
+      order: 1;
     }
 
     .right-button {
@@ -45,7 +44,7 @@
       color: black;
       cursor: pointer;
       padding: 0;
-      order: 2; /* Standard: rechts */
+      order: 2;
     }
 
     .right-button:hover {
@@ -84,17 +83,16 @@
       transform: scale(1.05);
     }
 
-    /* Footer */
     footer {
       position: fixed;
       bottom: 50px;
       left: 0;
       width: 100%;
       display: flex;
-      justify-content: center;
-      gap: 40px;
+      justify-content: flex-start;
+      padding: 0 110px;
+      gap: 0;
       background: transparent;
-      padding: 0;
       box-sizing: border-box;
       z-index: 10;
     }
@@ -102,7 +100,7 @@
     footer button {
       font-size: 22pt;
       font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100; /* Extrafein */
+      font-weight: 100;
       background: none;
       border: none;
       color: black;
@@ -111,11 +109,26 @@
       transition: color 0.3s ease;
     }
 
+    /* Abstand zwischen Kontakt und Über mich = 580px */
+    footer button:nth-child(2) {
+      margin-left: 580px;
+    }
+
+    /* Datenschutz genau in der Mitte zwischen Über mich und Dings */
+    footer button:nth-child(3) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Dings mit Abstand zum rechten Rand */
+    footer button:nth-child(4) {
+      margin-left: auto;
+    }
+
     footer button:hover {
       color: #888;
     }
 
-    /* Mobile Ansicht: kleinere Schriftgrößen & Reihenfolge der Elemente ändern */
     @media (max-width: 768px) {
       .left-text {
         font-size: 18pt;
@@ -137,10 +150,12 @@
       footer {
         gap: 20px;
         padding: 0 10px;
+        justify-content: center;
       }
 
       footer button {
         font-size: 18pt;
+        margin: 0 !important;
       }
     }
   </style>
@@ -165,7 +180,7 @@
   <button>Kontakt</button>
   <button>Über mich</button>
   <button>Datenschutz</button>
-  <button>Impressum</button>
+  <button>Dings</button>
 </footer>
 
 </body>
