@@ -82,30 +82,6 @@
       transform: scale(1.05);
     }
 
-    footer {
-      margin-top: auto;
-      padding: 0 110px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100;
-      font-size: 20pt;
-    }
-
-    .footer-button {
-      background: none;
-      border: none;
-      color: black;
-      cursor: pointer;
-      padding: 0;
-    }
-
-    .footer-middle {
-      display: flex;
-      gap: calc((100% - 110px * 2 - 580px - 2 * 140px) / 3); /* Dynamisch Abstand zwischen mittleren Buttons */
-    }
-
     @media (max-width: 768px) {
       .left-text {
         font-size: 16pt;
@@ -129,13 +105,6 @@
       .year-button {
         color: black;
       }
-
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        padding: 0 40px 50px;
-      }
     }
   </style>
 </head>
@@ -154,15 +123,6 @@
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
-
-<footer>
-  <button class="footer-button">Kontakt</button>
-  <div class="footer-middle">
-    <button class="footer-button">Über mich</button>
-    <button class="footer-button">Datenschutz</button>
-  </div>
-  <button class="footer-button">Dings</button>
-</footer>
 
 </body>
 </html>
