@@ -22,32 +22,22 @@
     position: relative;
   }
 
-  /* Tausch der Positionen von Coverarts und rickymiyake.com */
-  /* Vollbild */
+  /* Positionen und Styling für Desktop und Mobile sind identisch */
+
   .left-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
     font-weight: 100; /* rickymiyake.com */
-    order: 2; /* Rechts auf Vollbild */
+    user-select: none;
   }
 
-  /* rickymiyake.com ist jetzt nur noch Text, kein Button */
   .right-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700; /* COVERARTS */
+    font-weight: 700; /* #COVERARTS */
     color: black;
     user-select: none;
-    order: 1; /* Links auf Vollbild */
   }
-
-  .right-text:hover {
-    /* keine Hovereffekte mehr */
-    transform: none;
-  }
-
-  /* COVERARTS ist fixierter Text, keine Button-Funktion */
-  /* Falls du möchtest, dass #COVERARTS interaktiv ist, sag Bescheid */
 
   .separator {
     height: 1px;
@@ -81,53 +71,18 @@
     transform: scale(1.05);
   }
 
-  /* Footer Styles */
-  footer {
-    position: fixed;
-    bottom: 50px;
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    padding: 0 110px;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100;
-    font-size: 20pt;
-    gap: 580px;
-  }
-
-  .footer-button {
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    padding: 0;
-    transition: color 0.2s ease;
-  }
-
-  .footer-button:hover {
-    color: #ccc;
-  }
-
   /* Mobile Styles */
   @media (max-width: 768px) {
-    .left-text {
+    .left-text, .right-text {
       font-size: 16pt;
-      font-weight: 700; /* COVERARTS */
-      order: 1; /* Links mobil */
+      /* keine Positionsänderung, beide bleiben auf ihren Seiten */
     }
 
-    /* rickymiyake.com als Text rechts fixiert in mobil */
-    .right-text {
-      font-size: 16pt;
-      font-weight: 100;
-      position: absolute;
-      right: 40px;
-      top: 50%;
-      transform: translateY(-50%) scale(1);
-      order: 2; /* Rechts mobil */
-      user-select: none;
+    header {
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .bottom-left-buttons-container {
@@ -140,23 +95,14 @@
     .year-button {
       color: black;
     }
-
-    footer {
-      justify-content: flex-start;
-      gap: 580px;
-      padding: 0 110px;
-      position: fixed;
-      bottom: 50px;
-      flex-wrap: nowrap;
-    }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="right-text">#COVERARTS</div>
   <div class="left-text">rickymiyake.com</div>
+  <div class="right-text">#COVERARTS</div>
 </header>
 
 <div class="separator"></div>
@@ -167,13 +113,6 @@
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
-
-<footer>
-  <button class="footer-button">Kontakt</button>
-  <button class="footer-button">Über mich</button>
-  <button class="footer-button">Datenschutz</button>
-  <button class="footer-button">Dings</button>
-</footer>
 
 </body>
 </html>
