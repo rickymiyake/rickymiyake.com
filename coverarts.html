@@ -1,1 +1,45 @@
+<header>
+  <div class="header-left">#COVERARTS</div>
+  <button class="header-right" onclick="location.href='index.html'">rickymiyake.com</button>
+</header>
+<div class="separator"></div>
 
+<style>
+  header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+
+  .header-left {
+    font-size: 24pt;
+    font-family: "Helvetica LT Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700; /* Fett */
+    letter-spacing: 0.05em;
+  }
+
+  .header-right {
+    font-size: 24pt;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100; /* Fein */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    padding: 0;
+    margin: 0;
+  }
+
+  .header-right:focus {
+    outline: none;
+  }
+
+  .separator {
+    height: 1px;
+    background-color: black;
+    width: 100%;
+  }
+</style>
