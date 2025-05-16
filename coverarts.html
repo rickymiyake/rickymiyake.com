@@ -65,14 +65,13 @@ gap: 70px;
 .year-button {
 font-size: 24pt;
 font-family: "Helvetica LT Std", sans-serif;
-font-weight: 600; /\* HalbFett */
+font-weight: 600; /\* HalbFett \*/
 background: none;
 border: none;
 cursor: pointer;
 padding: 0;
 transition: transform 0.2s ease;
 transform-origin: center;
-color: black; /* Schwarz als Standard \*/
 }
 .year-button\:hover {
 transform: scale(1.05);
@@ -95,15 +94,10 @@ font-size: 16pt;
 
 .bottom-left-buttons-container {
   position: absolute;
-  top: calc(100px + 1px + 100px);
-  left: 40px; /* bündig zu #COVERARTS */
+  top: calc(100px + 1px + 150px);
+  left: 200px;
   flex-direction: column;
   gap: 20px;
-}
-
-/* Buttons sollen in Mobil schwarz bleiben */
-.year-button {
-  color: black;
 }
 ```
 
