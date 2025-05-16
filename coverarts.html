@@ -102,6 +102,11 @@
       color: black;
       cursor: pointer;
       padding: 0;
+      transition: color 0.2s ease;
+    }
+
+    .footer-button:hover {
+      color: #ccc; /* Dein gewünschtes Grau */
     }
 
     .footer-left {
@@ -119,9 +124,10 @@
       right: 110px;
     }
 
+    /* Datenschutz exakt mittig zwischen Über mich und Dings */
     .footer-center {
       position: absolute;
-      left: calc((100% - 110px - 110px - 580px) / 2 + 110px + 580px / 2);
+      left: calc(((100% - 110px - 110px - 580px) / 2) + 110px + 580px / 2);
       transform: translateX(-50%);
     }
 
@@ -129,14 +135,13 @@
     @media (max-width: 768px) {
       .left-button {
         font-size: 16pt;
-        position: absolute;
-        left: 40px;
-        top: 50%;
-        transform: translateY(-50%) scale(1);
+        position: static;
+        transform: none;
       }
 
       .right-text {
         font-size: 16pt;
+        text-align: right;
       }
 
       .bottom-left-buttons-container {
@@ -163,24 +168,12 @@
       .footer-center,
       .footer-right {
         position: static;
+        transform: none;
       }
 
       .footer-button {
         margin: 0 10px;
         font-size: 16pt;
-      }
-
-      header {
-        justify-content: space-between;
-      }
-
-      .left-button {
-        position: static;
-        transform: none;
-      }
-
-      .right-text {
-        text-align: right;
       }
     }
   </style>
