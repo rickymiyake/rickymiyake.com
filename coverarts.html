@@ -16,7 +16,7 @@
       height: 100px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline; /* Grundlinienausrichtung */
       padding: 0 40px;
       box-sizing: border-box;
     }
@@ -24,26 +24,22 @@
     .left-text {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
-      font-weight: 700; /* fett */
+      font-weight: 700; /* Fett */
       margin-left: 40px;
-      display: flex;
-      align-items: center;
-      height: 100%;
+      line-height: 1;
     }
 
     .right-button {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100; /* fein */
+      font-weight: 100; /* Fein */
       background: none;
       border: none;
       color: black;
       cursor: pointer;
       padding: 0;
       margin-right: 40px;
-      display: flex;
-      align-items: center;
-      height: 100%;
+      line-height: 1;
       transition: font-weight 0.3s ease;
     }
 
