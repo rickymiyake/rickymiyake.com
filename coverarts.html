@@ -16,7 +16,7 @@
       height: 100px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: center; /* vertikale Zentrierung */
       padding: 0 40px;
       box-sizing: border-box;
     }
@@ -25,7 +25,8 @@
       font-size: 24pt;
       font-family: "Helvetica LT Std", sans-serif;
       font-weight: 700; /* Fett */
-      text-align: center;
+      line-height: 100px; /* Zeilenhöhe = Header-Höhe für vertikale Zentrierung */
+      text-align: left;
     }
 
     .right-button {
@@ -36,8 +37,9 @@
       background: none;
       border: none;
       color: black;
-      text-align: center;
+      line-height: 100px; /* Zeilenhöhe = Header-Höhe */
       padding: 0;
+      text-align: right;
     }
 
     .separator {
