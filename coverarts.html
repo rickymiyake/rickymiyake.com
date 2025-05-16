@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Header mit Text und Button</title>
+<title>Coverarts Header</title>
 <style>
   body {
     margin: 0;
     background-color: white;
     color: black;
     font-family: sans-serif;
-    position: relative; /* für absolut positionierte Buttons */
   }
 
   header {
@@ -19,19 +18,20 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* vertikale Zentrierung */
+    align-items: center;
+    position: relative;
   }
 
   .left-text {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700; /* fett */
+    font-weight: 700;
   }
 
   .right-button {
     font-size: 24pt;
     font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100; /* fein */
+    font-weight: 100;
     background: none;
     border: none;
     color: black;
@@ -40,7 +40,6 @@
     transition: transform 0.2s ease, font-weight 0.2s ease;
     transform-origin: center;
   }
-
   .right-button:hover {
     transform: scale(1.05);
     font-weight: 200;
@@ -53,42 +52,50 @@
     margin: 0;
   }
 
+  /* Container für die Jahresbuttons unter Header */
   .bottom-left-buttons-container {
     position: absolute;
-    top: calc(100px + 1px + 150px); /* Header + Trennstrich + 150px */
+    top: calc(100px + 1px + 150px); /* Header + Separator + 150px Abstand */
     left: 200px;
     display: flex;
-    gap: 70px; /* Abstand zwischen den Buttons */
+    gap: 70px;
   }
 
-  .bottom-left-button {
+  .year-button {
     font-size: 24pt;
     font-family: "Helvetica LT Std", sans-serif;
     font-weight: 600; /* HalbFett */
     background: none;
     border: none;
-    color: black;
     cursor: pointer;
     padding: 0;
     transition: transform 0.2s ease;
     transform-origin: center;
   }
-
-  .bottom-left-button:hover {
+  .year-button:hover {
     transform: scale(1.05);
   }
 
-  /* Mobile Ansicht */
+  /* Mobile Styles */
   @media (max-width: 768px) {
-    .bottom-left-buttons-container {
-      flex-direction: column;
-      gap: 20px; /* Abstand zwischen den Buttons untereinander */
-      position: absolute; /* damit Position erhalten bleibt */
-      top: calc(100px + 1px + 150px);
-      left: 200px;
+    .left-text {
+      font-size: 16pt;
     }
+
     .right-button {
       font-size: 16pt;
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .bottom-left-buttons-container {
+      position: absolute;
+      top: calc(100px + 1px + 150px);
+      left: 200px;
+      flex-direction: column;
+      gap: 20px;
     }
   }
 </style>
@@ -103,10 +110,10 @@
 <div class="separator"></div>
 
 <div class="bottom-left-buttons-container">
-  <button class="bottom-left-button">*2022</button>
-  <button class="bottom-left-button">*2023</button>
-  <button class="bottom-left-button">*2024</button>
-  <button class="bottom-left-button">*2025</button>
+  <button class="year-button">*2022</button>
+  <button class="year-button">*2023</button>
+  <button class="year-button">*2024</button>
+  <button class="year-button">*2025</button>
 </div>
 
 </body>
