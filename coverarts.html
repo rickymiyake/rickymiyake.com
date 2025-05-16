@@ -1,35 +1,67 @@
-<header>
-  <div class="left-text">#COVERARTS</div>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-</header>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coverarts Header</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: white;
+      color: black;
+      font-family: sans-serif;
+    }
 
-<style>
-  header {
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    box-sizing: border-box;
-    border-bottom: 1px solid black;
-  }
-  .left-text, .right-button {
-    font-size: 24pt;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* vertikale Zentrierung */
-    height: 100%;
-    margin: 0;
-    background: none;
-    border: none;
-    color: black;
-  }
-  .left-text {
-    font-family: "Helvetica LT Std", sans-serif;
-    font-weight: 700;
-  }
-  .right-button {
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100;
-    cursor: pointer;
-  }
-</style>
+    header {
+      height: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* vertikale Zentrierung des gesamten Headers */
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+
+    .left-text, .right-button {
+      display: flex;
+      align-items: center; /* vertikale Zentrierung innerhalb der Box */
+      height: 100%;
+    }
+
+    .left-text {
+      font-size: 24pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 700; /* Fett */
+      text-align: left;
+    }
+
+    .right-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100; /* Fein */
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: black;
+      padding: 0;
+      text-align: right;
+    }
+
+    .separator {
+      height: 1px;
+      background-color: black;
+      width: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="left-text">#COVERARTS</div>
+    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  </header>
+
+  <div class="separator"></div>
+
+</body>
+</html>
