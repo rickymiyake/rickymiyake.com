@@ -83,6 +83,8 @@
       transform: scale(1.05);
     }
 
+    /* Neuer Footer CSS */
+
     footer {
       position: fixed;
       bottom: 50px;
@@ -109,23 +111,40 @@
       transition: color 0.3s ease;
     }
 
-    /* Abstand zwischen Kontakt und Über mich = 580px */
+    /* Abstand zwischen Kontakt und Über mich */
     footer button:nth-child(2) {
       margin-left: 560px;
     }
 
-    /* Datenschutz genau in der Mitte zwischen Über mich und Dings */
-    footer button:nth-child(3) {
-      margin-left: auto;
-      margin-right: auto;
+    /* Container zwischen Über mich und Dings */
+    .mid-container {
+      position: relative;
+      width: 200px; /* Abstand zwischen Über mich und Dings – anpassen! */
+      flex: 0 0 auto;
     }
 
-    /* Dings mit Abstand zum rechten Rand */
+    /* Datenschutz absolut zentriert im Container */
+    .mid-container .datenschutz {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: none;
+      border: none;
+      font-size: 22pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      cursor: pointer;
+      padding: 0;
+      color: black;
+      transition: color 0.3s ease;
+    }
+
     footer button:nth-child(4) {
-      margin-left: auto;
+      margin-left: auto; /* Dings nach rechts schieben */
     }
 
-    footer button:hover {
+    footer button:hover,
+    .mid-container .datenschutz:hover {
       color: #888;
     }
 
@@ -153,7 +172,8 @@
         justify-content: center;
       }
 
-      footer button {
+      footer button,
+      .mid-container .datenschutz {
         font-size: 18pt;
         margin: 0 !important;
       }
@@ -178,8 +198,13 @@
 
 <footer>
   <button>Kontakt</button>
+  
   <button>Über mich</button>
-  <button>Datenschutz</button>
+  
+  <div class="mid-container">
+    <button class="datenschutz">Datenschutz</button>
+  </div>
+  
   <button>Dings</button>
 </footer>
 
