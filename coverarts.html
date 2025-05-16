@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Coverarts Header</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       background-color: white;
       color: black;
       font-family: sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     header {
       height: 100px;
       padding: 0 40px;
+      box-sizing: border-box;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -84,23 +82,18 @@
       transform: scale(1.05);
     }
 
-    main {
-      flex: 1;
-      position: relative;
-    }
-
     footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 0 110px;
+      align-items: flex-end;
+      position: relative;
+      padding-bottom: 50px;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 100;
       font-size: 20pt;
-      margin-top: auto;
-      margin-bottom: 50px;
-      flex-wrap: nowrap;
-      gap: 0;
+      height: 100px;
+      box-sizing: border-box;
+      margin-top: auto; /* schiebt Footer nach unten */
     }
 
     .footer-button {
@@ -111,19 +104,27 @@
       padding: 0;
     }
 
-    .footer-buttons {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-    }
-
-    .footer-buttons .footer-datenschutz {
+    .footer-left {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 110px;
     }
 
+    .footer-second {
+      position: absolute;
+      left: calc(110px + 580px);
+    }
+
+    .footer-right {
+      position: absolute;
+      right: 110px;
+    }
+
+    .footer-center {
+      position: absolute;
+      left: calc((100% - 110px - 110px - 580px) / 2 + 110px + 580px);
+    }
+
+    /* Mobile Styles */
     @media (max-width: 768px) {
       .left-text {
         font-size: 16pt;
@@ -132,13 +133,12 @@
       .right-button {
         font-size: 16pt;
         position: absolute;
-        right: 40px;
+        left: 40px;
         top: 50%;
         transform: translateY(-50%) scale(1);
       }
 
       .bottom-left-buttons-container {
-        position: absolute;
         top: calc(100px + 1px + 100px);
         left: 40px;
         flex-direction: column;
@@ -151,16 +151,22 @@
 
       footer {
         flex-direction: row;
-        flex-wrap: nowrap;
         justify-content: space-between;
-        gap: 0;
-        padding: 0 40px;
-        font-size: 16pt;
+        padding: 0 40px 50px 40px;
+        height: auto;
+        position: relative;
       }
 
-      .footer-buttons .footer-datenschutz {
-        left: 50%;
-        transform: translateX(-50%);
+      .footer-left,
+      .footer-second,
+      .footer-center,
+      .footer-right {
+        position: static;
+      }
+
+      .footer-button {
+        margin: 0 10px;
+        font-size: 16pt;
       }
     }
   </style>
@@ -168,28 +174,24 @@
 <body>
 
   <header>
-    <div class="left-text">rickymiyake.com</div>
-    <button class="right-button" onclick="location.href='index.html'">#COVERARTS</button>
+    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+    <div class="left-text">#COVERARTS</div>
   </header>
 
   <div class="separator"></div>
 
-  <main>
-    <div class="bottom-left-buttons-container">
-      <button class="year-button">*2022</button>
-      <button class="year-button">*2023</button>
-      <button class="year-button">*2024</button>
-      <button class="year-button">*2025</button>
-    </div>
-  </main>
+  <div class="bottom-left-buttons-container">
+    <button class="year-button">*2022</button>
+    <button class="year-button">*2023</button>
+    <button class="year-button">*2024</button>
+    <button class="year-button">*2025</button>
+  </div>
 
   <footer>
-    <div class="footer-buttons">
-      <button class="footer-button">Kontakt</button>
-      <button class="footer-button">Über mich</button>
-      <button class="footer-button footer-datenschutz">Datenschutz</button>
-      <button class="footer-button">Dings</button>
-    </div>
+    <button class="footer-button footer-left">Kontakt</button>
+    <button class="footer-button footer-second">Über mich</button>
+    <button class="footer-button footer-center">Datenschutz</button>
+    <button class="footer-button footer-right">Dings</button>
   </footer>
 
 </body>
