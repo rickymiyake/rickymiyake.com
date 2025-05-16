@@ -64,7 +64,7 @@
   .bottom-left-button {
     font-size: 24pt;
     font-family: "Helvetica LT Std", sans-serif;
-    font-weight: 400; /* HalbFett */
+    font-weight: 600; /* HalbFett */
     background: none;
     border: none;
     color: black;
@@ -76,6 +76,16 @@
 
   .bottom-left-button:hover {
     transform: scale(1.05);
+  }
+
+  /* Mobile Ansicht */
+  @media (max-width: 768px) {
+    .bottom-left-buttons-container {
+      position: static; /* Position relativ */
+      margin-left: 40px; /* Abstand zum linken Rand */
+      flex-direction: column;
+      gap: 20px; /* Abstand zwischen den Buttons untereinander */
+    }
   }
 </style>
 </head>
