@@ -71,7 +71,7 @@
     padding: 0;
     transition: transform 0.2s ease;
     transform-origin: center;
-    color: black; /* Standardfarbe */
+    color: black; /* Schwarz als Standard */
   }
   .year-button:hover {
     transform: scale(1.05);
@@ -94,14 +94,14 @@
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 200px;
+      left: 40px; /* bündig zu #COVERARTS */
       flex-direction: column;
       gap: 20px;
     }
 
-    /* Buttons in mobil schwarz färben */
+    /* Buttons sollen in Mobil schwarz bleiben */
     .year-button {
-      color: black !important;
+      color: black;
     }
   }
 </style>
