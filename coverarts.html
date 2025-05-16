@@ -5,19 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Coverarts Header</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background-color: white;
       color: black;
       font-family: sans-serif;
-      position: relative;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       height: 100px;
       padding: 0 40px;
-      box-sizing: border-box;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -80,14 +84,23 @@
       transform: scale(1.05);
     }
 
-    footer {
+    main {
+      flex: 1;
       position: relative;
-      height: 50px;
-      margin-top: auto;
-      padding-bottom: 50px;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 110px;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 100;
       font-size: 20pt;
+      margin-top: auto;
+      margin-bottom: 50px;
+      flex-wrap: nowrap;
+      gap: 0;
     }
 
     .footer-button {
@@ -96,23 +109,19 @@
       color: black;
       cursor: pointer;
       padding: 0;
+    }
+
+    .footer-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .footer-buttons .footer-datenschutz {
       position: absolute;
-    }
-
-    .footer-kontakt {
-      left: 110px;
-    }
-
-    .footer-ueber {
-      left: 690px;
-    }
-
-    .footer-dings {
-      right: 110px;
-    }
-
-    .footer-datenschutz {
-      left: calc((690px + (100% - 110px - 110px)) / 2 - 50px);
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     @media (max-width: 768px) {
@@ -141,18 +150,17 @@
       }
 
       footer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 30px 40px 50px 40px;
-        gap: 10px;
-        position: relative;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 0;
+        padding: 0 40px;
         font-size: 16pt;
       }
 
-      .footer-button {
-        position: static;
+      .footer-buttons .footer-datenschutz {
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   </style>
@@ -160,24 +168,28 @@
 <body>
 
   <header>
-    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-    <div class="left-text">#COVERARTS</div>
+    <div class="left-text">rickymiyake.com</div>
+    <button class="right-button" onclick="location.href='index.html'">#COVERARTS</button>
   </header>
 
   <div class="separator"></div>
 
-  <div class="bottom-left-buttons-container">
-    <button class="year-button">*2022</button>
-    <button class="year-button">*2023</button>
-    <button class="year-button">*2024</button>
-    <button class="year-button">*2025</button>
-  </div>
+  <main>
+    <div class="bottom-left-buttons-container">
+      <button class="year-button">*2022</button>
+      <button class="year-button">*2023</button>
+      <button class="year-button">*2024</button>
+      <button class="year-button">*2025</button>
+    </div>
+  </main>
 
   <footer>
-    <button class="footer-button footer-kontakt">Kontakt</button>
-    <button class="footer-button footer-ueber">Über mich</button>
-    <button class="footer-button footer-datenschutz">Datenschutz</button>
-    <button class="footer-button footer-dings">Dings</button>
+    <div class="footer-buttons">
+      <button class="footer-button">Kontakt</button>
+      <button class="footer-button">Über mich</button>
+      <button class="footer-button footer-datenschutz">Datenschutz</button>
+      <button class="footer-button">Dings</button>
+    </div>
   </footer>
 
 </body>
