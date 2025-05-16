@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
@@ -12,147 +13,108 @@
     font-family: sans-serif;
   }
 
-  header {
-    height: 100px;
-    padding: 0 40px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
+header {
+height: 100px;
+padding: 0 40px;
+box-sizing: border-box;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+}
 
-  .left-text {
-    font-size: 24pt;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 700;
-  }
+.left-text {
+font-size: 24pt;
+font-family: "Helvetica Neue", sans-serif;
+font-weight: 700;
+}
 
-  .right-button {
-    font-size: 24pt;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100;
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    padding: 0;
-    transition: transform 0.2s ease, font-weight 0.2s ease;
-    transform-origin: center;
-  }
+.right-button {
+font-size: 24pt;
+font-family: "Helvetica Neue", sans-serif;
+font-weight: 100;
+background: none;
+border: none;
+color: black;
+cursor: pointer;
+padding: 0;
+transition: transform 0.2s ease, font-weight 0.2s ease;
+transform-origin: center;
+}
+.right-button\:hover {
+transform: scale(1.05);
+font-weight: 200;
+}
 
-  .right-button:hover {
-    transform: scale(1.05);
-    font-weight: 200;
-  }
+.separator {
+height: 1px;
+background-color: black;
+width: 100%;
+margin: 0;
+}
 
-  .separator {
-    height: 1px;
-    background-color: black;
-    width: 100%;
-    margin: 0;
-  }
+/\* Container für die Jahresbuttons unter Header */
+.bottom-left-buttons-container {
+position: absolute;
+top: calc(100px + 1px + 150px); /* Header + Separator + 150px Abstand \*/
+left: 200px;
+display: flex;
+gap: 70px;
+}
 
-  .bottom-left-buttons-container {
-    position: absolute;
-    top: calc(100px + 1px + 150px);
-    left: 200px;
-    display: flex;
-    gap: 70px;
-  }
+.year-button {
+font-size: 24pt;
+font-family: "Helvetica LT Std", sans-serif;
+font-weight: 600; /\* HalbFett */
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+transition: transform 0.2s ease;
+transform-origin: center;
+color: black; /* Schwarz als Standard \*/
+}
+.year-button\:hover {
+transform: scale(1.05);
+}
 
-  .year-button {
-    font-size: 24pt;
-    font-family: "Helvetica LT Std", sans-serif;
-    font-weight: 600;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: transform 0.2s ease;
-    transform-origin: center;
-    color: black;
-  }
+/\* Mobile Styles \*/
+@media (max-width: 768px) {
+.left-text {
+font-size: 16pt;
+}
 
-  .year-button:hover {
-    transform: scale(1.05);
-  }
+```
+.right-button {
+  font-size: 16pt;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+}
 
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-    .left-text {
-      font-size: 16pt;
-    }
+.bottom-left-buttons-container {
+  position: absolute;
+  top: calc(100px + 1px + 100px);
+  left: 40px; /* bündig zu #COVERARTS */
+  flex-direction: column;
+  gap: 20px;
+}
 
-    .right-button {
-      font-size: 16pt;
-      position: absolute;
-      left: 40px;
-      top: 50%;
-      transform: translateY(-50%) scale(1);
-    }
+/* Buttons sollen in Mobil schwarz bleiben */
+.year-button {
+  color: black;
+}
+```
 
-    .bottom-left-buttons-container {
-      top: calc(100px + 1px + 100px);
-      left: 40px;
-      flex-direction: column;
-      gap: 20px;
-    }
+} </style>
 
-    .year-button {
-      color: black;
-    }
-  }
-
-  /* Footer Styles */
-  footer {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-bottom: 50px;
-    font-family: "Helvetica Neue", sans-serif;
-    font-weight: 100;
-    font-size: 20pt;
-  }
-
-  .footer-button {
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  .footer-left {
-    position: absolute;
-    left: 110px;
-  }
-
-  .footer-second {
-    position: absolute;
-    left: calc(110px + 580px);
-  }
-
-  .footer-right {
-    position: absolute;
-    right: 110px;
-  }
-
-  .footer-center {
-    position: absolute;
-    left: calc((100% - 110px - 110px - 580px) / 2 + 110px + 580px);
-  }
-</style>
 </head>
 <body>
 
 <header>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
   <div class="left-text">#COVERARTS</div>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
 
 <div class="separator"></div>
@@ -163,13 +125,6 @@
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
-
-<footer>
-  <button class="footer-button footer-left">Kontakt</button>
-  <button class="footer-button footer-second">Über mich</button>
-  <button class="footer-button footer-center">Datenschutz</button>
-  <button class="footer-button footer-right">Dings</button>
-</footer>
 
 </body>
 </html>
