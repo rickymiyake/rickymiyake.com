@@ -16,28 +16,32 @@
       height: 100px;
       display: flex;
       justify-content: space-between;
-      align-items: center; /* vertikale Zentrierung */
+      align-items: center; /* vertikale Zentrierung des gesamten Headers */
       padding: 0 40px;
       box-sizing: border-box;
+    }
+
+    .left-text, .right-button {
+      display: flex;
+      align-items: center; /* vertikale Zentrierung innerhalb der Box */
+      height: 100%;
     }
 
     .left-text {
       font-size: 24pt;
       font-family: "Helvetica LT Std", sans-serif;
       font-weight: 700; /* Fett */
-      line-height: 100px; /* Zeilenhöhe = Header-Höhe für vertikale Zentrierung */
       text-align: left;
     }
 
     .right-button {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100; /* Fein */
+      font-weight: 200; /* Fein */
       cursor: pointer;
       background: none;
       border: none;
       color: black;
-      line-height: 100px; /* Zeilenhöhe = Header-Höhe */
       padding: 0;
       text-align: right;
     }
