@@ -80,16 +80,18 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        flex-direction: row-reverse;
+      }
+
       .left-text {
         font-size: 16pt;
       }
 
       .right-button {
         font-size: 16pt;
-        position: absolute;
-        right: 40px;
-        top: 50%;
-        transform: translateY(-50%);
+        position: static;
+        transform: none;
       }
 
       .bottom-left-buttons-container {
