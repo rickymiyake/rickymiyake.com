@@ -10,6 +10,7 @@
     background-color: white;
     color: black;
     font-family: sans-serif;
+    position: relative; /* für den absolut positionierten Button */
   }
 
   header {
@@ -51,6 +52,20 @@
     width: 100%;
     margin: 0;
   }
+
+  .bottom-left-button {
+    position: absolute;
+    top: calc(100px + 1px + 150px); /* Headerhöhe + Trennstrich + Abstand */
+    left: 200px;
+    font-size: 24pt;
+    font-family: "Helvetica LT Std", sans-serif;
+    font-weight: 600; /* HalbFett */
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    padding: 0;
+  }
 </style>
 </head>
 <body>
@@ -61,6 +76,8 @@
 </header>
 
 <div class="separator"></div>
+
+<button class="bottom-left-button">*2022</button>
 
 </body>
 </html>
