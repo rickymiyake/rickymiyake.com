@@ -15,7 +15,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      padding-bottom: 100px; /* Platz für Footer + Abstand */
+      padding-bottom: 100px;
     }
 
     header {
@@ -83,11 +83,9 @@
       transform: scale(1.05);
     }
 
-    /* Neuer Footer CSS */
-
     footer {
       position: fixed;
-      bottom: 30px;
+      bottom: 50px;
       left: 0;
       right: 0;
       margin: 0 auto;
@@ -121,32 +119,13 @@
 
     @media (max-width: 768px) {
       .left-text {
-        font-size: 18pt;
+        font-size: 14pt;
         order: 1;
       }
 
       .right-button {
-        font-size: 18pt;
+        font-size: 14pt;
         order: 2;
-      }
-
-      .bottom-left-buttons-container {
-        top: calc(100px + 1px + 100px);
-        left: 40px;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      footer {
-        padding: 0 10px;
-        gap: 20px;
-        bottom: 20px;
-        justify-content: center;
-      }
-
-      footer button {
-        font-size: 18pt;
-        margin: 0 !important;
       }
     }
   </style>
