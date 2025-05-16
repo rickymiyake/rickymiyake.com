@@ -53,9 +53,15 @@
     margin: 0;
   }
 
-  .bottom-left-button {
+  .bottom-left-buttons-container {
     position: absolute;
+    top: calc(100px + 1px + 150px); /* Header + Trennstrich + 150px */
     left: 200px;
+    display: flex;
+    gap: 70px; /* Abstand zwischen den Buttons */
+  }
+
+  .bottom-left-button {
     font-size: 24pt;
     font-family: "Helvetica LT Std", sans-serif;
     font-weight: 600; /* HalbFett */
@@ -65,18 +71,12 @@
     cursor: pointer;
     padding: 0;
     transition: transform 0.2s ease;
-    transform-origin: left center;
+    transform-origin: center;
   }
 
   .bottom-left-button:hover {
     transform: scale(1.05);
   }
-
-  /* Positioniere die Buttons mit 70px Abstand */
-  #btn2022 { top: calc(100px + 1px + 150px); }  /* Header + Trennstrich + 150px */
-  #btn2023 { top: calc(100px + 1px + 150px + 70px); }
-  #btn2024 { top: calc(100px + 1px + 150px + 140px); }
-  #btn2025 { top: calc(100px + 1px + 150px + 210px); }
 </style>
 </head>
 <body>
@@ -88,10 +88,12 @@
 
 <div class="separator"></div>
 
-<button id="btn2022" class="bottom-left-button">*2022</button>
-<button id="btn2023" class="bottom-left-button">*2023</button>
-<button id="btn2024" class="bottom-left-button">*2024</button>
-<button id="btn2025" class="bottom-left-button">*2025</button>
+<div class="bottom-left-buttons-container">
+  <button class="bottom-left-button">*2022</button>
+  <button class="bottom-left-button">*2023</button>
+  <button class="bottom-left-button">*2024</button>
+  <button class="bottom-left-button">*2025</button>
+</div>
 
 </body>
 </html>
