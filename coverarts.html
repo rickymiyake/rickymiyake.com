@@ -81,10 +81,11 @@
   /* Mobile Ansicht */
   @media (max-width: 768px) {
     .bottom-left-buttons-container {
-      position: static; /* Position relativ */
-      margin-left: 40px; /* Abstand zum linken Rand */
       flex-direction: column;
       gap: 20px; /* Abstand zwischen den Buttons untereinander */
+      position: absolute; /* damit Position erhalten bleibt */
+      top: calc(100px + 1px + 150px);
+      left: 200px;
     }
   }
 </style>
