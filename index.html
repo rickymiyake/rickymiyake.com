@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>rickymiyake.com</title>
   <style>
     body {
@@ -12,180 +12,35 @@
       color: black;
     }
 
-    header {
-      height: 100px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-      box-sizing: border-box;
+    #typewriter {
       position: relative;
-    }
-
-    .logo-button {
-      font-size: 24pt;
-      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 400;
-      text-decoration: none;
-      color: black;
-      background: none;
-      border: none;
-      cursor: pointer;
-      overflow: hidden;
-      white-space: nowrap;
+      display: inline-block;
     }
 
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
+      opacity: var(--cursor-opacity, 1);
+      position: relative;
+      z-index: 2;
     }
+
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
     }
 
-    .nav-buttons {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      justify-content: flex-end;
-      min-width: 200px;
-    }
-
-    .nav-button {
-      font-size: 24pt;
-      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: black;
-      text-decoration: none;
-      position: relative;
-      transition: color 0.2s ease;
-      padding-left: 0;
-      margin-left: 0;
-    }
-
-    .nav-button:hover,
-    .portfolio-wrapper:hover > .nav-button {
-      color: #ccc;
-    }
-
-    .portfolio-wrapper {
-      position: relative;
-      display: inline-block;
-      text-align: right;
-      min-width: max-content;
-      margin: 0;
-      padding: 0;
-    }
-
-    .dropdown {
-      display: none;
+    /* Highlight vor dem Text mit 20% Transparenz rosa */
+    #typewriter .highlight {
       position: absolute;
-      top: 100%;
+      top: 0;
+      left: 0;
       right: 0;
-      background: transparent;
-      flex-direction: column;
-      z-index: 1000;
-      min-width: max-content;
-      text-align: right;
-      padding-top: 30px;
-    }
-
-    .dropdown a {
-      padding: 10px;
-      color: black;
-      text-decoration: none;
-      font-size: 18pt;
-      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100;
-      transition: color 0.2s ease;
-    }
-
-    .dropdown a:hover {
-      color: #ccc;
-    }
-
-    .hover-buffer {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      height: 40px;
-      width: 100%;
-      background: transparent;
-      pointer-events: auto;
-    }
-
-    .portfolio-wrapper:hover .dropdown,
-    .portfolio-wrapper:hover .hover-buffer {
-      display: flex;
-    }
-
-    .separator {
-      height: 1px;
-      background-color: black;
-      width: 100%;
-    }
-
-    /* Mobile-Styles */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        gap: 20px;
-        align-items: flex-start;
-      }
-
-      .nav-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        width: 100%;
-        padding-left: 0;
-      }
-
-      .nav-button {
-        padding-left: 0;
-        margin-left: 0;
-      }
-
-      .portfolio-wrapper {
-        width: 100%;
-        text-align: left;
-        margin: 0;
-        padding: 0;
-      }
-
-      .dropdown {
-        position: static;
-        display: none;
-        width: 100%;      /* volle Breite */
-        min-width: 0;     /* Override max-content */
-        margin: 0;        /* keine Einrückung */
-        padding-top: 10px;/* geringerer Abstand unter Portfolio */
-        text-align: left;
-        background: transparent;
-      }
-
-      .dropdown a {
-        display: block;   /* volle Breite einnehmen */
-        width: 100%;
-        padding: 10px 0;
-        font-size: 18pt;
-        margin: 0;
-      }
-
-      .portfolio-wrapper:hover .dropdown {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .hover-buffer {
-        display: none;
-      }
+      bottom: 0;
+      background: rgba(255, 192, 203, 0.2);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 2px;
     }
   </style>
 </head>
@@ -193,29 +48,33 @@
 
   <header>
     <a href="index.html" class="logo-button"><span id="typewriter"></span></a>
-    <div class="nav-buttons">
-      <a href="kontakt.html" class="nav-button">Kontakt</a>
-      <div class="portfolio-wrapper">
-        <button class="nav-button">Portfolio</button>
-        <div class="dropdown">
-          <a href="videos.html">Videos</a>
-          <a href="coverarts.html">Coverarts</a>
-          <a href="fotoserien.html">Fotoserien</a>
-        </div>
-        <div class="hover-buffer"></div>
-      </div>
-    </div>
   </header>
-
-  <div class="separator"></div>
 
   <script>
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0, hasMistyped = false;
+
     function randomSpeed() {
-      return (Math.random() * (180 - 80) + 80) * 0.9; // 10% schneller
+      // 10% schneller als original (80-180 ms)
+      return (Math.random() * (180 - 80) + 80) * 0.9;
     }
+
+    function addHighlight() {
+      if (!el.querySelector(".highlight")) {
+        const highlight = document.createElement("span");
+        highlight.className = "highlight";
+        el.appendChild(highlight);
+      }
+    }
+
+    function removeHighlight() {
+      const highlight = el.querySelector(".highlight");
+      if (highlight) {
+        el.removeChild(highlight);
+      }
+    }
+
     function typeWriter() {
       if (i <= text.length) {
         if (i === 5 && !hasMistyped) {
@@ -231,14 +90,24 @@
         if (i <= text.length) {
           setTimeout(typeWriter, randomSpeed());
         } else {
+          // Nach kompletter Ausgabe 2 Sekunden warten
           setTimeout(() => {
-            el.textContent = "";
-            i = 0; hasMistyped = false;
-            setTimeout(typeWriter, 500);
+            // Highlight hinzufügen + Cursor ausblenden
+            addHighlight();
+            el.style.setProperty("--cursor-opacity", "0");
+            // Highlight 0.5 Sekunden zeigen, dann Neustart
+            setTimeout(() => {
+              removeHighlight();
+              el.textContent = "";
+              el.style.removeProperty("--cursor-opacity");
+              i = 0; hasMistyped = false;
+              setTimeout(typeWriter, 500);
+            }, 500);
           }, 2000);
         }
       }
     }
+
     document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
