@@ -2,81 +2,58 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontakt – rickymiyake.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      font-family: sans-serif;
-      background: white;
+      padding: 0;
+      background-color: white;
       color: black;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 40px;
+      font-family: "Helvetica Neue", sans-serif;
+      overflow: hidden;
     }
-    main {
-      max-width: 600px;
-      width: 100%;
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    label {
-      font-weight: bold;
-    }
-    input, textarea {
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
+
+    header {
+      height: 100px;
+      padding: 0 40px;
       box-sizing: border-box;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    button {
-      align-self: flex-start;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: black;
-      color: white;
+
+    .right-button {
+      font-size: 24pt;
+      font-weight: 100;
+      background: none;
       border: none;
-      border-radius: 4px;
+      color: black;
       cursor: pointer;
-      transition: background 0.2s ease;
+      padding: 0;
     }
-    button:hover {
-      background: #333;
+
+    .right-button:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0 20px;
+      }
+
+      .right-button {
+        font-size: 14pt;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Kontakt</h1>
-    <form action="https://example.com/form-handler" method="POST">
-      <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
-      </div>
-      <div>
-        <label for="email">E‑Mail</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-      <div>
-        <label for="message">Nachricht</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button type="submit">Absenden</button>
-    </form>
-  </main>
+
+<header>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+</header>
+
 </body>
 </html>
