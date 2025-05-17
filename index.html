@@ -10,7 +10,6 @@
       background-color: white;
       font-family: sans-serif;
       color: black;
-      overflow: hidden; /* Seite nicht scrollbar */
     }
 
     header {
@@ -34,164 +33,213 @@
       cursor: pointer;
       overflow: hidden;
       white-space: nowrap;
-      position: relative;
-    }
-
-    #typewriter {
-      position: relative;
-      z-index: 1;
-    }
-
-    #highlight {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      background: rgba(255, 105, 180, 0.2); /* rosa mit 20% Transparenz */
-      pointer-events: none;
-      z-index: 0;
-      transition: left 0.3s ease, width 0.3s ease;
     }
 
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
-      position: relative;
-      z-index: 2;
     }
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: flex-end;
+      min-width: 200px;
+    }
+
+    .nav-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: black;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.2s ease;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .nav-button:hover,
+    .portfolio-wrapper:hover > .nav-button {
+      color: #ccc;
+    }
+
+    .portfolio-wrapper {
+      position: relative;
+      display: inline-block;
+      text-align: right;
+      min-width: max-content;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: transparent;
+      flex-direction: column;
+      z-index: 1000;
+      min-width: max-content;
+      text-align: right;
+      padding-top: 30px;
+    }
+
+    .dropdown a {
+      padding: 10px;
+      color: black;
+      text-decoration: none;
+      font-size: 18pt;
+      font-family: "Helvetica Neue UltraLight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 100;
+      transition: color 0.2s ease;
+    }
+
+    .dropdown a:hover {
+      color: #ccc;
+    }
+
+    .hover-buffer {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      height: 40px;
+      width: 100%;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .portfolio-wrapper:hover .dropdown,
+    .portfolio-wrapper:hover .hover-buffer {
+      display: flex;
+    }
+
+    .separator {
+      height: 1px;
+      background-color: black;
+      width: 100%;
+    }
+
+    /* Mobile-Styles */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        padding-left: 0;
+      }
+
+      .nav-button {
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      .portfolio-wrapper {
+        width: 100%;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+      }
+
+      .dropdown {
+        position: static;
+        display: none;
+        width: 100%;      /* volle Breite */
+        min-width: 0;     /* Override max-content */
+        margin: 0;        /* keine Einrückung */
+        padding-top: 10px;/* geringerer Abstand unter Portfolio */
+        text-align: left;
+        background: transparent;
+      }
+
+      .dropdown a {
+        display: block;   /* volle Breite einnehmen */
+        width: 100%;
+        padding: 10px 0;
+        font-size: 18pt;
+        margin: 0;
+      }
+
+      .portfolio-wrapper:hover .dropdown {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hover-buffer {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <button class="logo-button" onclick="location.href='index.html'">
-      <span id="typewriter"></span>
-      <span id="highlight"></span>
-    </button>
+    <a href="index.html" class="logo-button"><span id="typewriter"></span></a>
+    <div class="nav-buttons">
+      <a href="kontakt.html" class="nav-button">Kontakt</a>
+      <div class="portfolio-wrapper">
+        <button class="nav-button">Portfolio</button>
+        <div class="dropdown">
+          <a href="videos.html">Videos</a>
+          <a href="coverarts.html">Coverarts</a>
+          <a href="fotoserien.html">Fotoserien</a>
+        </div>
+        <div class="hover-buffer"></div>
+      </div>
+    </div>
   </header>
+
+  <div class="separator"></div>
 
   <script>
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
-    const highlight = document.getElementById("highlight");
-
-    let i = 0;
-    let hasMistyped = false;
-    let phase = "typing"; // phases: typing, mistype1, mistype2, highlight, wait, deleting
-
-    // Berechnet Breite von Text in px (für Highlight)
-    function getTextWidth(text, font) {
-      const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
-      const context = canvas.getContext("2d");
-      context.font = font;
-      return context.measureText(text).width;
+    let i = 0, hasMistyped = false;
+    function randomSpeed() {
+      return (Math.random() * (180 - 80) + 80) * 0.9; // 10% schneller
     }
-
-    function updateHighlight(startIndex, endIndex) {
-      const font = window.getComputedStyle(el).font;
-      const fullText = text;
-      const leftText = fullText.slice(0, startIndex);
-      const highlightText = fullText.slice(startIndex, endIndex);
-
-      const leftWidth = getTextWidth(leftText, font);
-      const highlightWidth = getTextWidth(highlightText, font);
-
-      highlight.style.left = leftWidth + "px";
-      highlight.style.width = highlightWidth + "px";
-    }
-
     function typeWriter() {
-      if (phase === "typing") {
-        if (i <= text.length) {
-          el.textContent = text.slice(0, i++);
-          updateHighlight(0, 0);
-          setTimeout(typeWriter, 72); // 10% schneller (~80ms original)
-        } else {
-          phase = "mistype1";
-          i = 5; // Position nach "rick"
-          setTimeout(typeWriter, 100);
+      if (i <= text.length) {
+        if (i === 5 && !hasMistyped) {
+          el.textContent = text.slice(0, i) + "x";
+          hasMistyped = true;
+          setTimeout(() => {
+            el.textContent = text.slice(0, i);
+            setTimeout(typeWriter, randomSpeed());
+          }, 500);
+          return;
         }
-      } else if (phase === "mistype1") {
-        // Tippen "x" statt "m"
-        el.textContent = text.slice(0, 5) + "x";
-        updateHighlight(5, 6);
-        setTimeout(() => {
-          phase = "mistype2";
-          typeWriter();
-        }, 500);
-      } else if (phase === "mistype2") {
-        // Rückgängig machen "x"
-        el.textContent = text.slice(0, 5);
-        updateHighlight(0, 0);
-        setTimeout(() => {
-          phase = "mistype3";
-          typeWriter();
-        }, 200);
-      } else if (phase === "mistype3") {
-        // Weiter tippen von restlichem Text mit Vertippen bei ".com"
-        i = 6;
-        phase = "typing2";
-        typeWriter();
-      } else if (phase === "typing2") {
+        el.textContent = text.slice(0, i++);
         if (i <= text.length) {
-          // Vertippen ".ccom"
-          if (i === text.length - 3) { // Position vor "com"
-            el.textContent = text.slice(0, i) + "ccom";
-            updateHighlight(i, i + 4);
-            setTimeout(() => {
-              phase = "mistype4";
-              typeWriter();
-            }, 500);
-          } else {
-            el.textContent = text.slice(0, i++);
-            updateHighlight(0, 0);
-            setTimeout(typeWriter, 72);
-          }
+          setTimeout(typeWriter, randomSpeed());
         } else {
-          phase = "highlight";
-          setTimeout(typeWriter, 500);
+          setTimeout(() => {
+            el.textContent = "";
+            i = 0; hasMistyped = false;
+            setTimeout(typeWriter, 3000);
+          }, 3000);
         }
-      } else if (phase === "mistype4") {
-        // Rückgängig machen doppeltes c
-        el.textContent = text;
-        updateHighlight(0, 0);
-        setTimeout(() => {
-          phase = "highlight";
-          typeWriter();
-        }, 200);
-      } else if (phase === "highlight") {
-        // Highlight alles für 1 Sekunde, Cursor ausblenden
-        el.style.color = "transparent";
-        highlight.style.left = "0";
-        highlight.style.width = getTextWidth(text, window.getComputedStyle(el).font) + "px";
-
-        setTimeout(() => {
-          el.style.color = "black";
-          highlight.style.width = "0";
-          phase = "wait";
-          typeWriter();
-        }, 1000);
-      } else if (phase === "wait") {
-        // Warten 2 Sekunden (ursprünglich 3 Sekunden)
-        setTimeout(() => {
-          el.textContent = "";
-          updateHighlight(0, 0);
-          phase = "typing";
-          i = 0;
-          typeWriter();
-        }, 2000);
       }
     }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      // Initial highlight hidden
-      highlight.style.width = "0";
-      typeWriter();
-    });
+    document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
 </body>
