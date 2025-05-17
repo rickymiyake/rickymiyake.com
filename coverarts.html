@@ -61,7 +61,7 @@
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 110px; /* links bündig mit Kontakt */
+      left: 200px;
       display: flex;
       gap: 70px;
     }
@@ -83,26 +83,7 @@
       transform: scale(1.05);
     }
 
-    .archiv-button {
-      position: absolute;
-      right: 110px;
-      bottom: 150px; /* angepasst: 30px höher */
-      font-size: 24pt;
-      font-family: "Helvetica LT Std", sans-serif;
-      font-weight: 600;
-      background: none;
-      border: none;
-      color: black;
-      cursor: pointer;
-      padding: 0;
-      transition: transform 0.2s ease;
-    }
-
-    .archiv-button:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
+    .footer-container {
       position: fixed;
       bottom: 30px;
       left: 0;
@@ -136,6 +117,25 @@
       color: #ccc;
     }
 
+    .archiv-button {
+      position: absolute;
+      top: calc(100px + 1px + 300px);
+      right: 200px;
+      font-size: 24pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s ease;
+      color: black;
+    }
+
+    .archiv-button:hover {
+      transform: scale(1.05);
+    }
+
     @media (max-width: 768px) {
       .left-text {
         font-size: 14pt;
@@ -147,19 +147,23 @@
 
       .bottom-left-buttons-container {
         top: calc(100px + 1px + 80px);
-        left: 20px;
+        left: 40px;
         flex-direction: row;
         gap: 20px;
+        position: absolute; /* wichtig */
       }
 
-      .year-button {
-        font-size: 18pt;
+      /* Jahreszahlen links bündig mit #COVERARTS */
+      .bottom-left-buttons-container {
+        left: 40px;
       }
 
+      /* Archiv Button rechts bündig mit rickymiyake.com */
       .archiv-button {
-        right: 20px;
-        bottom: 150px;
-        font-size: 18pt;
+        top: calc(100px + 1px + 110px);
+        right: 40px;
+        position: absolute;
+        font-size: 14pt;
       }
 
       footer {
@@ -194,7 +198,7 @@
 
 <button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
-<footer>
+<footer class="footer-container">
   <button onclick="location.href='kontakt.html'">Kontakt</button>
   <button onclick="location.href='übermich.html'">Über mich</button>
   <button onclick="location.href='datenschutz.html'">Datenschutz</button>
