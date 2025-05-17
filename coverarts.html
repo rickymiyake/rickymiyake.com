@@ -58,17 +58,17 @@
       margin: 0;
     }
 
-    .bottom-left-buttons-container {
+    .year-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 110px; /* jetzt links bündig mit Kontakt */
-      right: 110px; /* Platz für Archiv rechts */
+      left: 110px;
+      right: 110px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .year-buttons-left {
+    .year-buttons-group {
       display: flex;
       gap: 70px;
     }
@@ -81,18 +81,17 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      color: black;
       transition: transform 0.2s ease;
       transform-origin: center;
+      color: black;
     }
 
     .year-button:hover, .archiv-button:hover {
       transform: scale(1.05);
     }
 
-    .year-button-archiv-container {
-      display: flex;
-      justify-content: flex-end;
+    .archiv-button {
+      margin-left: auto;
     }
 
     footer {
@@ -138,22 +137,25 @@
         font-size: 14pt;
       }
 
-      .bottom-left-buttons-container {
+      .year-buttons-container {
         top: calc(100px + 1px + 80px);
-        left: 40px;
+        left: 20px;
         right: 20px;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-        gap: 20px;
       }
 
-      .year-buttons-left {
+      .year-buttons-group {
+        flex-wrap: wrap;
         gap: 20px;
       }
 
       .year-button, .archiv-button {
         font-size: 18pt;
+      }
+
+      .archiv-button {
+        margin-left: auto;
       }
 
       footer {
@@ -179,16 +181,14 @@
 
 <div class="separator"></div>
 
-<div class="bottom-left-buttons-container">
-  <div class="year-buttons-left">
+<div class="year-buttons-container">
+  <div class="year-buttons-group">
     <button class="year-button">*2022</button>
     <button class="year-button">*2023</button>
     <button class="year-button">*2024</button>
     <button class="year-button">*2025</button>
   </div>
-  <div class="year-button-archiv-container">
-    <button class="archiv-button">*Archiv</button>
-  </div>
+  <button class="archiv-button">*Archiv</button>
 </div>
 
 <footer>
