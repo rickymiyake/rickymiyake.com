@@ -83,7 +83,26 @@
       transform: scale(1.05);
     }
 
-    .footer-container {
+    .archiv-button {
+      position: absolute;
+      top: calc(100px + 1px + 300px);
+      right: 200px;
+      font-size: 24pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s ease;
+      color: black;
+    }
+
+    .archiv-button:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
       position: fixed;
       bottom: 30px;
       left: 0;
@@ -117,53 +136,52 @@
       color: #ccc;
     }
 
-    .archiv-button {
-      position: absolute;
-      top: calc(100px + 1px + 300px);
-      right: 200px;
-      font-size: 24pt;
-      font-family: "Helvetica LT Std", sans-serif;
-      font-weight: 600;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      transition: transform 0.2s ease;
-      color: black;
-    }
-
-    .archiv-button:hover {
-      transform: scale(1.05);
-    }
-
+    /* Mobile Styles */
     @media (max-width: 768px) {
+      header {
+        padding: 0 40px 10px 40px;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
       .left-text {
         font-size: 14pt;
+        order: 1;
+        width: 100%;
+        text-align: left;
       }
 
       .right-button {
         font-size: 14pt;
+        order: 2;
+        width: auto;
+        margin-left: auto;
       }
 
       .bottom-left-buttons-container {
-        top: calc(100px + 1px + 80px);
-        left: 40px;
-        flex-direction: row;
+        position: static;
+        margin-top: 10px;
+        display: flex;
         gap: 20px;
-        position: absolute; /* wichtig */
+        width: auto;
+        order: 3;
+        justify-content: flex-start; /* Jahreszahlen linksbündig */
+        padding-left: 40px; /* damit es mit #COVERARTS linksbündig ist */
+        box-sizing: border-box;
       }
 
-      /* Jahreszahlen links bündig mit #COVERARTS */
-      .bottom-left-buttons-container {
-        left: 40px;
+      .year-button {
+        font-size: 18pt;
       }
 
-      /* Archiv Button rechts bündig mit rickymiyake.com */
       .archiv-button {
-        top: calc(100px + 1px + 110px);
-        right: 40px;
         position: absolute;
+        top: 20px; /* auf Höhe von rickymiyake.com */
+        right: 40px; /* rechtsbündig mit rickymiyake.com */
         font-size: 14pt;
+        order: 4;
+        margin-top: 0;
       }
 
       footer {
@@ -198,7 +216,7 @@
 
 <button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
-<footer class="footer-container">
+<footer>
   <button onclick="location.href='kontakt.html'">Kontakt</button>
   <button onclick="location.href='übermich.html'">Über mich</button>
   <button onclick="location.href='datenschutz.html'">Datenschutz</button>
