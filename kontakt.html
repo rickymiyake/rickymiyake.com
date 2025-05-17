@@ -16,16 +16,17 @@
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
     }
 
-    header {
+    header, footer {
       height: 100px;
       padding: 0 40px;
       box-sizing: border-box;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      position: relative;
+      background: transparent;
     }
 
     .right-button {
@@ -44,8 +45,8 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 0 40px; /* wie Coverarts-Seite */
+      header, footer {
+        padding: 0 40px;
       }
 
       .right-button {
@@ -59,6 +60,12 @@
 <header>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
+
+<!-- Hauptinhalt hier, falls nötig -->
+
+<footer>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+</footer>
 
 </body>
 </html>
