@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kontakt</title>
+  <title>Neue Seite</title>
   <style>
     html, body {
       height: 100%;
@@ -11,7 +11,7 @@
       padding: 0;
       background-color: white;
       color: black;
-      font-family: "Helvetica Neue", sans-serif;
+      font-family: sans-serif;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -28,6 +28,13 @@
       position: relative;
     }
 
+    .left-text {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      order: 1;
+    }
+
     .right-button {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
@@ -37,6 +44,7 @@
       color: black;
       cursor: pointer;
       padding: 0;
+      order: 2;
     }
 
     .right-button:hover {
@@ -44,12 +52,16 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 0 20px;
+      .left-text {
+        font-size: 14pt;
       }
 
       .right-button {
         font-size: 14pt;
+      }
+
+      header {
+        padding: 0 20px;
       }
     }
   </style>
@@ -57,9 +69,8 @@
 <body>
 
 <header>
-  <!-- Kein Coverarts-Text hier -->
-  <div></div> <!-- Platzhalter für linken Bereich -->
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">#COVERARTS</div>
 </header>
 
 </body>
