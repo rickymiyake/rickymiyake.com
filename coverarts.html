@@ -61,12 +61,19 @@
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 200px;
+      left: 110px; /* jetzt links bündig mit Kontakt */
+      right: 110px; /* Platz für Archiv rechts */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .year-buttons-left {
       display: flex;
       gap: 70px;
     }
 
-    .year-button {
+    .year-button, .archiv-button {
       font-size: 24pt;
       font-family: "Helvetica LT Std", sans-serif;
       font-weight: 600;
@@ -74,13 +81,18 @@
       border: none;
       cursor: pointer;
       padding: 0;
+      color: black;
       transition: transform 0.2s ease;
       transform-origin: center;
-      color: black;
     }
 
-    .year-button:hover {
+    .year-button:hover, .archiv-button:hover {
       transform: scale(1.05);
+    }
+
+    .year-button-archiv-container {
+      display: flex;
+      justify-content: flex-end;
     }
 
     footer {
@@ -129,11 +141,18 @@
       .bottom-left-buttons-container {
         top: calc(100px + 1px + 80px);
         left: 40px;
-        flex-direction: row; /* Hier geändert: nebeneinander */
+        right: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         gap: 20px;
       }
 
-      .year-button {
+      .year-buttons-left {
+        gap: 20px;
+      }
+
+      .year-button, .archiv-button {
         font-size: 18pt;
       }
 
@@ -161,10 +180,15 @@
 <div class="separator"></div>
 
 <div class="bottom-left-buttons-container">
-  <button class="year-button">*2022</button>
-  <button class="year-button">*2023</button>
-  <button class="year-button">*2024</button>
-  <button class="year-button">*2025</button>
+  <div class="year-buttons-left">
+    <button class="year-button">*2022</button>
+    <button class="year-button">*2023</button>
+    <button class="year-button">*2024</button>
+    <button class="year-button">*2025</button>
+  </div>
+  <div class="year-button-archiv-container">
+    <button class="archiv-button">*Archiv</button>
+  </div>
 </div>
 
 <footer>
