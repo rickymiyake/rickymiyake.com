@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>rickymiyake.com</title>
   <style>
+    html, body {
+      overflow: hidden;
+      height: 100%;
+    }
+
     body {
       margin: 0;
       background-color: white;
@@ -162,16 +167,16 @@
       .dropdown {
         position: static;
         display: none;
-        width: 100%;      /* volle Breite */
-        min-width: 0;     /* Override max-content */
-        margin: 0;        /* keine Einrückung */
-        padding-top: 10px;/* geringerer Abstand unter Portfolio */
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding-top: 10px;
         text-align: left;
         background: transparent;
       }
 
       .dropdown a {
-        display: block;   /* volle Breite einnehmen */
+        display: block;
         width: 100%;
         padding: 10px 0;
         font-size: 18pt;
