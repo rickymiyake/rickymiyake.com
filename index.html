@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>rickymiyake.com</title>
   <style>
-    html, body {
-      overflow: hidden;
-      height: 100%;
-    }
-
     body {
       margin: 0;
       background-color: white;
       font-family: sans-serif;
       color: black;
+      overflow: hidden; /* Seite nicht scrollbar */
     }
 
     header {
@@ -38,15 +34,39 @@
       cursor: pointer;
       overflow: hidden;
       white-space: nowrap;
+      position: relative;
+      display: inline-block;
     }
 
     #typewriter::after {
       content: "|";
       animation: blink 1s infinite;
+      position: relative;
+      left: 2px;
     }
     @keyframes blink {
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
+    }
+
+    /* Highlight-Style für den markierten Text */
+    .highlight {
+      position: relative;
+      display: inline-block;
+      color: black;
+      font-weight: 400;
+      z-index: 2;
+    }
+
+    .highlight::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 0, 150, 0.8); /* Rosa mit 80% Opazität */
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: screen; /* Optional für weicheres Overlay */
+      border-radius: 3px; /* Optional: abgerundete Ecken */
     }
 
     .nav-buttons {
@@ -217,33 +237,45 @@
   <script>
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
-    let i = 0, hasMistyped = false;
+    let i = 0, hasMistyped = false, highlightActive = false;
+
+    // 10% schnellere Geschwindigkeit: Basis 80-180ms -> 72-162ms
     function randomSpeed() {
-      return Math.random() * (180 - 80) + 80;
+      return Math.random() * (162 - 72) + 72;
     }
+
     function typeWriter() {
       if (i <= text.length) {
         if (i === 5 && !hasMistyped) {
-          el.textContent = text.slice(0, i) + "x";
+          // Fehler beim Schreiben rickymiyake.ccom (Fehler im .com Teil)
+          el.textContent = text.slice(0, i) + "ccom";
           hasMistyped = true;
           setTimeout(() => {
-            el.textContent = text.slice(0, i);
+            el.textContent = text.slice(0, i) + "com";
             setTimeout(typeWriter, randomSpeed());
           }, 500);
           return;
         }
-        el.textContent = text.slice(0, i++);
-        if (i <= text.length) {
-          setTimeout(typeWriter, randomSpeed());
-        } else {
+
+        if (i === text.length && !highlightActive) {
+          // Highlight Effekt vor dem Neustart für 800ms
+          el.innerHTML = `<span class="highlight">${text}</span>`;
+          highlightActive = true;
           setTimeout(() => {
             el.textContent = "";
-            i = 0; hasMistyped = false;
-            setTimeout(typeWriter, 500);
-          }, 3000);
+            i = 0;
+            hasMistyped = false;
+            highlightActive = false;
+            setTimeout(typeWriter, 2000); // 2 Sekunden Pause
+          }, 800);
+          return;
         }
+
+        el.textContent = text.slice(0, i++);
+        setTimeout(typeWriter, randomSpeed());
       }
     }
+
     document.addEventListener("DOMContentLoaded", typeWriter);
   </script>
 
