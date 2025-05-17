@@ -58,11 +58,10 @@
       margin: 0;
     }
 
-    /* Jahreszahlen Container */
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 110px; /* Links bündig mit Kontakt (Footer padding) */
+      left: 200px;
       display: flex;
       gap: 70px;
     }
@@ -84,10 +83,9 @@
       transform: scale(1.05);
     }
 
-    /* Archiv Button */
     .archiv-button {
       position: absolute;
-      font-size: 22pt; /* 2pt kleiner als Jahr */
+      font-size: 22pt; /* 2pt kleiner als Jahreszahlen (24pt) */
       font-family: "Helvetica LT Std", sans-serif;
       font-weight: 600;
       background: none;
@@ -95,15 +93,14 @@
       cursor: pointer;
       padding: 0;
       color: black;
-      /* Position Desktop: rechts bündig mit Dings */
-      top: calc(100px + 1px + 150px + 24pt + 330px); /* Jahreszahlen top + Größe + Abstand */
-      right: 110px; /* rechts bündig mit Dings (Footer padding) */
-      white-space: nowrap;
-      transition: color 0.3s ease;
+      transition: transform 0.2s ease;
+      transform-origin: center;
+      top: calc(100px + 1px + 150px + 330px); /* 330px unterhalb der Jahreszahlen */
+      right: 110px; /* rechtsbündig mit Dings (Footer padding) */
     }
 
     .archiv-button:hover {
-      color: #ccc;
+      transform: scale(1.05);
     }
 
     footer {
@@ -140,7 +137,6 @@
       color: #ccc;
     }
 
-    /* Mobile Ansicht */
     @media (max-width: 768px) {
       .left-text {
         font-size: 14pt;
@@ -150,24 +146,22 @@
         font-size: 14pt;
       }
 
-      /* Jahreszahlen mobile links 40px, wie vorher */
       .bottom-left-buttons-container {
         top: calc(100px + 1px + 80px);
         left: 40px;
         flex-direction: row;
         gap: 20px;
-        position: absolute;
       }
 
       .year-button {
         font-size: 18pt;
       }
 
-      /* Archiv Button mobile rechts bündig mit rickymiyake.com */
       .archiv-button {
-        top: calc(100px + 1px + 80px + 18pt + 330px);
-        right: 40px; /* rickymiyake.com padding */
+        position: fixed;
         font-size: 16pt; /* 2pt kleiner als Jahr (18pt) mobil */
+        top: calc(100vh - 30px - 20pt - 60px); /* 60px Abstand oberhalb Kontakt */
+        right: 40px; /* rechts bündig mit rickymiyake.com */
       }
 
       footer {
@@ -180,6 +174,13 @@
 
       footer button {
         font-size: 14pt;
+      }
+    }
+
+    /* Jahreszahlen nur im Vollbild links bündig mit Kontakt */
+    @media (min-width: 769px) {
+      .bottom-left-buttons-container {
+        left: 110px; /* gleich wie footer padding für Kontakt */
       }
     }
   </style>
