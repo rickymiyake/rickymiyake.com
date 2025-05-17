@@ -58,11 +58,11 @@
       margin: 0;
     }
 
-    /* Desktop: Jahreszahlen links bündig mit Kontakt (links: 110px) */
+    /* Jahreszahlen Container */
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 110px;  /* passend zum footer padding */
+      left: 110px; /* Links bündig mit Kontakt (Footer padding) */
       display: flex;
       gap: 70px;
     }
@@ -82,6 +82,28 @@
 
     .year-button:hover {
       transform: scale(1.05);
+    }
+
+    /* Archiv Button */
+    .archiv-button {
+      position: absolute;
+      font-size: 22pt; /* 2pt kleiner als Jahr */
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      color: black;
+      /* Position Desktop: rechts bündig mit Dings */
+      top: calc(100px + 1px + 150px + 24pt + 330px); /* Jahreszahlen top + Größe + Abstand */
+      right: 110px; /* rechts bündig mit Dings (Footer padding) */
+      white-space: nowrap;
+      transition: color 0.3s ease;
+    }
+
+    .archiv-button:hover {
+      color: #ccc;
     }
 
     footer {
@@ -118,6 +140,7 @@
       color: #ccc;
     }
 
+    /* Mobile Ansicht */
     @media (max-width: 768px) {
       .left-text {
         font-size: 14pt;
@@ -127,17 +150,24 @@
         font-size: 14pt;
       }
 
-      /* Mobile: Jahreszahlen wie vorher, links bei 40px */
+      /* Jahreszahlen mobile links 40px, wie vorher */
       .bottom-left-buttons-container {
         top: calc(100px + 1px + 80px);
         left: 40px;
         flex-direction: row;
         gap: 20px;
-        position: absolute; /* position bleibt, damit nicht springt */
+        position: absolute;
       }
 
       .year-button {
         font-size: 18pt;
+      }
+
+      /* Archiv Button mobile rechts bündig mit rickymiyake.com */
+      .archiv-button {
+        top: calc(100px + 1px + 80px + 18pt + 330px);
+        right: 40px; /* rickymiyake.com padding */
+        font-size: 16pt; /* 2pt kleiner als Jahr (18pt) mobil */
       }
 
       footer {
@@ -169,6 +199,8 @@
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
+
+<button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
 <footer>
   <button onclick="location.href='kontakt.html'">Kontakt</button>
