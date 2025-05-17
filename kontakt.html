@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neue Seite</title>
+  <title>Neue Seite mit Coverarts-Header</title>
   <style>
     html, body {
       height: 100%;
@@ -11,11 +11,11 @@
       padding: 0;
       background-color: white;
       color: black;
-      font-family: sans-serif;
-      overflow: hidden;
+      font-family: "Helvetica Neue", sans-serif;
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow: hidden;
     }
 
     header {
@@ -52,6 +52,10 @@
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 0 40px; /* gleich wie Coverarts-Seite */
+      }
+
       .left-text {
         font-size: 14pt;
       }
@@ -59,18 +63,14 @@
       .right-button {
         font-size: 14pt;
       }
-
-      header {
-        padding: 0 20px;
-      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
   <div class="left-text">#COVERARTS</div>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
 
 </body>
