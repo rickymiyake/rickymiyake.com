@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Neue Seite mit Coverarts-Header</title>
+  <title>Kontakt</title>
   <style>
     html, body {
       height: 100%;
@@ -23,16 +23,9 @@
       padding: 0 40px;
       box-sizing: border-box;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
       position: relative;
-    }
-
-    .left-text {
-      font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 700;
-      order: 1;
     }
 
     .right-button {
@@ -44,7 +37,6 @@
       color: black;
       cursor: pointer;
       padding: 0;
-      order: 2;
     }
 
     .right-button:hover {
@@ -53,11 +45,7 @@
 
     @media (max-width: 768px) {
       header {
-        padding: 0 40px; /* gleich wie Coverarts-Seite */
-      }
-
-      .left-text {
-        font-size: 14pt;
+        padding: 0 40px; /* wie Coverarts-Seite */
       }
 
       .right-button {
@@ -69,7 +57,6 @@
 <body>
 
 <header>
-  <div class="left-text">#COVERARTS</div>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
 
