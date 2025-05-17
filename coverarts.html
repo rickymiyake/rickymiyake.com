@@ -58,10 +58,11 @@
       margin: 0;
     }
 
+    /* Desktop: Jahreszahlen links bündig mit Kontakt (links: 110px) */
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 200px;
+      left: 110px;  /* passend zum footer padding */
       display: flex;
       gap: 70px;
     }
@@ -80,6 +81,25 @@
     }
 
     .year-button:hover {
+      transform: scale(1.05);
+    }
+
+    .archive-button {
+      position: absolute;
+      top: calc(100px + 1px + 150px + 90px);
+      right: 200px;
+      font-size: 24pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      color: black;
+      transition: transform 0.2s ease;
+    }
+
+    .archive-button:hover {
       transform: scale(1.05);
     }
 
@@ -126,15 +146,26 @@
         font-size: 14pt;
       }
 
+      /* Mobile: Jahreszahlen links bei 40px (wie vorher) */
       .bottom-left-buttons-container {
         top: calc(100px + 1px + 80px);
         left: 40px;
-        flex-direction: row; /* Hier geändert: nebeneinander */
+        flex-direction: row;
         gap: 20px;
+        position: static; /* damit margin funktioniert */
+        margin-left: 0;
       }
 
       .year-button {
         font-size: 18pt;
+      }
+
+      .archive-button {
+        position: static;
+        margin-top: 20px;
+        font-size: 18pt;
+        align-self: flex-end;
+        margin-right: 40px;
       }
 
       footer {
@@ -166,6 +197,8 @@
   <button class="year-button">*2024</button>
   <button class="year-button">*2025</button>
 </div>
+
+<button class="archive-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
 <footer>
   <button onclick="location.href='kontakt.html'">Kontakt</button>
