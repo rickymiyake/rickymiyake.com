@@ -61,7 +61,7 @@
     .bottom-left-buttons-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
-      left: 110px;
+      left: 200px;
       display: flex;
       gap: 70px;
     }
@@ -85,9 +85,7 @@
 
     .archiv-button {
       position: absolute;
-      right: 110px;
-      top: calc(100px + 1px + 150px + 330px);
-      font-size: 22pt;
+      font-size: 22pt; /* 2pt kleiner als Jahreszahlen (24pt) */
       font-family: "Helvetica LT Std", sans-serif;
       font-weight: 600;
       background: none;
@@ -96,6 +94,9 @@
       padding: 0;
       color: black;
       transition: transform 0.2s ease;
+      transform-origin: center;
+      top: calc(100px + 1px + 150px + 330px); /* 330px unterhalb der Jahreszahlen */
+      right: 110px; /* rechtsbündig mit Dings (Footer padding) */
     }
 
     .archiv-button:hover {
@@ -158,24 +159,29 @@
 
       .archiv-button {
         position: fixed;
-        bottom: 250px;
-        left: 40px;
-        right: 40px;
-        font-size: 16pt;
-        text-align: right;
+        font-size: 16pt; /* 2pt kleiner als Jahr (18pt) mobil */
+        bottom: 250px; /* 250px Abstand vom unteren Seitenrand */
+        right: 40px; /* rechts bündig mit rickymiyake.com */
+        top: auto; /* top entfernen, damit bottom greift */
       }
 
       footer {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
         padding: 0 20px;
         bottom: 30px;
       }
 
       footer button {
         font-size: 14pt;
+      }
+    }
+
+    /* Jahreszahlen nur im Vollbild links bündig mit Kontakt */
+    @media (min-width: 769px) {
+      .bottom-left-buttons-container {
+        left: 110px; /* gleich wie footer padding für Kontakt */
       }
     }
   </style>
