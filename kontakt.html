@@ -14,8 +14,6 @@
       font-family: "Helvetica Neue", sans-serif;
       display: flex;
       flex-direction: column;
-      position: relative;
-      overflow: hidden;
       min-height: 100vh;
     }
 
@@ -27,6 +25,11 @@
       justify-content: flex-end;
       align-items: center;
       background: transparent;
+      flex-shrink: 0; /* Verhindert, dass header/footer schrumpfen */
+    }
+
+    main {
+      flex-grow: 1; /* Nimmt den ganzen verfügbaren Platz ein */
     }
 
     .right-button {
@@ -61,7 +64,7 @@
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
 
-<!-- Hauptinhalt hier, falls nötig -->
+<main></main>
 
 <footer>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
