@@ -122,9 +122,12 @@
       pointer-events: auto;
     }
 
-    .portfolio-wrapper:hover .dropdown,
-    .portfolio-wrapper:hover .hover-buffer {
-      display: flex;
+    /* Hover-Effekt nur auf Desktop */
+    @media (min-width: 769px) {
+      .portfolio-wrapper:hover .dropdown,
+      .portfolio-wrapper:hover .hover-buffer {
+        display: flex;
+      }
     }
 
     .separator {
@@ -140,7 +143,7 @@
       color: #26FF00;
       text-align: center;
       position: absolute;
-      top: 101px; /* header + separator */
+      top: 101px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -225,7 +228,7 @@
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
         <button class="nav-button" id="portfolio-toggle">Portfolio</button>
-        <div class="dropdown">
+        <div class="dropdown" id="portfolio-dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
           <a href="fotoserien.html">Fotoserien</a>
@@ -240,7 +243,7 @@
   <div class="center-message">404 nix gefunden &gt;.&lt;'!  *sorry...</div>
 
   <script>
-    // Typewriter-Effekt
+    // Typewriter
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0, hasMistyped = false;
@@ -272,19 +275,32 @@
     }
     document.addEventListener("DOMContentLoaded", typeWriter);
 
-    // Dropdown-Logik für Mobilgeräte (per Klick)
+    // Mobil-Dropdown
     document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.getElementById("portfolio-toggle");
-      const dropdown = toggleBtn?.nextElementSibling;
+      const toggle = document.getElementById("portfolio-toggle");
+      const dropdown = document.getElementById("portfolio-dropdown");
 
-      if (toggleBtn && dropdown) {
-        toggleBtn.addEventListener("click", (e) => {
+      const isMobile = () => window.innerWidth <= 768;
+
+      if (toggle && dropdown) {
+        toggle.addEventListener("click", (e) => {
+          if (!isMobile()) return;
           e.preventDefault();
           dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
         });
 
+        window.addEventListener("resize", () => {
+          if (!isMobile()) {
+            dropdown.style.display = "";
+          }
+        });
+
         document.addEventListener("click", (e) => {
-          if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+          if (
+            isMobile() &&
+            !toggle.contains(e.target) &&
+            !dropdown.contains(e.target)
+          ) {
             dropdown.style.display = "none";
           }
         });
