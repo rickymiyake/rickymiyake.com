@@ -200,11 +200,6 @@
         margin: 0;
       }
 
-      .portfolio-wrapper:hover .dropdown {
-        display: flex;
-        flex-direction: column;
-      }
-
       .hover-buffer {
         display: none;
       }
@@ -215,7 +210,6 @@
       }
     }
 
-    /* Extra kleine Geräte */
     @media (max-width: 400px) {
       .center-message {
         font-size: 18pt;
@@ -230,7 +224,7 @@
     <div class="nav-buttons">
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
-        <button class="nav-button">Portfolio</button>
+        <button class="nav-button" id="portfolio-toggle">Portfolio</button>
         <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
@@ -246,6 +240,7 @@
   <div class="center-message">404 nix gefunden &gt;.&lt;'!  *sorry...</div>
 
   <script>
+    // Typewriter-Effekt
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0, hasMistyped = false;
@@ -276,6 +271,25 @@
       }
     }
     document.addEventListener("DOMContentLoaded", typeWriter);
+
+    // Dropdown-Logik für Mobilgeräte (per Klick)
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("portfolio-toggle");
+      const dropdown = toggleBtn?.nextElementSibling;
+
+      if (toggleBtn && dropdown) {
+        toggleBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.style.display = "none";
+          }
+        });
+      }
+    });
   </script>
 
 </body>
