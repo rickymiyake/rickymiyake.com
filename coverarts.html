@@ -103,20 +103,18 @@
       transform: scale(1.05);
     }
 
-    .footer-container {
+    .footer-wrapper {
       position: fixed;
       bottom: 10px;
-      left: 0;
-      right: 0;
-      padding: 0 110px;
-      box-sizing: border-box;
+      left: 110px;
+      right: 110px;
       z-index: 10;
     }
 
     .footer-line {
       height: 1px;
       background-color: #ccc;
-      margin-bottom: 8px;
+      margin-bottom: 8px; /* Abstand zum Button jetzt 8px */
       width: 100%;
     }
 
@@ -125,6 +123,9 @@
       justify-content: space-between;
       align-items: center;
       gap: 110px;
+      background: transparent;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     footer button {
@@ -174,9 +175,10 @@
         top: auto;
       }
 
-      .footer-container {
-        padding: 0 40px;
+      .footer-wrapper {
         bottom: 30px;
+        left: 40px;
+        right: 40px;
       }
 
       .footer-line {
@@ -204,15 +206,15 @@
 <div class="separator"></div>
 
 <div class="bottom-left-buttons-container">
-  <button class="year-button">*2022</button>
-  <button class="year-button">*2023</button>
-  <button class="year-button">*2024</button>
-  <button class="year-button">*2025</button>
+  <button class="year-button" onclick="location.href='coverarts2022.html'">*2022</button>
+  <button class="year-button" onclick="location.href='coverarts2023.html'">*2023</button>
+  <button class="year-button" onclick="location.href='coverarts2024.html'">*2024</button>
+  <button class="year-button" onclick="location.href='coverarts2025.html'">*2025</button>
 </div>
 
 <button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
-<div class="footer-container">
+<div class="footer-wrapper">
   <div class="footer-line"></div>
   <footer>
     <button onclick="location.href='kontakt.html'">Kontakt</button>
