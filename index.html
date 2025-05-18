@@ -15,6 +15,7 @@
       background-color: white;
       font-family: sans-serif;
       color: black;
+      position: relative;
     }
 
     header {
@@ -135,20 +136,17 @@
       width: 100%;
     }
 
-    /* 404 Text Styling */
-    .error-text {
+    .error-message {
       position: absolute;
-      top: calc(50% + 0.5px);
-      left: 0;
-      right: 0;
-      transform: translateY(-50%);
-      text-align: center;
-      font-family: 'Helvetica Neue', sans-serif;
+      top: calc(100px + 50%);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 200;
       font-size: 50pt;
       color: #26FF00;
-      user-select: none;
-      pointer-events: none;
+      text-align: center;
+      white-space: nowrap;
     }
 
     /* Mobile-Styles */
@@ -196,7 +194,7 @@
         display: block;
         width: 100%;
         padding: 10px 0;
-        font-size: 18pt;
+        font-size: 16pt;
         margin: 0;
       }
 
@@ -204,8 +202,10 @@
         display: none;
       }
 
-      .error-text {
-        font-size: 28pt !important;
+      .error-message {
+        font-size: 30pt;
+        white-space: normal;
+        padding: 0 20px;
       }
     }
   </style>
@@ -230,9 +230,7 @@
 
   <div class="separator"></div>
 
-  <div class="error-text">
-    404 nix gefunden &gt;.&lt;'! sorry...
-  </div>
+  <div class="error-message">404 nix gefunden &gt;.&lt;'! sorry...</div>
 
   <script>
     // Typewriter Effect
@@ -283,18 +281,15 @@
       }
 
       if (portfolioBtn && dropdown) {
-        // Klick und Touchstart
         portfolioBtn.addEventListener("click", toggleDropdown);
         portfolioBtn.addEventListener("touchstart", toggleDropdown);
 
-        // Klick außerhalb schließt Dropdown
         document.addEventListener("click", function (e) {
           if (window.innerWidth <= 768 && !wrapper.contains(e.target)) {
             dropdown.style.display = "none";
           }
         });
 
-        // Touch außerhalb schließt Dropdown
         document.addEventListener("touchstart", function (e) {
           if (window.innerWidth <= 768 && !wrapper.contains(e.target)) {
             dropdown.style.display = "none";
