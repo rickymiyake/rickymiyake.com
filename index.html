@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -138,7 +139,7 @@
 
     .error-message {
       position: absolute;
-      top: calc(100px + 50%);
+      top: calc(100px + 50% - 100px); /* Verschiebung um 100px nach oben */
       left: 50%;
       transform: translate(-50%, -50%);
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -149,7 +150,6 @@
       white-space: nowrap;
     }
 
-    /* Mobile-Styles */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -206,6 +206,7 @@
         font-size: 30pt;
         white-space: normal;
         padding: 0 20px;
+        top: calc(100px + 50%);
       }
     }
   </style>
@@ -233,13 +234,14 @@
   <div class="error-message">404 nix gefunden &gt;.&lt;'! sorry...</div>
 
   <script>
-    // Typewriter Effect
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0, hasMistyped = false;
+
     function randomSpeed() {
       return (Math.random() * (180 - 80) + 80) * 0.9;
     }
+
     function typeWriter() {
       if (i <= text.length) {
         if (i === 5 && !hasMistyped) {
@@ -265,7 +267,7 @@
     }
     document.addEventListener("DOMContentLoaded", typeWriter);
 
-    // Mobile Dropdown Toggle for Portfolio
+    // Mobile Dropdown Toggle
     document.addEventListener("DOMContentLoaded", function () {
       const portfolioBtn = document.querySelector(".portfolio-wrapper > .nav-button");
       const dropdown = document.querySelector(".portfolio-wrapper .dropdown");
