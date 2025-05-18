@@ -15,8 +15,6 @@
       background-color: white;
       font-family: sans-serif;
       color: black;
-      position: relative;
-      height: 100vh;
     }
 
     header {
@@ -27,7 +25,6 @@
       padding: 0 40px;
       box-sizing: border-box;
       position: relative;
-      z-index: 10;
     }
 
     .logo-button {
@@ -136,8 +133,6 @@
       height: 1px;
       background-color: black;
       width: 100%;
-      position: relative;
-      z-index: 10;
     }
 
     /* Mobile-Styles */
@@ -217,10 +212,10 @@
 
   <div style="
     position: absolute;
-    top: 50%;
+    top: calc(50% + 0.5px);
     left: 0;
     right: 0;
-    transform: translateY(50%);
+    transform: translateY(-50%);
     text-align: center;
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 200;
