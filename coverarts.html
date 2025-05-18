@@ -103,22 +103,28 @@
       transform: scale(1.05);
     }
 
-    footer {
+    .footer-container {
       position: fixed;
-      bottom: 10px; /* jetzt 10px Abstand */
+      bottom: 10px;
       left: 0;
       right: 0;
-      margin: 0 auto;
-      max-width: 100vw;
       padding: 0 110px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .footer-line {
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 5px;
+      width: 100%;
+    }
+
+    footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 110px;
-      box-sizing: border-box;
-      background: transparent;
-      width: 100%;
-      z-index: 10;
     }
 
     footer button {
@@ -132,18 +138,6 @@
       padding: 0;
       transition: color 0.3s ease;
       white-space: nowrap;
-      position: relative; /* für den Strich über dem Button */
-    }
-
-    footer button::before {
-      content: "";
-      position: absolute;
-      top: -5px; /* Abstand jetzt 5px */
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #ccc; /* Farbe geändert */
-      display: block;
     }
 
     footer button:hover {
@@ -180,23 +174,22 @@
         top: auto;
       }
 
-      footer {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+      .footer-container {
         padding: 0 40px;
+        bottom: 30px;
+      }
+
+      .footer-line {
+        display: none;
+      }
+
+      footer {
+        flex-wrap: nowrap;
         gap: 20px;
-        bottom: 30px; /* im Handy-Modus wieder 30px */
-        align-items: center;
       }
 
       footer button {
         font-size: 12pt;
-        white-space: nowrap;
-      }
-
-      footer button::before {
-        display: none; /* Striche im Handy-Modus ausblenden */
       }
     }
   </style>
@@ -219,12 +212,15 @@
 
 <button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
-<footer>
-  <button onclick="location.href='kontakt.html'">Kontakt</button>
-  <button onclick="location.href='übermich.html'">Über mich</button>
-  <button onclick="location.href='datenschutz.html'">Datenschutz</button>
-  <button onclick="location.href='http://endless.horse/'">Dings</button>
-</footer>
+<div class="footer-container">
+  <div class="footer-line"></div>
+  <footer>
+    <button onclick="location.href='kontakt.html'">Kontakt</button>
+    <button onclick="location.href='übermich.html'">Über mich</button>
+    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
+    <button onclick="location.href='http://endless.horse/'">Dings</button>
+  </footer>
+</div>
 
 </body>
 </html>
