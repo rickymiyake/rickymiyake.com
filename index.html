@@ -122,12 +122,9 @@
       pointer-events: auto;
     }
 
-    /* Hover-Effekt nur auf Desktop */
-    @media (min-width: 769px) {
-      .portfolio-wrapper:hover .dropdown,
-      .portfolio-wrapper:hover .hover-buffer {
-        display: flex;
-      }
+    .portfolio-wrapper:hover .dropdown,
+    .portfolio-wrapper:hover .hover-buffer {
+      display: flex;
     }
 
     .separator {
@@ -227,8 +224,8 @@
     <div class="nav-buttons">
       <a href="kontakt.html" class="nav-button">Kontakt</a>
       <div class="portfolio-wrapper">
-        <button class="nav-button" id="portfolio-toggle">Portfolio</button>
-        <div class="dropdown" id="portfolio-dropdown">
+        <button class="nav-button">Portfolio</button>
+        <div class="dropdown">
           <a href="videos.html">Videos</a>
           <a href="coverarts.html">Coverarts</a>
           <a href="fotoserien.html">Fotoserien</a>
@@ -243,7 +240,7 @@
   <div class="center-message">404 nix gefunden &gt;.&lt;'!  *sorry...</div>
 
   <script>
-    // Typewriter
+    // Typewriter-Effekt
     const text = "rickymiyake.com";
     const el = document.getElementById("typewriter");
     let i = 0, hasMistyped = false;
@@ -274,33 +271,25 @@
       }
     }
     document.addEventListener("DOMContentLoaded", typeWriter);
+  </script>
 
-    // Mobil-Dropdown
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.getElementById("portfolio-toggle");
-      const dropdown = document.getElementById("portfolio-dropdown");
+  <script>
+    // Mobile Dropdown per Klick (nur < 768px)
+    document.addEventListener("DOMContentLoaded", function () {
+      const portfolioBtn = document.querySelector(".portfolio-wrapper > .nav-button");
+      const dropdown = document.querySelector(".portfolio-wrapper .dropdown");
 
-      const isMobile = () => window.innerWidth <= 768;
-
-      if (toggle && dropdown) {
-        toggle.addEventListener("click", (e) => {
-          if (!isMobile()) return;
-          e.preventDefault();
-          dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
-        });
-
-        window.addEventListener("resize", () => {
-          if (!isMobile()) {
-            dropdown.style.display = "";
+      if (portfolioBtn && dropdown) {
+        portfolioBtn.addEventListener("click", function (e) {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
           }
         });
 
-        document.addEventListener("click", (e) => {
-          if (
-            isMobile() &&
-            !toggle.contains(e.target) &&
-            !dropdown.contains(e.target)
-          ) {
+        document.addEventListener("click", function (e) {
+          if (window.innerWidth <= 768 && !document.querySelector(".portfolio-wrapper").contains(e.target)) {
             dropdown.style.display = "none";
           }
         });
