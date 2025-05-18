@@ -105,12 +105,12 @@
 
     footer {
       position: fixed;
-      bottom: 10px; /* 10px weniger als vorher */
+      bottom: 10px;
       left: 0;
       right: 0;
       margin: 0 auto;
       max-width: 100vw;
-      padding: 0 110px;
+      padding: 5px 110px 0 110px; /* Oben 5px für Abstand zum Strich */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -119,6 +119,7 @@
       background: transparent;
       width: 100%;
       z-index: 10;
+      border-top: 1px solid #ccc; /* Durchgehender Strich */
     }
 
     footer button {
@@ -132,18 +133,7 @@
       padding: 0;
       transition: color 0.3s ease;
       white-space: nowrap;
-      position: relative; /* für den Strich über dem Button */
-    }
-
-    footer button::before {
-      content: "";
-      position: absolute;
-      top: -5px; /* Abstand jetzt 5px */
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: #ccc; /* Farbe geändert */
-      display: block;
+      position: relative;
     }
 
     footer button:hover {
@@ -186,17 +176,15 @@
         flex-wrap: nowrap;
         padding: 0 40px;
         gap: 20px;
-        bottom: 30px; /* im Handy-Modus wieder 30px */
+        bottom: 30px;
         align-items: center;
+        border-top: none; /* Strich im Handy-Modus ausblenden */
+        padding-top: 0;
       }
 
       footer button {
         font-size: 12pt;
         white-space: nowrap;
-      }
-
-      footer button::before {
-        display: none; /* Striche im Handy-Modus ausblenden */
       }
     }
   </style>
