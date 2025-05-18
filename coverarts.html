@@ -110,16 +110,24 @@
       right: 0;
       margin: 0 auto;
       max-width: 100vw;
-      padding: 5px 110px 0 110px; /* Oben 5px für Abstand zum Strich */
+      background: transparent;
+      width: 100%;
+      z-index: 10;
+      display: flex;
+      justify-content: center; /* Buttons in der Mitte */
+    }
+
+    .footer-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 110px;
+      padding: 5px 0 0 0; /* Abstand oben für den Strich */
+      border-top: 1px solid #ccc; /* Der durchgehende Strich */
+      width: max-content; /* Breite nur so breit wie die Buttons zusammen */
+      padding-left: 110px;
+      padding-right: 110px;
       box-sizing: border-box;
-      background: transparent;
-      width: 100%;
-      z-index: 10;
-      border-top: 1px solid #ccc; /* Durchgehender Strich */
     }
 
     footer button {
@@ -171,20 +179,22 @@
       }
 
       footer {
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        padding: 0 40px;
-        gap: 20px;
         bottom: 30px;
-        align-items: center;
-        border-top: none; /* Strich im Handy-Modus ausblenden */
-        padding-top: 0;
+        justify-content: space-between;
+        padding: 0 40px;
+      }
+
+      .footer-content {
+        border-top: none; /* Im Handy keine Linie */
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        gap: 20px;
+        flex-wrap: nowrap;
       }
 
       footer button {
         font-size: 12pt;
-        white-space: nowrap;
       }
     }
   </style>
@@ -208,10 +218,12 @@
 <button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
 <footer>
-  <button onclick="location.href='kontakt.html'">Kontakt</button>
-  <button onclick="location.href='übermich.html'">Über mich</button>
-  <button onclick="location.href='datenschutz.html'">Datenschutz</button>
-  <button onclick="location.href='http://endless.horse/'">Dings</button>
+  <div class="footer-content">
+    <button onclick="location.href='kontakt.html'">Kontakt</button>
+    <button onclick="location.href='übermich.html'">Über mich</button>
+    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
+    <button onclick="location.href='http://endless.horse/'">Dings</button>
+  </div>
 </footer>
 
 </body>
