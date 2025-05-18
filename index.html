@@ -15,6 +15,8 @@
       background-color: white;
       font-family: sans-serif;
       color: black;
+      position: relative;
+      height: 100vh;
     }
 
     header {
@@ -25,6 +27,7 @@
       padding: 0 40px;
       box-sizing: border-box;
       position: relative;
+      z-index: 10;
     }
 
     .logo-button {
@@ -133,6 +136,8 @@
       height: 1px;
       background-color: black;
       width: 100%;
+      position: relative;
+      z-index: 10;
     }
 
     /* Mobile-Styles */
@@ -187,12 +192,6 @@
       .hover-buffer {
         display: none;
       }
-
-      /* Ergänzung: logo-button sichtbar und kleiner auf Mobil */
-      .logo-button {
-        font-size: 18pt;
-        white-space: nowrap;
-      }
     }
   </style>
 </head>
@@ -223,10 +222,12 @@
     right: 0;
     transform: translateY(50%);
     text-align: center;
-    font-family: sans-serif;
-    font-size: 18pt;
-    color: green;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 200;
+    font-size: 50pt;
+    color: #26FF00;
     user-select: none;
+    pointer-events: none;
   ">
     404 nix gefunden &gt;.&lt;'! sorry...
   </div>
