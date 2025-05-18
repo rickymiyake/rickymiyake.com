@@ -135,6 +135,22 @@
       width: 100%;
     }
 
+    /* 404 Text Styling */
+    .error-text {
+      position: absolute;
+      top: calc(50% + 0.5px);
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+      text-align: center;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 200;
+      font-size: 50pt;
+      color: #26FF00;
+      user-select: none;
+      pointer-events: none;
+    }
+
     /* Mobile-Styles */
     @media (max-width: 768px) {
       header {
@@ -187,6 +203,10 @@
       .hover-buffer {
         display: none;
       }
+
+      .error-text {
+        font-size: 28pt !important;
+      }
     }
   </style>
 </head>
@@ -210,20 +230,7 @@
 
   <div class="separator"></div>
 
-  <div style="
-    position: absolute;
-    top: calc(50% + 0.5px);
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    text-align: center;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: 200;
-    font-size: 50pt;
-    color: #26FF00;
-    user-select: none;
-    pointer-events: none;
-  ">
+  <div class="error-text">
     404 nix gefunden &gt;.&lt;'! sorry...
   </div>
 
