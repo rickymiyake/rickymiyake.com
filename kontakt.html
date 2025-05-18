@@ -25,11 +25,11 @@
       justify-content: flex-end;
       align-items: center;
       background: transparent;
-      flex-shrink: 0; /* Verhindert, dass header/footer schrumpfen */
+      flex-shrink: 0;
     }
 
     main {
-      flex-grow: 1; /* Nimmt den ganzen verfügbaren Platz ein */
+      flex-grow: 1;
     }
 
     .right-button {
@@ -67,7 +67,10 @@
 <main></main>
 
 <footer>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 20px;">
+    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+    <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  </div>
 </footer>
 
 </body>
