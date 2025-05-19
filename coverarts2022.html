@@ -5,205 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>#COVERARTS</title>
   <style>
-    html, body {
-      height: 100%;
-      overflow: hidden;
+    body {
       margin: 0;
       padding: 0;
-      background-color: white;
-      color: black;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      font-family: "Helvetica Neue", sans-serif;
     }
 
     header {
       height: 100px;
-      padding: 0 40px;
-      box-sizing: border-box;
+      padding: 0 110px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      position: relative;
+      justify-content: space-between;
     }
 
     .left-text {
       font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
-      order: 1;
-      display: flex;
-      align-items: center;
     }
 
-    .year-label {
+    .year-text {
+      font-size: 24pt;
+      font-weight: 700;
       margin-left: 2px;
-      font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 700;
-    }
-
-    .right-button {
-      font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100;
-      background: none;
-      border: none;
-      color: black;
-      cursor: pointer;
-      padding: 0;
-      order: 2;
-    }
-
-    .right-button:hover {
-      color: #ccc;
     }
 
     .separator {
       height: 1px;
       background-color: black;
       width: 100%;
-      margin: 0;
     }
 
-    .image-grid {
+    .grid-container {
+      margin: 140px 110px 0 110px;
       display: grid;
-      grid-template-columns: repeat(7, 200px);
+      grid-template-columns: repeat(7, 1fr);
       grid-template-rows: repeat(2, 200px);
       gap: 20px;
-      margin-top: 140px;
-      padding: 0 110px;
-      box-sizing: border-box;
     }
 
-    .image-grid img {
+    .grid-container img {
       width: 200px;
       height: 200px;
       object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #ddd;
     }
 
     .footer-wrapper {
-      position: fixed;
-      bottom: 10px;
-      left: 110px;
-      right: 110px;
-      z-index: 10;
-    }
-
-    .footer-line {
-      height: 1px;
-      background-color: #ccc;
-      margin-bottom: 8px;
-      width: 100%;
-    }
-
-    footer {
+      margin: 50px 110px 20px 110px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 110px;
-      background: transparent;
-      width: 100%;
-      box-sizing: border-box;
     }
 
-    footer button {
-      font-size: 20pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100;
+    .footer-wrapper button {
       background: none;
       border: none;
-      color: black;
+      font-size: 20pt;
+      font-weight: 100;
       cursor: pointer;
-      padding: 0;
-      transition: color 0.3s ease;
-      white-space: nowrap;
+      color: black;
     }
 
-    footer button:hover {
+    .footer-wrapper button:hover {
       color: #ccc;
-    }
-
-    @media (max-width: 768px) {
-      .left-text {
-        font-size: 14pt;
-      }
-
-      .year-label {
-        font-size: 14pt;
-      }
-
-      .right-button {
-        font-size: 14pt;
-      }
-
-      .image-grid {
-        padding: 0 40px;
-        gap: 10px;
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        justify-content: center;
-      }
-
-      .image-grid img {
-        width: 100%;
-        height: auto;
-      }
-
-      .footer-wrapper {
-        bottom: 30px;
-        left: 40px;
-        right: 40px;
-      }
-
-      .footer-line {
-        display: none;
-      }
-
-      footer {
-        flex-wrap: nowrap;
-        gap: 20px;
-      }
-
-      footer button {
-        font-size: 12pt;
-      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-  <div class="left-text">
-    #COVERARTS<span class="year-label">*2022</span>
-  </div>
+  <div class="left-text">#COVERARTS<span class="year-text">*2022</span></div>
 </header>
 
 <div class="separator"></div>
 
-<div class="image-grid">
-  <img src="images/c2022/1.jpeg" alt="Cosmo&Wanda" />
-  <img src="images/c2022/2.jpeg" alt="XD" />
-  <img src="images/c2022/3.jpeg" alt="Gucci Straps" />
-  <img src="images/c2022/4.jpeg" alt="RAFS" />
-  <img src="images/c2022/5.jpeg" alt="MADHIGH" />
-  <img src="images/c2022/6.jpeg" alt="SizzZ-UP!" />
-  <img src="images/c2022/7.jpeg" alt="VOID" />
-  <img src="images/c2022/8.jpeg" alt="VORBEI" />
-  <img src="images/c2022/9.jpeg" alt="XtaC" />
+<div class="grid-container">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
+  <!-- restliche 5 Zellen leer -->
+  <div></div><div></div><div></div><div></div><div></div>
 </div>
 
 <div class="footer-wrapper">
-  <div class="footer-line"></div>
-  <footer>
-    <button onclick="location.href='kontakt.html'">Kontakt</button>
-    <button onclick="location.href='übermich.html'">Über mich</button>
-    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
-    <button onclick="location.href='http://endless.horse/'">Dings</button>
-  </footer>
+  <button onclick="location.href='kontakt.html'">Kontakt</button>
+  <button onclick="location.href='dings.html'">Dings</button>
 </div>
 
 </body>
