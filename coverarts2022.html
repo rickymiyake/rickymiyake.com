@@ -5,35 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>#COVERARTS</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
+      overflow: hidden;
       margin: 0;
       padding: 0;
-      font-family: "Helvetica Neue", sans-serif;
+      background-color: white;
+      color: black;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
 
     header {
       height: 100px;
-      padding: 0 110px;
+      padding: 0 40px;
+      box-sizing: border-box;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      position: relative;
     }
 
     .left-text {
       font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
+      order: 1;
     }
 
-    .year-text {
+    .right-button {
       font-size: 24pt;
-      font-weight: 700;
-      margin-left: 2px;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      order: 2;
+    }
+
+    .right-button:hover {
+      color: #ccc;
     }
 
     .separator {
       height: 1px;
       background-color: black;
       width: 100%;
+      margin: 0;
+    }
+
+    .bottom-left-buttons-container {
+      position: absolute;
+      top: calc(100px + 1px + 150px);
+      left: 110px;
+      display: flex;
+      gap: 70px;
+    }
+
+    .year-button {
+      font-size: 24pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.2s ease;
+      transform-origin: center;
+      color: black;
+    }
+
+    .year-button:hover {
+      transform: scale(1.05);
+    }
+
+    .archiv-button {
+      position: absolute;
+      font-size: 20pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 400;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      color: black;
+      transition: transform 0.2s ease;
+      transform-origin: center;
+      top: calc(100px + 1px + 150px + 330px);
+      right: 110px;
+    }
+
+    .archiv-button:hover {
+      transform: scale(1.05);
     }
 
     .grid-container {
@@ -42,6 +109,9 @@
       grid-template-columns: repeat(7, 1fr);
       grid-template-rows: repeat(2, 200px);
       gap: 20px;
+      position: relative; /* für z-index Kontext */
+      flex-grow: 1;
+      overflow-y: auto;
     }
 
     .grid-container img {
@@ -51,34 +121,115 @@
     }
 
     .footer-wrapper {
-      margin: 50px 110px 20px 110px;
-      border-top: 1px solid #ccc;
-      padding-top: 10px;
+      position: fixed;
+      bottom: 10px;
+      left: 110px;
+      right: 110px;
+      z-index: 10;
+    }
+
+    .footer-line {
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 8px;
+      width: 100%;
+    }
+
+    footer {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 110px;
+      background: transparent;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .footer-wrapper button {
+    footer button {
+      font-size: 20pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
       background: none;
       border: none;
-      font-size: 20pt;
-      font-weight: 100;
-      cursor: pointer;
       color: black;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+      white-space: nowrap;
     }
 
-    .footer-wrapper button:hover {
+    footer button:hover {
       color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .left-text {
+        font-size: 14pt;
+      }
+
+      .right-button {
+        font-size: 14pt;
+      }
+
+      .bottom-left-buttons-container {
+        top: calc(100px + 1px + 80px);
+        left: 40px;
+        flex-direction: row;
+        gap: 20px;
+      }
+
+      .year-button {
+        font-size: 18pt;
+      }
+
+      .archiv-button {
+        position: fixed;
+        font-size: 18pt;
+        font-family: "Helvetica Neue", sans-serif;
+        font-weight: 400;
+        bottom: 250px;
+        right: 40px;
+        top: auto;
+      }
+
+      .footer-wrapper {
+        bottom: 30px;
+        left: 40px;
+        right: 40px;
+      }
+
+      .footer-line {
+        display: none;
+      }
+
+      footer {
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+
+      footer button {
+        font-size: 12pt;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="left-text">#COVERARTS<span class="year-text">*2022</span></div>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">#COVERARTS</div>
 </header>
 
 <div class="separator"></div>
+
+<div class="bottom-left-buttons-container">
+  <button class="year-button" onclick="location.href='coverarts2022.html'">*2022</button>
+  <button class="year-button" onclick="location.href='coverarts2023.html'">*2023</button>
+  <button class="year-button" onclick="location.href='coverarts2024.html'">*2024</button>
+  <button class="year-button" onclick="location.href='coverarts2025.html'">*2025</button>
+</div>
+
+<button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
 <div class="grid-container">
   <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
@@ -95,8 +246,13 @@
 </div>
 
 <div class="footer-wrapper">
-  <button onclick="location.href='kontakt.html'">Kontakt</button>
-  <button onclick="location.href='dings.html'">Dings</button>
+  <div class="footer-line"></div>
+  <footer>
+    <button onclick="location.href='kontakt.html'">Kontakt</button>
+    <button onclick="location.href='übermich.html'">Über mich</button>
+    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
+    <button onclick="location.href='http://endless.horse/'">Dings</button>
+  </footer>
 </div>
 
 </body>
