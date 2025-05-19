@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>#COVERARTS*2022</title>
+  <title>#COVERARTS</title>
   <style>
     html, body {
       height: 100%;
@@ -67,6 +67,24 @@
       margin: 0;
     }
 
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 200px);
+      grid-template-rows: repeat(2, 200px);
+      gap: 20px;
+      margin-top: 140px;
+      padding: 0 110px;
+      box-sizing: border-box;
+    }
+
+    .image-grid img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
     .footer-wrapper {
       position: fixed;
       bottom: 10px;
@@ -122,6 +140,18 @@
         font-size: 14pt;
       }
 
+      .image-grid {
+        padding: 0 40px;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        justify-content: center;
+      }
+
+      .image-grid img {
+        width: 100%;
+        height: auto;
+      }
+
       .footer-wrapper {
         bottom: 30px;
         left: 40px;
@@ -153,6 +183,18 @@
 </header>
 
 <div class="separator"></div>
+
+<div class="image-grid">
+  <img src="images/c2022/1.jpeg" alt="Bild 1" />
+  <img src="images/c2022/2.jpeg" alt="Bild 2" />
+  <img src="images/c2022/3.jpeg" alt="Bild 3" />
+  <img src="images/c2022/4.jpeg" alt="Bild 4" />
+  <img src="images/c2022/5.jpeg" alt="Bild 5" />
+  <img src="images/c2022/6.jpeg" alt="Bild 6" />
+  <img src="images/c2022/7.jpeg" alt="Bild 7" />
+  <img src="images/c2022/8.jpeg" alt="Bild 8" />
+  <img src="images/c2022/9.jpeg" alt="Bild 9" />
+</div>
 
 <div class="footer-wrapper">
   <div class="footer-line"></div>
