@@ -33,6 +33,15 @@
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
       order: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .year-label {
+      margin-left: 2px;
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
     }
 
     .right-button {
@@ -105,6 +114,10 @@
         font-size: 14pt;
       }
 
+      .year-label {
+        font-size: 14pt;
+      }
+
       .right-button {
         font-size: 14pt;
       }
@@ -134,7 +147,9 @@
 
 <header>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-  <div class="left-text">#COVERARTS</div>
+  <div class="left-text">
+    #COVERARTS<span class="year-label">*2022</span>
+  </div>
 </header>
 
 <div class="separator"></div>
