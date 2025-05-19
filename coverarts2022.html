@@ -5,66 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>#COVERARTS</title>
   <style>
-    html, body {
-      height: 100%;
-      overflow: hidden;
+    body {
       margin: 0;
       padding: 0;
-      background-color: white;
-      color: black;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      font-family: "Helvetica Neue", sans-serif;
     }
 
     header {
       height: 100px;
-      padding: 0 40px;
-      box-sizing: border-box;
+      padding: 0 110px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      position: relative;
+      justify-content: space-between;
     }
 
     .left-text {
       font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
-      order: 1;
-      display: flex;
-      align-items: center;
     }
 
     .year-text {
-      margin-left: 2px;
       font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
-    }
-
-    .right-button {
-      font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100;
-      background: none;
-      border: none;
-      color: black;
-      cursor: pointer;
-      padding: 0;
-      order: 2;
-    }
-
-    .right-button:hover {
-      color: #ccc;
+      margin-left: 2px;
     }
 
     .separator {
       height: 1px;
       background-color: black;
       width: 100%;
-      margin: 0;
     }
 
     .grid-container {
@@ -82,44 +51,23 @@
     }
 
     .footer-wrapper {
-      position: fixed;
-      bottom: 10px;
-      left: 110px;
-      right: 110px;
-      z-index: 10;
-    }
-
-    .footer-line {
-      height: 1px;
-      background-color: #ccc;
-      margin-bottom: 8px;
-      width: 100%;
-    }
-
-    footer {
+      margin: 50px 110px 20px 110px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 110px;
-      background: transparent;
-      width: 100%;
-      box-sizing: border-box;
     }
 
-    footer button {
-      font-size: 20pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 100;
+    .footer-wrapper button {
       background: none;
       border: none;
-      color: black;
+      font-size: 20pt;
+      font-weight: 100;
       cursor: pointer;
-      padding: 0;
-      transition: color 0.3s ease;
-      white-space: nowrap;
+      color: black;
     }
 
-    footer button:hover {
+    .footer-wrapper button:hover {
       color: #ccc;
     }
   </style>
@@ -127,33 +75,28 @@
 <body>
 
 <header>
-  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
   <div class="left-text">#COVERARTS<span class="year-text">*2022</span></div>
 </header>
 
 <div class="separator"></div>
 
 <div class="grid-container">
-  <img src="https://github.com/rickymiyake/rickymiyake.com/blob/main/images/c2022/1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_FALCO_COVER.jpeg" alt="2">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_ELJEFE_COVER.jpeg" alt="3">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_KEINBOCKMEHR_COVER.jpeg" alt="4">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_KLUBHAUS_COVER.jpeg" alt="5">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_LEAVEMEALONE_COVER.jpeg" alt="6">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7_LINKSCREW_COVER.jpeg" alt="7">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8_MARBELLA_COVER.jpeg" alt="8">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9_NULLBOCK_COVER.jpeg" alt="9">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
+  <!-- restliche 5 Zellen leer -->
   <div></div><div></div><div></div><div></div><div></div>
 </div>
 
 <div class="footer-wrapper">
-  <div class="footer-line"></div>
-  <footer>
-    <button onclick="location.href='kontakt.html'">Kontakt</button>
-    <button onclick="location.href='übermich.html'">Über mich</button>
-    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
-    <button onclick="location.href='http://endless.horse/'">Dings</button>
-  </footer>
+  <button onclick="location.href='kontakt.html'">Kontakt</button>
+  <button onclick="location.href='dings.html'">Dings</button>
 </div>
 
 </body>
