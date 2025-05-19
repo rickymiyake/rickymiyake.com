@@ -83,33 +83,13 @@
       transform: scale(1.05);
     }
 
-    .archiv-button {
-      position: absolute;
-      font-size: 20pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 400;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      color: black;
-      transition: transform 0.2s ease;
-      transform-origin: center;
-      top: calc(100px + 1px + 150px + 330px);
-      right: 110px;
-    }
-
-    .archiv-button:hover {
-      transform: scale(1.05);
-    }
-
     .grid-container {
       margin: 140px 110px 0 110px;
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       grid-template-rows: repeat(2, 200px);
       gap: 20px;
-      position: relative; /* für z-index Kontext */
+      position: relative;
       flex-grow: 1;
       overflow-y: auto;
     }
@@ -182,16 +162,6 @@
         font-size: 18pt;
       }
 
-      .archiv-button {
-        position: fixed;
-        font-size: 18pt;
-        font-family: "Helvetica Neue", sans-serif;
-        font-weight: 400;
-        bottom: 250px;
-        right: 40px;
-        top: auto;
-      }
-
       .footer-wrapper {
         bottom: 30px;
         left: 40px;
@@ -228,8 +198,6 @@
   <button class="year-button" onclick="location.href='coverarts2024.html'">*2024</button>
   <button class="year-button" onclick="location.href='coverarts2025.html'">*2025</button>
 </div>
-
-<button class="archiv-button" onclick="location.href='coverartsarchiv.html'">*Archiv</button>
 
 <div class="grid-container">
   <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
