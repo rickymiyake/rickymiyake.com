@@ -34,6 +34,8 @@
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
       order: 1;
+      display: flex;
+      align-items: center;
     }
 
     .left-text a {
@@ -45,6 +47,13 @@
 
     .left-text a:hover {
       transform: scale(1.05);
+    }
+
+    .left-text .year {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      margin-left: 5px;
     }
 
     .right-button {
@@ -89,7 +98,7 @@
       overflow-x: auto;
       gap: 20px;
       scroll-behavior: smooth;
-      padding-bottom: 5px; /* Scrollbar 5px tiefer */
+      padding-bottom: 5px;
     }
 
     .grid-container::-webkit-scrollbar {
@@ -160,6 +169,10 @@
         font-size: 14pt;
       }
 
+      .left-text .year {
+        font-size: 14pt;
+      }
+
       .right-button {
         font-size: 14pt;
       }
@@ -188,7 +201,7 @@
       }
 
       .grid-container {
-        padding: 0 0 5px 0; /* Erhält den Abstand unten */
+        padding: 0 0 5px 0;
       }
 
       .grid-wrapper {
@@ -202,7 +215,10 @@
 
 <header>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-  <div class="left-text"><a href="coverarts.html">#COVERARTS*2022</a></div>
+  <div class="left-text">
+    <a href="coverarts.html">#COVERARTS</a>
+    <span class="year">*2022</span>
+  </div>
 </header>
 
 <div class="separator"></div>
