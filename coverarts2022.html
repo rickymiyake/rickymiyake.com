@@ -15,6 +15,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow-x: hidden;
     }
 
     header {
@@ -57,13 +58,23 @@
       margin: 0;
     }
 
+    .grid-wrapper {
+      /* Höhe zwischen oberem und unterem Trennstrich (100px header + 1px separator + footer + footer line) */
+      /* footer-wrapper ist fixed mit 10px Abstand + footer-line 8px + margin + Höhe der buttons ca 40px => ca 60px + separator oben 1px */
+      height: calc(100vh - 100px - 1px - 60px);
+      display: flex;
+      align-items: center; /* Vertikale Zentrierung */
+      overflow: hidden;
+    }
+
     .scroll-mask {
       overflow: hidden;
       padding: 0 110px;
+      width: 100%;
     }
 
     .grid-container {
-      margin: 40px 0 0 0;
+      margin: 0;
       display: flex;
       overflow-x: auto;
       gap: 20px;
@@ -164,6 +175,11 @@
 
       .grid-container {
         padding: 0;
+      }
+
+      .grid-wrapper {
+        height: auto;
+        align-items: flex-start;
       }
     }
   </style>
