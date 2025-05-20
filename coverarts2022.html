@@ -15,6 +15,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      overflow-x: hidden;
     }
 
     header {
@@ -32,15 +33,6 @@
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
       order: 1;
-      display: flex;
-      align-items: center;
-    }
-
-    .year-text {
-      margin-left: 2px;
-      font-size: 24pt;
-      font-family: "Helvetica Neue", sans-serif;
-      font-weight: 700;
     }
 
     .right-button {
@@ -66,13 +58,38 @@
       margin: 0;
     }
 
-    .grid-container {
-      margin: 40px 0 0 0;
+    .grid-wrapper {
+      /* Höhe zwischen oberem und unterem Trennstrich (100px header + 1px separator + footer + footer line) */
+      /* footer-wrapper ist fixed mit 10px Abstand + footer-line 8px + margin + Höhe der buttons ca 40px => ca 60px + separator oben 1px */
+      height: calc(100vh - 100px - 1px - 60px);
+      display: flex;
+      align-items: center; /* Vertikale Zentrierung */
+      overflow: hidden;
+    }
+
+    .scroll-mask {
+      overflow: hidden;
       padding: 0 110px;
+      width: 100%;
+    }
+
+    .grid-container {
+      margin: 0;
       display: flex;
       overflow-x: auto;
       gap: 20px;
       scroll-behavior: smooth;
+    }
+
+    .grid-container::-webkit-scrollbar {
+      height: 8px;
+      background-color: transparent;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .grid-container:hover::-webkit-scrollbar {
+      opacity: 0.3;
     }
 
     .grid-container img {
@@ -124,28 +141,6 @@
       color: #ccc;
     }
 
-    /* Scrollbar transparent and only visible on hover */
-    .grid-container {
-      scrollbar-width: thin;
-      scrollbar-color: rgba(0,0,0,0.1) transparent;
-      position: relative;
-    }
-    .grid-container::-webkit-scrollbar {
-      height: 8px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .grid-container:hover::-webkit-scrollbar {
-      opacity: 0.3;
-    }
-    .grid-container::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.1);
-      border-radius: 4px;
-    }
-    .grid-container::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
     @media (max-width: 768px) {
       .left-text {
         font-size: 14pt;
@@ -174,13 +169,17 @@
         font-size: 12pt;
       }
 
-      .grid-container {
+      .scroll-mask {
         padding: 0 40px;
       }
 
-      .grid-container img {
-        width: 200px;
-        height: 200px;
+      .grid-container {
+        padding: 0;
+      }
+
+      .grid-wrapper {
+        height: auto;
+        align-items: flex-start;
       }
     }
   </style>
@@ -189,23 +188,27 @@
 
 <header>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
-  <div class="left-text">
-    #COVERARTS<span class="year-text">*2022</span>
+  <div class="left-text">#COVERARTS</div>
+      #COVERARTS<span class="year-text">*2022</span>
   </div>
 </header>
 
 <div class="separator"></div>
 
-<div class="grid-container">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
+<div class="grid-wrapper">
+  <div class="scroll-mask">
+    <div class="grid-container">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
+    </div>
+  </div>
 </div>
 
 <div class="footer-wrapper">
