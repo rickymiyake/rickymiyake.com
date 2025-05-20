@@ -92,14 +92,17 @@
     }
 
     .grid-container::-webkit-scrollbar {
-      height: 8px;
-      background-color: transparent;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      height: 6px;
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
-    .grid-container:hover::-webkit-scrollbar {
-      opacity: 0.3;
+    .grid-container::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .grid-container:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
     }
 
     .grid-container img {
