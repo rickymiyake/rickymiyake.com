@@ -57,6 +57,11 @@
       margin: 0;
     }
 
+    .grid-wrapper {
+      padding: 0;
+      margin: 0;
+    }
+
     .grid-container {
       margin: 40px 0 0 0;
       padding: 0 110px;
@@ -64,6 +69,26 @@
       overflow-x: auto;
       gap: 20px;
       scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox: scrollbar unsichtbar */
+    }
+
+    .grid-wrapper:hover .grid-container {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    }
+
+    .grid-container::-webkit-scrollbar {
+      height: 8px;
+      background: transparent;
+    }
+
+    .grid-container::-webkit-scrollbar-thumb {
+      background: transparent;
+      transition: background 0.3s;
+    }
+
+    .grid-wrapper:hover .grid-container::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.2);
     }
 
     .grid-container img {
@@ -158,16 +183,18 @@
 
 <div class="separator"></div>
 
-<div class="grid-container">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
-  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
+<div class="grid-wrapper">
+  <div class="grid-container">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
+    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
+  </div>
 </div>
 
 <div class="footer-wrapper">
