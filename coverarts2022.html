@@ -14,11 +14,7 @@
       padding: 0;
       font-family: "Helvetica Neue", sans-serif;
       height: 100%;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
+      overflow: hidden;
     }
 
     header {
@@ -47,13 +43,12 @@
     }
 
     .main {
-      flex: 1;
+      height: calc(100% - 100px - 1px - 61px); /* Höhe zwischen Header + Trennlinie + Footer */
       padding: 0 110px;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow-y: auto;
-      position: relative;
     }
 
     .main::-webkit-scrollbar {
@@ -124,7 +119,7 @@
     <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
     <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
     <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
-    <!-- Leere Zellen -->
+    <!-- 5 leere Zellen -->
     <div></div><div></div><div></div><div></div><div></div>
   </div>
 </div>
