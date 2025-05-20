@@ -5,128 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>#COVERARTS</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      font-family: "Helvetica Neue", sans-serif;
-      height: 100%;
-      overflow: hidden;
+      background-color: white;
+      color: black;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
 
     header {
       height: 100px;
-      padding: 0 110px;
+      padding: 0 40px;
+      box-sizing: border-box;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      position: relative;
     }
 
     .left-text {
       font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
+      order: 1;
     }
 
-    .year-text {
+    .right-button {
       font-size: 24pt;
-      font-weight: 700;
-      margin-left: 2px;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      order: 2;
+    }
+
+    .right-button:hover {
+      color: #ccc;
     }
 
     .separator {
       height: 1px;
       background-color: black;
       width: 100%;
-    }
-
-    .main {
-      height: calc(100% - 100px - 1px - 61px); /* Höhe zwischen Header + Trennlinie + Footer */
-      padding: 0 110px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-y: auto;
-    }
-
-    .main::-webkit-scrollbar {
-      width: 8px;
-      background: transparent;
-    }
-
-    .main:hover::-webkit-scrollbar {
-      background: rgba(0, 0, 0, 0.05);
-    }
-
-    .main::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
+      margin: 0;
     }
 
     .grid-container {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: repeat(2, 200px);
+      margin: 40px 0 0 0;
+      padding: 0 110px;
+      display: flex;
+      overflow-x: auto;
       gap: 20px;
+      scroll-behavior: smooth;
     }
 
     .grid-container img {
       width: 200px;
       height: 200px;
       object-fit: cover;
+      flex-shrink: 0;
     }
 
     .footer-wrapper {
-      height: 60px;
-      padding: 10px 110px 0 110px;
-      border-top: 1px solid #ccc;
+      position: fixed;
+      bottom: 10px;
+      left: 110px;
+      right: 110px;
+      z-index: 10;
+    }
+
+    .footer-line {
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 8px;
+      width: 100%;
+    }
+
+    footer {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 110px;
+      background: transparent;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .footer-wrapper button {
+    footer button {
+      font-size: 20pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
       background: none;
       border: none;
-      font-size: 20pt;
-      font-weight: 100;
-      cursor: pointer;
       color: black;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+      white-space: nowrap;
     }
 
-    .footer-wrapper button:hover {
+    footer button:hover {
       color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .left-text {
+        font-size: 14pt;
+      }
+
+      .right-button {
+        font-size: 14pt;
+      }
+
+      .footer-wrapper {
+        bottom: 30px;
+        left: 40px;
+        right: 40px;
+      }
+
+      .footer-line {
+        display: none;
+      }
+
+      footer {
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+
+      footer button {
+        font-size: 12pt;
+      }
+
+      .grid-container {
+        padding: 0 40px;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="left-text">#COVERARTS<span class="year-text">*2022</span></div>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">#COVERARTS</div>
 </header>
 
 <div class="separator"></div>
 
-<div class="main">
-  <div class="grid-container">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
-    <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
-    <!-- 5 leere Zellen -->
-    <div></div><div></div><div></div><div></div><div></div>
-  </div>
+<div class="grid-container">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022//1_COSMO_WANDA_COVER.jpeg" alt="Cosmo&Wanda">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/2_XD_COVER.jpeg" alt="XD">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/3_GUCCI_STRAPS_COVER.jpeg" alt="Gucci Straps">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/4_RAFS_COVER.jpeg" alt="RAFS">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/5_MADHIGH_COVER.jpeg" alt="MADHIGH">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/6_SizzZ-UP!_COVER.jpeg" alt="SizzZ-UP!">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/7-VOID_COVER.jpeg" alt="VOID">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/8-VORBEI_COVER.jpeg" alt="VORBEI">
+  <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2022/9-X_ta_C_COVER.jpeg" alt="XtaC">
 </div>
 
 <div class="footer-wrapper">
-  <button onclick="location.href='kontakt.html'">Kontakt</button>
-  <button onclick="location.href='dings.html'">Dings</button>
+  <div class="footer-line"></div>
+  <footer>
+    <button onclick="location.href='kontakt.html'">Kontakt</button>
+    <button onclick="location.href='übermich.html'">Über mich</button>
+    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
+    <button onclick="location.href='http://endless.horse/'">Dings</button>
+  </footer>
 </div>
 
 </body>
