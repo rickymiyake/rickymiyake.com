@@ -211,11 +211,11 @@
       }
 
       .grid-wrapper {
-        height: auto;
+        height: calc(100vh - 100px - 60px - 60px); /* Header + Footer + Luft */
         justify-content: center;
+        align-items: center;
         overflow-x: auto;
-        overflow-y: visible;
-        padding: 20px 0;
+        overflow-y: hidden;
       }
     }
   </style>
