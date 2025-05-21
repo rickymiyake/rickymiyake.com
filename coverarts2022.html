@@ -197,12 +197,12 @@
       }
 
       .scroll-mask {
-        padding: 0 40px;
+        padding: 0 20px;
       }
 
       .grid-container {
         padding: 0 0 5px 0;
-        justify-content: center;
+        justify-content: flex-start;
       }
 
       .grid-container img {
@@ -211,9 +211,11 @@
       }
 
       .grid-wrapper {
-        height: calc(100vh - 100px - 60px);
+        height: auto;
         justify-content: center;
-        transform: translateY(-50px);
+        overflow-x: auto;
+        overflow-y: visible;
+        padding: 20px 0;
       }
     }
   </style>
