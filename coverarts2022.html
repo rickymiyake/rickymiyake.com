@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>#COVERARTS*2022</title>
+  <title>#COVERARTS</title>
   <style>
     html, body {
       height: 100%;
@@ -15,7 +15,8 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: hidden;
     }
 
     header {
@@ -35,19 +36,24 @@
       order: 1;
       display: flex;
       align-items: center;
-      cursor: pointer;
+    }
+
+    .left-text a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
       transition: transform 0.3s ease;
     }
 
-    .left-text:hover {
+    .left-text a:hover {
       transform: scale(1.05);
     }
 
-    .year-text {
-      margin-left: 5px;
+    .left-text .year {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
+      margin-left: 5px;
     }
 
     .right-button {
@@ -60,11 +66,10 @@
       cursor: pointer;
       padding: 0;
       order: 2;
-      transition: transform 0.3s ease;
     }
 
     .right-button:hover {
-      transform: scale(1.05);
+      color: #ccc;
     }
 
     .separator {
@@ -85,7 +90,6 @@
       overflow: hidden;
       padding: 0 110px;
       width: 100%;
-      position: relative;
     }
 
     .grid-container {
@@ -94,17 +98,21 @@
       overflow-x: auto;
       gap: 20px;
       scroll-behavior: smooth;
-      padding-bottom: 13px; /* für sichtbare Scrollbar + 5px Abstand */
+      padding-bottom: 5px;
     }
 
     .grid-container::-webkit-scrollbar {
-      height: 8px;
-      background-color: transparent;
+      height: 6px;
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     .grid-container::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.1);
       border-radius: 4px;
+    }
+
+    .grid-container:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
     }
 
     .grid-container img {
@@ -161,7 +169,7 @@
         font-size: 14pt;
       }
 
-      .year-text {
+      .left-text .year {
         font-size: 14pt;
       }
 
@@ -192,22 +200,20 @@
         padding: 0 40px;
       }
 
-      .grid-wrapper {
-        height: auto;
-        align-items: flex-start;
-      }
-
       .grid-container {
-        padding-top: 50px;
-        padding-bottom: 13px;
+        padding: 0 0 5px 0;
         justify-content: center;
-        margin-top: -50px;
       }
 
       .grid-container img {
         width: 250px;
         height: 250px;
-        margin: 0 auto;
+      }
+
+      .grid-wrapper {
+        height: calc(100vh - 100px - 60px);
+        justify-content: center;
+        transform: translateY(-50px);
       }
     }
   </style>
@@ -215,8 +221,11 @@
 <body>
 
 <header>
-  <div class="left-text" onclick="location.href='coverarts.html'">#COVERARTS<span class="year-text">*2022</span></div>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">
+    <a href="coverarts.html">#COVERARTS</a>
+    <span class="year">*2022</span>
+  </div>
 </header>
 
 <div class="separator"></div>
