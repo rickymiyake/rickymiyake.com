@@ -1,1 +1,257 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>*2025</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: black;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    header {
+      height: 100px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .left-text {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      order: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .left-text a {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      transition: transform 0.3s ease;
+    }
+
+    .left-text a:hover {
+      transform: scale(1.05);
+    }
+
+    .left-text .year {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      margin-left: 5px;
+    }
+
+    .right-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      order: 2;
+    }
+
+    .right-button:hover {
+      color: #ccc;
+    }
+
+    .separator {
+      height: 1px;
+      background-color: black;
+      width: 100%;
+      margin: 0;
+    }
+
+    .grid-wrapper {
+      height: calc(100vh - 100px - 1px - 60px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .scroll-mask {
+      overflow: hidden;
+      padding: 0 110px;
+      width: 100%;
+    }
+
+    .grid-container {
+      margin: 0;
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      scroll-behavior: smooth;
+      padding-bottom: 5px;
+    }
+
+    .grid-container::-webkit-scrollbar {
+      height: 6px;
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .grid-container::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .grid-container:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .grid-container img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .footer-wrapper {
+      position: fixed;
+      bottom: 10px;
+      left: 110px;
+      right: 110px;
+      z-index: 10;
+    }
+
+    .footer-line {
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 8px;
+      width: 100%;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 110px;
+      background: transparent;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      font-size: 20pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    footer button:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .left-text {
+        font-size: 14pt;
+      }
+
+      .left-text .year {
+        font-size: 14pt;
+      }
+
+      .right-button {
+        font-size: 14pt;
+      }
+
+      .footer-wrapper {
+        bottom: 30px;
+        left: 40px;
+        right: 40px;
+      }
+
+      .footer-line {
+        display: none;
+      }
+
+      footer {
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+
+      footer button {
+        font-size: 12pt;
+      }
+
+      .scroll-mask {
+        padding: 0 20px;
+      }
+
+      .grid-container {
+        padding: 0 0 5px 0;
+        justify-content: flex-start;
+      }
+
+      .grid-container img {
+        width: 250px;
+        height: 250px;
+      }
+
+      .grid-wrapper {
+        height: calc(100vh - 100px - 60px - 60px); /* Header + Footer + Luft */
+        justify-content: center;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">
+    <a href="coverarts.html">#COVERARTS</a>
+    <span class="year">*2025</span>
+  </div>
+</header>
+
+<div class="separator"></div>
+
+<div class="grid-wrapper">
+  <div class="scroll-mask">
+    <div class="grid-container">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2025/5AM_in_OF_FFM_Intro_COVER.jpg" alt="5AM in OF/FFM (Intro)">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2025/Penny Pinchers * Pocket Watchers_COVER.jpeg" alt="PP * PW">
+      <img src="https://rickymiyake.github.io/rickymiyake.com/images/c2025/NBG VOL.1_COVER.JPG" alt="Never Been Gone...VOL.1">
+    </div>
+  </div>
+</div>
+
+<div class="footer-wrapper">
+  <div class="footer-line"></div>
+  <footer>
+    <button onclick="location.href='kontakt.html'">Kontakt</button>
+    <button onclick="location.href='übermich.html'">Über mich</button>
+    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
+    <button onclick="location.href='http://endless.horse/'">Dings</button>
+  </footer>
+</div>
+
+</body>
+</html>
