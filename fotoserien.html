@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>#COVERARTS</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: black;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    header {
+      height: 100px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .left-text {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      order: 1;
+    }
+
+    .right-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      order: 2;
+    }
+
+    .right-button:hover {
+      color: #ccc;
+    }
+
+    .footer-wrapper {
+      position: fixed;
+      bottom: 10px;
+      left: 110px;
+      right: 110px;
+      z-index: 10;
+    }
+
+    .footer-line {
+      height: 1px;
+      background-color: #ccc;
+      margin-bottom: 8px;
+      width: 100%;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 110px;
+      background: transparent;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    footer button {
+      font-size: 20pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    footer button:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .left-text {
+        font-size: 14pt;
+      }
+
+      .right-button {
+        font-size: 14pt;
+      }
+
+      .footer-wrapper {
+        bottom: 30px;
+        left: 40px;
+        right: 40px;
+      }
+
+      .footer-line {
+        display: none;
+      }
+
+      footer {
+        flex-wrap: nowrap;
+        gap: 20px;
+      }
+
+      footer button {
+        font-size: 12pt;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+  <div class="left-text">#COVERARTS</div>
+</header>
+
+<div class="footer-wrapper">
+  <div class="footer-line"></div>
+  <footer>
+    <button onclick="location.href='kontakt.html'">Kontakt</button>
+    <button onclick="location.href='übermich.html'">Über mich</button>
+    <button onclick="location.href='datenschutz.html'">Datenschutz</button>
+    <button onclick="location.href='http://endless.horse/'">Dings</button>
+  </footer>
+</div>
+
+</body>
+</html>
 
