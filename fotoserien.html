@@ -62,11 +62,6 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .folder-button-container:hover {
-      transform: scale(1.05);
     }
 
     .folder-icon {
@@ -77,6 +72,11 @@
       stroke-width: 2;
       stroke-linejoin: round;
       stroke-linecap: round;
+      transition: transform 0.3s ease;
+    }
+
+    .folder-button-container:hover .folder-icon {
+      transform: scale(1.05);
     }
 
     .folder-label {
