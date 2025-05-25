@@ -57,7 +57,6 @@
       margin: 0;
     }
 
-    /* Vertikal gestreckter Ordner-Button */
     .folder-button-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
@@ -66,18 +65,11 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      user-select: none;
-      color: black;
-      transition: color 0.3s ease;
-    }
-
-    .folder-button-container:hover {
-      color: #999;
     }
 
     .folder-icon {
-      width: 48px;
-      height: 60px; /* Höhe angepasst */
+      width: 96px;
+      height: 96px;
       fill: none;
       stroke: currentColor;
       stroke-width: 2;
@@ -86,11 +78,11 @@
     }
 
     .folder-label {
-      margin-top: 8px;
-      font-size: 20pt;
-      font-family: "Helvetica LT Std", sans-serif;
+      margin-top: 10px;
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
       font-weight: 600;
-      white-space: nowrap;
+      color: black;
     }
 
     .footer-wrapper {
@@ -149,8 +141,13 @@
         left: 40px;
       }
 
+      .folder-icon {
+        width: 64px;
+        height: 64px;
+      }
+
       .folder-label {
-        font-size: 16pt;
+        font-size: 18pt;
       }
 
       .footer-wrapper {
@@ -183,12 +180,11 @@
 
 <div class="separator"></div>
 
-<!-- Vertikal gestreckter Ordner-Button mit Outline SVG -->
-<div class="folder-button-container" onclick="location.href='coverarts2022.html'" role="button" tabindex="0" aria-label="2022 Ordner">
-  <svg class="folder-icon" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path d="M4 28h18l6-12h32v40H4z" />
+<div class="folder-button-container" onclick="location.href='coverarts2022.html'">
+  <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
   </svg>
-  <div class="folder-label">2022</div>
+  <span class="folder-label">2022</span>
 </div>
 
 <div class="footer-wrapper">
