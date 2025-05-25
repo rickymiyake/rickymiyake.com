@@ -24,14 +24,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
     }
 
     .left-text {
       font-size: 24pt;
       font-family: "Helvetica Neue", sans-serif;
       font-weight: 700;
-      order: 1;
     }
 
     .right-button {
@@ -43,7 +41,6 @@
       color: black;
       cursor: pointer;
       padding: 0;
-      order: 2;
     }
 
     .right-button:hover {
@@ -79,15 +76,12 @@
 
     .folder-label {
       margin-top: 10px;
-      font-size: 22pt;
+      font-size: 14pt;
       font-family: "Helvetica Neue", sans-serif;
-      font-weight: 600;
+      font-weight: 500;
       color: black;
       text-align: center;
-      max-width: 140px;
-      word-wrap: break-word;
       line-height: 1.2;
-      white-space: pre-line; /* Damit Zeilenumbrüche im Text funktionieren */
     }
 
     .footer-wrapper {
@@ -152,8 +146,7 @@
       }
 
       .folder-label {
-        font-size: 16pt;
-        max-width: 100px;
+        font-size: 12pt;
       }
 
       .footer-wrapper {
@@ -187,11 +180,12 @@
 <div class="separator"></div>
 
 <div class="folder-button-container" onclick="location.href='coverarts2022.html'">
-  <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
   </svg>
-  <span class="folder-label">TASCHE TAG & NACHT
-VOL.1 (2025)</span>
+  <div class="folder-label">
+    TASCHE TAG & NACHT<br>VOL.1 (2025)
+  </div>
 </div>
 
 <div class="footer-wrapper">
