@@ -57,6 +57,63 @@
       margin: 0;
     }
 
+    /* Neuer Ordner-Button-Stil */
+    .folder-button-container {
+      position: absolute;
+      top: calc(100px + 1px + 150px);
+      left: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .folder-icon {
+      width: 60px;
+      height: 45px;
+      background: linear-gradient(180deg, #f9d71c 0%, #f2c419 70%);
+      border-radius: 5px 5px 3px 3px;
+      position: relative;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    /* "Deckel" vom Ordner */
+    .folder-icon::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 8px;
+      width: 44px;
+      height: 20px;
+      background: linear-gradient(180deg, #f9d71c 0%, #f2c419 70%);
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      transition: background 0.3s ease;
+    }
+
+    .folder-button-container:hover .folder-icon {
+      background: linear-gradient(180deg, #f2c419 0%, #d4b210 70%);
+    }
+    .folder-button-container:hover .folder-icon::before {
+      background: linear-gradient(180deg, #f2c419 0%, #d4b210 70%);
+    }
+
+    .folder-label {
+      margin-top: 8px;
+      font-size: 20pt;
+      font-family: "Helvetica LT Std", sans-serif;
+      font-weight: 600;
+      color: black;
+      white-space: nowrap;
+      transition: color 0.3s ease;
+    }
+
+    .folder-button-container:hover .folder-label {
+      color: #ccc;
+    }
+
     .footer-wrapper {
       position: fixed;
       bottom: 10px;
@@ -108,6 +165,15 @@
         font-size: 14pt;
       }
 
+      .folder-button-container {
+        top: calc(100px + 1px + 80px);
+        left: 40px;
+      }
+
+      .folder-label {
+        font-size: 16pt;
+      }
+
       .footer-wrapper {
         bottom: 30px;
         left: 40px;
@@ -137,6 +203,12 @@
 </header>
 
 <div class="separator"></div>
+
+<!-- Ordner-Button -->
+<div class="folder-button-container" onclick="location.href='coverarts2022.html'" role="button" tabindex="0" aria-label="2022 Ordner">
+  <div class="folder-icon"></div>
+  <div class="folder-label">2022</div>
+</div>
 
 <div class="footer-wrapper">
   <div class="footer-line"></div>
