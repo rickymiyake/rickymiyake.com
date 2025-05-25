@@ -57,7 +57,7 @@
       margin: 0;
     }
 
-    /* Minimalistischer Ordner-Button */
+    /* Vertikal gestreckter Ordner-Button */
     .folder-button-container {
       position: absolute;
       top: calc(100px + 1px + 150px);
@@ -77,7 +77,7 @@
 
     .folder-icon {
       width: 48px;
-      height: 36px;
+      height: 60px; /* Höhe angepasst */
       fill: none;
       stroke: currentColor;
       stroke-width: 2;
@@ -183,11 +183,10 @@
 
 <div class="separator"></div>
 
-<!-- Minimalistischer Ordner-Button mit Outline SVG -->
+<!-- Vertikal gestreckter Ordner-Button mit Outline SVG -->
 <div class="folder-button-container" onclick="location.href='coverarts2022.html'" role="button" tabindex="0" aria-label="2022 Ordner">
-  <svg class="folder-icon" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path d="M2 14h18l6 8h36v18H2z" />
-    <path d="M2 14v20h60" />
+  <svg class="folder-icon" viewBox="0 0 64 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <path d="M4 28h18l6-12h32v40H4z" />
   </svg>
   <div class="folder-label">2022</div>
 </div>
