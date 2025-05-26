@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden; /* Fixiert die Seite, keine Scrollbars */
+      overflow: hidden;
       background-color: black;
       font-family: "Helvetica Neue", sans-serif;
       display: flex;
@@ -20,8 +20,9 @@
       height: 100px;
       padding: 0 40px;
       box-sizing: border-box;
+      position: relative;
       display: flex;
-      align-items: center;
+      align-items: flex-start; /* Pfeil oben ausrichten */
     }
 
     .arrow-link {
@@ -31,6 +32,7 @@
       color: white;
       user-select: none;
       transition: transform 0.3s ease;
+      margin-top: 45px; /* Vertikal zwischen oben und Bildanfang */
     }
 
     .arrow-link:hover {
@@ -47,10 +49,10 @@
     main {
       flex-grow: 1;
       display: flex;
-      justify-content: flex-end; /* rechtsbündig */
+      justify-content: flex-end;
       align-items: center;
-      gap: 20px; /* Abstand zwischen den Bildern */
-      padding: 20px 40px 40px 40px; /* oben 20px, rechts 40px, unten 40px, links 40px */
+      gap: 20px;
+      padding: 20px 40px 40px 40px;
       box-sizing: border-box;
     }
 
