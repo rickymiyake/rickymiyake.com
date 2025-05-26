@@ -72,6 +72,8 @@
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      padding-top: 20px; /* 20px höher setzen */
+      box-sizing: border-box;
     }
 
     #overlay img {
@@ -82,34 +84,21 @@
       cursor: pointer;
     }
 
-    /* Responsive Anpassungen */
     @media (max-width: 768px) {
       header {
-        height: 70px;
         padding: 0 20px;
       }
 
-      .back-button {
-        font-size: 12pt;
-      }
-
       main {
-        justify-content: center; /* Bilder zentrieren */
-        gap: 15px;
-        padding: 15px 20px 40px 20px;
+        padding: 10px 20px 40px 20px;
+        gap: 10px;
         margin-top: -20px;
+        justify-content: center;
       }
 
       main img {
-        max-height: 50vh;
-        max-width: 45vw;
-      }
-    }
-
-    @media (max-width: 480px) {
-      main img {
-        max-height: 40vh;
-        max-width: 70vw;
+        max-height: 60vh;
+        max-width: 90vw;
       }
     }
   </style>
