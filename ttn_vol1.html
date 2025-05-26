@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TTN VOL.1</title>
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      overflow: hidden; /* Fixiert die Seite, keine Scrollbars */
       background-color: black;
       font-family: "Helvetica Neue", sans-serif;
-      height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -49,7 +50,8 @@
       justify-content: flex-end; /* rechtsbündig */
       align-items: center;
       gap: 20px; /* Abstand zwischen den Bildern */
-      padding: 20px 110px 20px 40px; /* rechts 110px Abstand, links 40px */
+      padding: 20px 40px; /* rechts 40px Abstand */
+      box-sizing: border-box;
     }
 
     main img {
