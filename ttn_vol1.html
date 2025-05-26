@@ -32,7 +32,7 @@
       color: white;
       user-select: none;
       transition: transform 0.3s ease;
-      margin-top: 25px; /* 20px tiefer als vorher */
+      margin-top: 25px;
     }
 
     .arrow-link:hover {
@@ -54,7 +54,7 @@
       gap: 20px;
       padding: 20px 40px 40px 40px;
       box-sizing: border-box;
-      margin-top: -40px; /* Bilder 40px höher */
+      margin-top: -40px;
     }
 
     main img {
@@ -62,6 +62,35 @@
       max-width: 50vw;
       object-fit: contain;
       display: block;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    main img:hover {
+      border-color: white;
+    }
+
+    /* Lightbox Styles */
+    #lightbox-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+      z-index: 1000;
+    }
+
+    #lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 0 20px white;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -79,6 +108,43 @@
   <img src="images/ttn_vol1/TTN_VOL1_TAG_SEITE.jpg" alt="TAG" />
   <img src="images/ttn_vol1/TTN_VOL1_NACHT_SEITE.jpg" alt="NACHT" />
 </main>
+
+<!-- Lightbox Overlay -->
+<div id="lightbox-overlay" aria-hidden="true">
+  <img src="" alt="Vollbild Ansicht" />
+</div>
+
+<script>
+  const lightboxOverlay = document.getElementById('lightbox-overlay');
+  const lightboxImage = lightboxOverlay.querySelector('img');
+
+  document.querySelectorAll('main img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightboxOverlay.style.display = 'flex';
+      lightboxOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Scroll ausschalten
+    });
+  });
+
+  lightboxOverlay.addEventListener('click', () => {
+    lightboxOverlay.style.display = 'none';
+    lightboxOverlay.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    document.body.style.overflow = ''; // Scroll wieder erlauben
+  });
+
+  // ESC-Taste schließt Lightbox
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxOverlay.style.display === 'flex') {
+      lightboxOverlay.style.display = 'none';
+      lightboxOverlay.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+</script>
 
 </body>
 </html>
