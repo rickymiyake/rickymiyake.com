@@ -10,6 +10,36 @@
       margin: 0;
       padding: 0;
     }
+
+    header {
+      height: 100px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+    }
+
+    .right-button {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 100;
+      background: none;
+      border: none;
+      color: black;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .right-button:hover {
+      color: #ccc;
+    }
+
     img {
       width: 100vw;
       height: 100vh;
@@ -19,7 +49,12 @@
   </style>
 </head>
 <body>
-  <img src="images/Datenschutz/datenschutz_001.png" alt="Datenschutz 001" />
+
+<header>
+  <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
+</header>
+
+<img src="images/Datenschutz.jpg" alt="Datenschutz" />
+
 </body>
 </html>
-
