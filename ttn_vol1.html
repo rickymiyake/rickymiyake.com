@@ -50,7 +50,7 @@
       gap: 20px;
       padding: 20px 40px 40px 40px;
       box-sizing: border-box;
-      margin-top: -55px; /* 15px höher als vorher */
+      margin-top: -40px;
     }
 
     main img {
@@ -80,11 +80,12 @@
       object-fit: contain;
       box-shadow: none; /* kein Glow oder Rahmen */
       cursor: pointer;
-      margin-top: -55px; /* 15px höher auch im Vollbild */
     }
 
+    /* Responsive Anpassungen */
     @media (max-width: 768px) {
       header {
+        height: 70px;
         padding: 0 20px;
       }
 
@@ -93,21 +94,22 @@
       }
 
       main {
-        justify-content: center;
+        justify-content: center; /* Bilder zentrieren */
         gap: 15px;
-        padding: 20px 20px 40px 20px;
-        margin-top: -55px;
+        padding: 15px 20px 40px 20px;
+        margin-top: -20px;
       }
 
       main img {
         max-height: 50vh;
-        max-width: 80vw;
+        max-width: 45vw;
       }
+    }
 
-      #overlay img {
-        max-height: 80vh;
-        max-width: 80vw;
-        margin-top: -55px;
+    @media (max-width: 480px) {
+      main img {
+        max-height: 40vh;
+        max-width: 70vw;
       }
     }
   </style>
