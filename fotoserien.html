@@ -54,10 +54,15 @@
       margin: 0;
     }
 
-    .folder-button-container {
+    .folder-buttons {
       position: absolute;
       top: calc(100px + 1px + 150px);
       left: 110px;
+      display: flex;
+      gap: 60px;
+    }
+
+    .folder-button-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -140,9 +145,11 @@
         font-size: 14pt;
       }
 
-      .folder-button-container {
+      .folder-buttons {
         top: calc(100px + 1px + 80px);
         left: 40px;
+        flex-direction: column;
+        gap: 40px;
       }
 
       .folder-icon {
@@ -184,12 +191,23 @@
 
 <div class="separator"></div>
 
-<div class="folder-button-container" onclick="location.href='ttn_vol1.html'">
-  <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
-  </svg>
-  <div class="folder-label">
-    TASCHE TAG & NACHT<br>VOL.1 (2025)
+<div class="folder-buttons">
+  <div class="folder-button-container" onclick="location.href='ttn_vol1.html'">
+    <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
+    </svg>
+    <div class="folder-label">
+      TASCHE TAG & NACHT<br>VOL.1 (2025)
+    </div>
+  </div>
+
+  <div class="folder-button-container" onclick="location.href='datenschutz.html'">
+    <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
+    </svg>
+    <div class="folder-label">
+      Datenschutz
+    </div>
   </div>
 </div>
 
