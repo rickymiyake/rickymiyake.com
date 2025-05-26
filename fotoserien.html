@@ -62,6 +62,11 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .folder-button-container:hover .folder-icon {
+      transform: scale(1.05);
     }
 
     .folder-icon {
@@ -75,10 +80,6 @@
       transition: transform 0.3s ease;
     }
 
-    .folder-button-container:hover .folder-icon {
-      transform: scale(1.05);
-    }
-
     .folder-label {
       margin-top: 10px;
       font-size: 14pt;
@@ -89,24 +90,31 @@
       line-height: 1.2;
     }
 
-    /* ---- GESPERRTER ORDNERTYP ---- */
+    /* Disabled Ordner-Stil */
     .disabled-folder {
       opacity: 0.4;
-      cursor: not-allowed;
+      cursor: default;
       pointer-events: none;
-      position: relative;
+      position: absolute; /* wichtig für Position */
+      top: calc(100px + 1px + 150px);
+      left: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
+    /* Dünner roter Durchstrich über den Ordner */
     .disabled-folder::after {
       content: "";
       position: absolute;
-      top: 20px;
-      left: 0;
-      width: 100%;
-      height: 2px;
+      top: 30px;    /* feinjustierbar */
+      left: 5px;    /* feinjustierbar */
+      width: 60px;  /* dünner Strich */
+      height: 1.5px; /* dünn */
       background: red;
       transform: rotate(-20deg);
       z-index: 2;
+      pointer-events: none;
     }
 
     .footer-wrapper {
@@ -160,7 +168,8 @@
         font-size: 14pt;
       }
 
-      .folder-button-container {
+      .folder-button-container,
+      .disabled-folder {
         top: calc(100px + 1px + 80px);
         left: 40px;
       }
@@ -204,7 +213,7 @@
 
 <div class="separator"></div>
 
-<!-- Aktiver Ordner -->
+<!-- Normaler klickbarer Ordner -->
 <div class="folder-button-container" onclick="location.href='ttn_vol1.html'">
   <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
@@ -214,12 +223,14 @@
   </div>
 </div>
 
-<!-- Gesperrter Ordner -->
-<div class="folder-button-container disabled-folder">
+<!-- Disabled Ordner, z.B. Datenschutz, mit rotem Strich -->
+<div class="disabled-folder">
   <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
   </svg>
-  <div class="folder-label">DATENSCHUTZ</div>
+  <div class="folder-label">
+    DATENSCHUTZ
+  </div>
 </div>
 
 <div class="footer-wrapper">
