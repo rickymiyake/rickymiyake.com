@@ -9,9 +9,10 @@
       margin: 0;
       padding: 0;
       background-color: black;
-      font-family: "Helvetica Neue", sans-serif;
-      color: white;
       height: 100vh;
+      font-family: "Helvetica Neue", sans-serif;
+      display: flex;
+      align-items: center;
     }
 
     header {
@@ -20,18 +21,13 @@
       box-sizing: border-box;
       display: flex;
       align-items: center;
-      position: relative;
     }
 
     .arrow-link {
-      display: flex;
-      align-items: center;
+      display: inline-flex;
       cursor: pointer;
       text-decoration: none;
       color: white;
-      font-size: 24pt;
-      font-weight: 700;
-      gap: 10px;
       user-select: none;
     }
 
@@ -47,10 +43,6 @@
     .arrow-link:hover .arrow-icon {
       transform: scale(1.05);
     }
-
-    .arrow-link:hover {
-      color: #ccc;
-    }
   </style>
 </head>
 <body>
@@ -60,7 +52,6 @@
     <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
       <path d="M15 18l-6-6 6-6" />
     </svg>
-    <span>#FOTOSERIEN</span>
   </a>
 </header>
 
