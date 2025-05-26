@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zurück Pfeil</title>
+  <title>Zurück Pfeil (gefüllt)</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: black;
-      height: 100vh;
       font-family: "Helvetica Neue", sans-serif;
-      display: flex;
-      align-items: center;
+      height: 100vh;
     }
 
     header {
@@ -29,19 +27,18 @@
       text-decoration: none;
       color: white;
       user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-link:hover {
+      transform: scale(1.05);
     }
 
     .arrow-icon {
       width: 30px;
       height: 30px;
-      stroke: white;
-      stroke-width: 3;
-      fill: none;
-      transition: transform 0.3s ease;
-    }
-
-    .arrow-link:hover .arrow-icon {
-      transform: scale(1.05);
+      fill: white;
+      stroke: none;
     }
   </style>
 </head>
@@ -50,7 +47,7 @@
 <header>
   <a href="fotoserien.html" class="arrow-link" aria-label="Zurück zu Fotoserien">
     <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-      <path d="M15 18l-6-6 6-6" />
+      <path d="M14 18l-6-6 6-6" />
     </svg>
   </a>
 </header>
