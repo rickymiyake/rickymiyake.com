@@ -54,10 +54,16 @@
       margin: 0;
     }
 
-    .folder-button-container {
+    /* Container für die Ordner nebeneinander */
+    .folder-row {
       position: absolute;
       top: calc(100px + 1px + 150px);
       left: 110px;
+      display: flex;
+      gap: 40px; /* Abstand zwischen Ordnern */
+    }
+
+    .folder-button-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -95,26 +101,24 @@
       opacity: 0.4;
       cursor: default;
       pointer-events: none;
-      position: absolute; /* wichtig für Position */
-      top: calc(100px + 1px + 150px);
-      left: 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative; /* Für den ::after Strich */
     }
 
-    /* Dünner roter Durchstrich über den Ordner */
+    /* Kleiner roter Durchstrich über den Ordner */
     .disabled-folder::after {
       content: "";
       position: absolute;
-      top: 30px;    /* feinjustierbar */
-      left: 5px;    /* feinjustierbar */
-      width: 60px;  /* dünner Strich */
-      height: 1.5px; /* dünn */
+      top: 36px;       /* vertikale Position des Strichs */
+      left: 50%;
+      transform: translateX(-50%) rotate(-20deg);
+      width: 30px;     /* schmaler, kürzerer Strich */
+      height: 2px;
       background: red;
-      transform: rotate(-20deg);
-      z-index: 2;
       pointer-events: none;
+      z-index: 2;
     }
 
     .footer-wrapper {
@@ -159,6 +163,7 @@
       color: #ccc;
     }
 
+    /* Responsive Design */
     @media (max-width: 768px) {
       .left-text {
         font-size: 14pt;
@@ -168,10 +173,10 @@
         font-size: 14pt;
       }
 
-      .folder-button-container,
-      .disabled-folder {
+      .folder-row {
         top: calc(100px + 1px + 80px);
         left: 40px;
+        gap: 20px;
       }
 
       .folder-icon {
@@ -213,23 +218,26 @@
 
 <div class="separator"></div>
 
-<!-- Normaler klickbarer Ordner -->
-<div class="folder-button-container" onclick="location.href='ttn_vol1.html'">
-  <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
-  </svg>
-  <div class="folder-label">
-    TASCHE TAG & NACHT<br>VOL.1 (2025)
+<!-- Ordner nebeneinander -->
+<div class="folder-row">
+  <!-- Klickbarer Ordner -->
+  <div class="folder-button-container" onclick="location.href='ttn_vol1.html'">
+    <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
+    </svg>
+    <div class="folder-label">
+      TASCHE TAG & NACHT<br>VOL.1 (2025)
+    </div>
   </div>
-</div>
 
-<!-- Disabled Ordner, z.B. Datenschutz, mit rotem Strich -->
-<div class="disabled-folder">
-  <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
-  </svg>
-  <div class="folder-label">
-    DATENSCHUTZ
+  <!-- Disabled Ordner mit kleinem rotem Strich -->
+  <div class="disabled-folder">
+    <svg class="folder-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 24h20l6-12h30a2 2 0 0 1 2 2v46a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V26a2 2 0 0 1 2-2z" />
+    </svg>
+    <div class="folder-label">
+      DATENSCHUTZ
+    </div>
   </div>
 </div>
 
