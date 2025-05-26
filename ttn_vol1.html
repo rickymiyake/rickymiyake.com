@@ -22,12 +22,12 @@
       box-sizing: border-box;
       position: relative;
       display: flex;
-      align-items: center; /* Vertikal zentriert */
+      align-items: center;
     }
 
     .back-button {
       font-family: "Helvetica Neue", Arial, sans-serif;
-      font-weight: 100; /* Extra schmal */
+      font-weight: 100;
       font-size: 14pt;
       color: white;
       background: none;
@@ -53,33 +53,18 @@
       margin-top: -40px;
     }
 
+    main a {
+      display: block;
+      cursor: pointer;
+    }
+
     main img {
       max-height: 85vh;
       max-width: 50vw;
       object-fit: contain;
       display: block;
-      cursor: pointer;
       border: none;
       transition: none;
-    }
-
-    /* Overlay für Vollbildanzeige */
-    #overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.7); /* Schwarz mit 70% Deckkraft */
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #overlay img {
-      max-height: 90vh;
-      max-width: 90vw;
-      object-fit: contain;
-      box-shadow: none; /* kein Glow oder Rahmen */
-      cursor: pointer;
     }
 
     /* Responsive Anpassungen */
@@ -94,7 +79,7 @@
       }
 
       main {
-        justify-content: center; /* Bilder zentrieren */
+        justify-content: center;
         gap: 15px;
         padding: 15px 20px 40px 20px;
         margin-top: -20px;
@@ -121,47 +106,13 @@
 </header>
 
 <main>
-  <img src="images/ttn_vol1/TTN_VOL1_TAG_SEITE.jpg" alt="TAG" id="img1" />
-  <img src="images/ttn_vol1/TTN_VOL1_NACHT_SEITE.jpg" alt="NACHT" id="img2" />
+  <a href="images/ttn_vol1/TTN_VOL1_TAG_SEITE.jpg" target="_blank" rel="noopener noreferrer">
+    <img src="images/ttn_vol1/TTN_VOL1_TAG_SEITE.jpg" alt="TAG" />
+  </a>
+  <a href="images/ttn_vol1/TTN_VOL1_NACHT_SEITE.jpg" target="_blank" rel="noopener noreferrer">
+    <img src="images/ttn_vol1/TTN_VOL1_NACHT_SEITE.jpg" alt="NACHT" />
+  </a>
 </main>
-
-<div id="overlay" aria-hidden="true">
-  <img src="" alt="Vollbildansicht" id="overlay-img" />
-</div>
-
-<script>
-  const overlay = document.getElementById('overlay');
-  const overlayImg = document.getElementById('overlay-img');
-
-  function showOverlay(src, alt) {
-    overlayImg.src = src;
-    overlayImg.alt = alt;
-    overlay.style.display = 'flex';
-    overlay.setAttribute('aria-hidden', 'false');
-  }
-
-  function hideOverlay() {
-    overlay.style.display = 'none';
-    overlay.setAttribute('aria-hidden', 'true');
-    overlayImg.src = '';
-    overlayImg.alt = '';
-  }
-
-  document.getElementById('img1').addEventListener('click', () => {
-    showOverlay('images/ttn_vol1/TTN_VOL1_TAG_SEITE.jpg', 'TAG');
-  });
-
-  document.getElementById('img2').addEventListener('click', () => {
-    showOverlay('images/ttn_vol1/TTN_VOL1_NACHT_SEITE.jpg', 'NACHT');
-  });
-
-  overlay.addEventListener('click', hideOverlay);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      hideOverlay();
-    }
-  });
-</script>
 
 </body>
 </html>
