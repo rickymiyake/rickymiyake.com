@@ -81,6 +81,37 @@
       box-shadow: none; /* kein Glow oder Rahmen */
       cursor: pointer;
     }
+
+    /* Responsive Anpassungen */
+    @media (max-width: 768px) {
+      header {
+        height: 70px;
+        padding: 0 20px;
+      }
+
+      .back-button {
+        font-size: 12pt;
+      }
+
+      main {
+        justify-content: center; /* Bilder zentrieren */
+        gap: 15px;
+        padding: 15px 20px 40px 20px;
+        margin-top: -20px;
+      }
+
+      main img {
+        max-height: 50vh;
+        max-width: 45vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main img {
+        max-height: 40vh;
+        max-width: 70vw;
+      }
+    }
   </style>
 </head>
 <body>
