@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Datenschutz</title>
+  <title>#FOTOSERIEN - Datenschutz</title>
   <style>
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
-      position: relative;
+      font-family: sans-serif;
+    }
+
+    body {
+      /* Hintergrundbild Datenschutz */
+      background: url('images/Datenschutz') no-repeat center center fixed;
+      background-size: cover;
+      color: black;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -17,13 +26,17 @@
       padding: 0 40px;
       box-sizing: border-box;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
+      background: transparent; /* transparent, damit Hintergrundbild durchscheint */
+    }
+
+    .left-text {
+      font-size: 24pt;
+      font-family: "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      color: black;
+      user-select: none;
     }
 
     .right-button {
@@ -35,30 +48,20 @@
       color: black;
       cursor: pointer;
       padding: 0;
+      user-select: none;
     }
 
     .right-button:hover {
       color: #ccc;
-    }
-
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 1;
     }
   </style>
 </head>
 <body>
 
 <header>
+  <div class="left-text">#FOTOSERIEN</div>
   <button class="right-button" onclick="location.href='index.html'">rickymiyake.com</button>
 </header>
-
-<img src="images/Datenschutz.jpg" alt="Datenschutz" />
 
 </body>
 </html>
