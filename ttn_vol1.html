@@ -50,7 +50,7 @@
       gap: 20px;
       padding: 20px 40px 40px 40px;
       box-sizing: border-box;
-      margin-top: -40px;
+      margin-top: -25px; /* leicht angehoben */
     }
 
     main img {
@@ -60,13 +60,14 @@
       display: block;
       cursor: pointer;
       border: none;
-      transition: none;
     }
 
-    /* Overlay mit 100% schwarzem Hintergrund */
     #overlay {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: rgba(0, 0, 0, 1); /* 100% Deckkraft */
       display: none;
       justify-content: center;
@@ -75,8 +76,8 @@
     }
 
     #overlay img {
-      max-height: 90vh;
-      max-width: 90vw;
+      max-height: 85vh;
+      max-width: 50vw;
       object-fit: contain;
       box-shadow: none;
       cursor: pointer;
@@ -97,17 +98,17 @@
         justify-content: center;
         gap: 15px;
         padding: 15px 20px 40px 20px;
-        margin-top: -20px;
+        margin-top: -15px;
       }
 
-      main img {
+      main img, #overlay img {
         max-height: 50vh;
         max-width: 45vw;
       }
     }
 
     @media (max-width: 480px) {
-      main img {
+      main img, #overlay img {
         max-height: 40vh;
         max-width: 70vw;
       }
