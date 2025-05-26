@@ -60,14 +60,12 @@
       display: block;
       cursor: pointer;
       border: none;
-      transition: none;
     }
 
-    /* Overlay für Bildanzeige */
     #overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.9); /* Schwarz mit 90% Deckkraft */
+      background: rgba(0, 0, 0, 0.98); /* 98% Deckkraft */
       display: none;
       justify-content: center;
       align-items: center;
@@ -78,7 +76,6 @@
       max-height: 85vh;
       max-width: 50vw;
       object-fit: contain;
-      box-shadow: none;
       cursor: pointer;
     }
 
@@ -99,11 +96,7 @@
         margin-top: -20px;
       }
 
-      main img {
-        max-height: 50vh;
-        max-width: 45vw;
-      }
-
+      main img,
       #overlay img {
         max-height: 50vh;
         max-width: 45vw;
@@ -111,11 +104,7 @@
     }
 
     @media (max-width: 480px) {
-      main img {
-        max-height: 40vh;
-        max-width: 70vw;
-      }
-
+      main img,
       #overlay img {
         max-height: 40vh;
         max-width: 70vw;
