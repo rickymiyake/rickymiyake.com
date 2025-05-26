@@ -3,37 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>#FOTOSERIEN Button</title>
+  <title>Zurück Pfeil</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       font-family: "Helvetica Neue", sans-serif;
-    }
-
-    button {
-      background: none;
-      border: none;
       color: white;
-      font-size: 36pt;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 0;
+      height: 100vh;
     }
 
-    button:hover {
+    header {
+      height: 100px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .arrow-link {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      font-size: 24pt;
+      font-weight: 700;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .arrow-icon {
+      width: 30px;
+      height: 30px;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-link:hover .arrow-icon {
+      transform: scale(1.05);
+    }
+
+    .arrow-link:hover {
       color: #ccc;
     }
   </style>
 </head>
 <body>
 
-<button onclick="location.href='coverarts2022.html'">#FOTOSERIEN</button>
+<header>
+  <a href="fotoserien.html" class="arrow-link" aria-label="Zurück zu Fotoserien">
+    <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+    <span>#FOTOSERIEN</span>
+  </a>
+</header>
 
 </body>
 </html>
