@@ -46,15 +46,15 @@
     main {
       flex-grow: 1;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end; /* rechtsbündig */
       align-items: center;
-      gap: 50px; /* Abstand zwischen den Bildern */
-      padding: 20px 40px;
+      gap: 20px; /* Abstand zwischen den Bildern */
+      padding: 20px 110px 20px 40px; /* rechts 110px Abstand, links 40px */
     }
 
     main img {
-      max-height: 85vh; /* größer */
-      max-width: 50vw;  /* breiter */
+      max-height: 85vh;
+      max-width: 50vw;
       object-fit: contain;
       display: block;
     }
