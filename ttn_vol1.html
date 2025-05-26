@@ -22,27 +22,24 @@
       box-sizing: border-box;
       position: relative;
       display: flex;
-      align-items: center; /* Pfeil vertikal zentriert */
+      align-items: center; /* Vertikal zentriert */
     }
 
-    .arrow-link {
-      display: inline-flex;
-      cursor: pointer;
-      text-decoration: none;
+    .back-button {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-weight: 100; /* Extra schmal */
+      font-size: 14pt;
       color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
       user-select: none;
       transition: transform 0.3s ease;
+      padding: 0;
     }
 
-    .arrow-link:hover {
+    .back-button:hover {
       transform: scale(1.5);
-    }
-
-    .arrow-icon {
-      width: 35px;
-      height: 35px;
-      fill: white;
-      stroke: none;
     }
 
     main {
@@ -89,11 +86,7 @@
 <body>
 
 <header>
-  <a href="fotoserien.html" class="arrow-link" aria-label="Zurück zu Fotoserien">
-    <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-      <path d="M14 18l-6-6 6-6" />
-    </svg>
-  </a>
+  <button class="back-button" onclick="location.href='fotoserien.html'" aria-label="Zurück zu Fotoserien">zurück</button>
 </header>
 
 <main>
