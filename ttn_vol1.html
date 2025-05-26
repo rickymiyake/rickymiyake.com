@@ -22,12 +22,12 @@
       box-sizing: border-box;
       position: relative;
       display: flex;
-      align-items: center; /* Vertikal zentriert */
+      align-items: center;
     }
 
     .back-button {
       font-family: "Helvetica Neue", Arial, sans-serif;
-      font-weight: 100; /* Extra schmal */
+      font-weight: 100;
       font-size: 14pt;
       color: white;
       background: none;
@@ -63,11 +63,11 @@
       transition: none;
     }
 
-    /* Overlay für Vollbildanzeige */
+    /* Overlay für Bildanzeige */
     #overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.7); /* Schwarz mit 70% Deckkraft */
+      background: rgba(0, 0, 0, 0.9); /* Schwarz mit 90% Deckkraft */
       display: none;
       justify-content: center;
       align-items: center;
@@ -75,14 +75,13 @@
     }
 
     #overlay img {
-      max-height: 90vh;
-      max-width: 90vw;
+      max-height: 85vh;
+      max-width: 50vw;
       object-fit: contain;
-      box-shadow: none; /* kein Glow oder Rahmen */
+      box-shadow: none;
       cursor: pointer;
     }
 
-    /* Responsive Anpassungen */
     @media (max-width: 768px) {
       header {
         height: 70px;
@@ -94,7 +93,7 @@
       }
 
       main {
-        justify-content: center; /* Bilder zentrieren */
+        justify-content: center;
         gap: 15px;
         padding: 15px 20px 40px 20px;
         margin-top: -20px;
@@ -104,10 +103,20 @@
         max-height: 50vh;
         max-width: 45vw;
       }
+
+      #overlay img {
+        max-height: 50vh;
+        max-width: 45vw;
+      }
     }
 
     @media (max-width: 480px) {
       main img {
+        max-height: 40vh;
+        max-width: 70vw;
+      }
+
+      #overlay img {
         max-height: 40vh;
         max-width: 70vw;
       }
