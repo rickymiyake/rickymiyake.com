@@ -3,20 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bild-Anzeige</title>
+  <title>Zurück Pfeil & Bilder</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: black;
+      font-family: "Helvetica Neue", sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 100px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+
+    .arrow-link {
+      display: inline-flex;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-link:hover {
+      transform: scale(1.05);
+    }
+
+    .arrow-icon {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      stroke: none;
+    }
+
+    main {
+      flex-grow: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       gap: 100px; /* Abstand zwischen den Bildern */
+      padding: 20px 40px;
     }
 
-    img {
+    main img {
       max-height: 70vh; /* max Höhe 70% der Viewport-Höhe */
       max-width: 40vw;  /* max Breite 40% der Viewport-Breite */
       object-fit: contain;
@@ -26,8 +62,18 @@
 </head>
 <body>
 
-  <img src="images/ttn_vol1/bild1.png" alt="TTN TAG SEITE.pdf" />
-  <img src="images/ttn_vol1/bild2.png" alt="TTN NACHT SEITE.pdf" />
+<header>
+  <a href="fotoserien.html" class="arrow-link" aria-label="Zurück zu Fotoserien">
+    <svg class="arrow-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+      <path d="M14 18l-6-6 6-6" />
+    </svg>
+  </a>
+</header>
+
+<main>
+  <img src="images/ttn_vol1/TTN TAG SEITE.jpg" alt="TAG" />
+  <img src="images/ttn_vol1/TTN NACHT SEITE.jpg" alt="NACHT" />
+</main>
 
 </body>
 </html>
