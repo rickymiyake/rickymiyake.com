@@ -22,12 +22,12 @@
       box-sizing: border-box;
       position: relative;
       display: flex;
-      align-items: center;
+      align-items: center; /* Vertikal zentriert */
     }
 
     .back-button {
       font-family: "Helvetica Neue", Arial, sans-serif;
-      font-weight: 100;
+      font-weight: 100; /* Extra schmal */
       font-size: 14pt;
       color: white;
       background: none;
@@ -75,11 +75,10 @@
     }
 
     #overlay img {
-      /* Zeigt das Bild in der gleichen Größe wie im main Bereich */
-      max-height: 85vh;
-      max-width: 50vw;
+      max-height: 90vh;
+      max-width: 90vw;
       object-fit: contain;
-      box-shadow: none;
+      box-shadow: none; /* kein Glow oder Rahmen */
       cursor: pointer;
     }
 
@@ -95,7 +94,7 @@
       }
 
       main {
-        justify-content: center;
+        justify-content: center; /* Bilder zentrieren */
         gap: 15px;
         padding: 15px 20px 40px 20px;
         margin-top: -20px;
@@ -105,19 +104,10 @@
         max-height: 50vh;
         max-width: 45vw;
       }
-
-      #overlay img {
-        max-height: 50vh;
-        max-width: 45vw;
-      }
     }
 
     @media (max-width: 480px) {
       main img {
-        max-height: 40vh;
-        max-width: 70vw;
-      }
-      #overlay img {
         max-height: 40vh;
         max-width: 70vw;
       }
